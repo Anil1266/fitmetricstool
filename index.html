@@ -25,7 +25,7 @@ body {
 .container {
     background: white;
     padding: 30px;
-    width: 350px;
+    width: 360px;
     border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     text-align: center;
@@ -64,6 +64,7 @@ button:hover {
     padding: 10px;
     border-radius: 6px;
     color: white;
+    font-weight: bold;
 }
 
 .chart {
@@ -97,6 +98,16 @@ th {
     color: black;
     margin: 0 8px;
 }
+
+.affiliate-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #ff6b6b;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
 </style>
 </head>
 
@@ -104,6 +115,7 @@ th {
 
 <div class="main">
 <div class="container">
+
 <h2>Advanced BMI Calculator</h2>
 
 <input type="number" id="weight" placeholder="Weight (kg)">
@@ -112,7 +124,7 @@ th {
 
 <div class="result" id="result"></div>
 <div id="bmiBox"></div>
-<div id="weightRange"></div>
+<div id="extraInfo"></div>
 
 <div class="chart">
 <h3>BMI Chart (Indian Standards)</h3>
@@ -144,8 +156,8 @@ var weight = document.getElementById("weight").value;
 var height = document.getElementById("height").value;
 
 if (weight === "" || height === "") {
-document.getElementById("result").innerHTML = "Please enter valid values.";
-return;
+    document.getElementById("result").innerHTML = "Please enter valid values.";
+    return;
 }
 
 height = height / 100;
@@ -154,24 +166,31 @@ bmi = bmi.toFixed(2);
 
 var category = "";
 var color = "";
+var suggestionText = "";
+var affiliateLink = "YOUR_AFFILIATE_LINK_HERE";
+
 var idealMin = (18.5 * height * height).toFixed(1);
 var idealMax = (22.9 * height * height).toFixed(1);
 
 if (bmi < 18.5) {
-category = "Underweight";
-color = "#3498db";
+    category = "Underweight";
+    color = "#3498db";
+    suggestionText = "Healthy Weight Gain Products";
 }
 else if (bmi < 23) {
-category = "Normal";
-color = "#2ecc71";
+    category = "Normal";
+    color = "#2ecc71";
+    suggestionText = "Maintain Fitness with Home Workout Tools";
 }
 else if (bmi < 25) {
-category = "Overweight";
-color = "#f39c12";
+    category = "Overweight";
+    color = "#f39c12";
+    suggestionText = "Digital Weighing Scale & Fitness Products";
 }
 else {
-category = "Obese";
-color = "#e74c3c";
+    category = "Obese";
+    color = "#e74c3c";
+    suggestionText = "Fat Loss & Fitness Products";
 }
 
 document.getElementById("result").innerHTML =
@@ -180,8 +199,9 @@ document.getElementById("result").innerHTML =
 document.getElementById("bmiBox").innerHTML =
 "<div class='bmi-box' style='background:" + color + ";'>Your BMI Status: " + category + "</div>";
 
-document.getElementById("weightRange").innerHTML =
-"<br>Healthy Weight Range for your height: <strong>" + idealMin + " kg – " + idealMax + " kg</strong>";
+document.getElementById("extraInfo").innerHTML =
+"<br>Healthy Weight Range: <strong>" + idealMin + " kg – " + idealMax + " kg</strong>" +
+"<br><br><a href='" + affiliateLink + "' target='_blank' class='affiliate-btn'>View Recommended: " + suggestionText + "</a>";
 
 }
 </script>
