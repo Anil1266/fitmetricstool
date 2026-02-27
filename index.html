@@ -2,93 +2,88 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Free BMI Calculator for Indian Adults 2026</title>
-<meta name="description" content="Use our free BMI Calculator for Indian adults to check your Body Mass Index instantly and know your healthy weight range.">
+<title>Free BMI Calculator for Indian Adults 2026 | Body Mass Index Tool</title>
+<meta name="description" content="Free BMI Calculator for Indian adults. Check your Body Mass Index instantly, understand BMI categories and healthy weight range.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="canonical" href="https://anil1266.github.io/bmicalculator/">
-
-<style>
-body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #4facfe, #00f2fe);
-    margin: 0;
-    text-align: center;
-}
-
-.container {
-    background: white;
-    padding: 30px;
-    max-width: 420px;
-    margin: 60px auto;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-
-input {
-    padding: 10px;
-    margin: 8px 0;
-    width: 90%;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-button {
-    padding: 10px;
-    width: 95%;
-    background: #4facfe;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.result {
-    margin-top: 15px;
-    font-weight: bold;
-    <p>
-    Read more:
-    <a href="what-is-bmi.html">What is BMI?</a> |
-    <a href="healthy-weight-tips.html">Healthy Weight Tips</a>
-    </p>
-}
-
-.link-btn {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 10px 15px;
-    background: #ff6b6b;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-.footer {
-    margin-top: 30px;
-    font-size: 13px;
-    color: #555;
-}
-</style>
 </head>
 
-<body>
+<body style="font-family: Arial; margin: 0; background: #f4f4f4;">
 
-<div class="container">
-<h1>Free BMI Calculator</h1>
-<p>Check your Body Mass Index instantly and know your healthy weight range.</p>
+<div style="max-width: 800px; margin: auto; padding: 20px; background: white;">
 
-<input type="number" id="weight" placeholder="Weight (kg)">
-<input type="number" id="height" placeholder="Height (cm)">
-<button onclick="calculateBMI()">Calculate BMI</button>
+<h1>Free BMI Calculator for Indian Adults</h1>
 
-<div class="result" id="result"></div>
+<p>Welcome to our free Body Mass Index (BMI) Calculator designed specifically for Indian adults. This tool helps you quickly determine whether your weight falls within a healthy range based on your height.</p>
 
-<a href="products.html" class="link-btn">View Recommended Fitness Products</a>
+<div style="background:#e9f5ff;padding:20px;border-radius:10px;margin-top:20px;">
 
-<div class="footer">
-Contact: <a href="mailto:anilvella999@gmail.com">anilvella999@gmail.com</a>
-<br><br>
-© 2026 Anil BMI Calculator
+<h2>Calculate Your BMI</h2>
+
+<input type="number" id="weight" placeholder="Weight (kg)" style="padding:10px;width:100%;margin-bottom:10px;">
+<input type="number" id="height" placeholder="Height (cm)" style="padding:10px;width:100%;margin-bottom:10px;">
+<button onclick="calculateBMI()" style="padding:10px;width:100%;background:#4facfe;color:white;border:none;border-radius:5px;">Calculate BMI</button>
+
+<div id="result" style="margin-top:15px;font-weight:bold;"></div>
+
 </div>
+
+<h2>What is BMI?</h2>
+
+<p>Body Mass Index (BMI) is a simple calculation using a person’s height and weight. It is commonly used to classify individuals as underweight, normal weight, overweight, or obese.</p>
+
+<p>BMI Formula:</p>
+<p><strong>BMI = Weight (kg) / Height (m²)</strong></p>
+
+<h2>BMI Categories for Indian Adults</h2>
+
+<ul>
+<li>Below 18.5 – Underweight</li>
+<li>18.5 – 22.9 – Normal weight</li>
+<li>23 – 24.9 – Overweight</li>
+<li>25 and above – Obese</li>
+</ul>
+
+<p>Indian BMI standards are slightly stricter because health risks such as diabetes and heart disease may occur at lower BMI levels in Asian populations.</p>
+
+<h2>Why Maintaining a Healthy BMI is Important</h2>
+
+<p>Maintaining a healthy BMI can reduce the risk of several lifestyle diseases including:</p>
+
+<ul>
+<li>Heart disease</li>
+<li>High blood pressure</li>
+<li>Type 2 diabetes</li>
+<li>Joint problems</li>
+</ul>
+
+<h2>Healthy Weight Tips</h2>
+
+<p>Maintaining a healthy body weight requires balanced nutrition, regular exercise, adequate sleep, and stress management. Small consistent lifestyle improvements can make a big difference.</p>
+
+<p>For more detailed guidance, read:</p>
+
+<p>
+<a href="what-is-bmi.html">Complete Guide: What is BMI?</a> |
+<a href="healthy-weight-tips.html">Healthy Weight Tips for Indian Adults</a>
+</p>
+
+<p>
+You can also explore our 
+<a href="products.html">Recommended Fitness Products</a>
+to support your fitness journey.
+</p>
+
+<hr>
+
+<p style="font-size:14px;">
+Contact: <a href="mailto:anilvella999@gmail.com">anilvella999@gmail.com</a>
+</p>
+
+<p style="font-size:13px;color:gray;">
+© 2026 Anil BMI Calculator
+</p>
+
 </div>
 
 <script>
@@ -97,8 +92,8 @@ var weight = document.getElementById("weight").value;
 var height = document.getElementById("height").value;
 
 if (weight === "" || height === "") {
-    document.getElementById("result").innerHTML = "Please enter valid values.";
-    return;
+document.getElementById("result").innerHTML = "Please enter valid values.";
+return;
 }
 
 height = height / 100;
@@ -119,5 +114,3 @@ document.getElementById("result").innerHTML =
 
 </body>
 </html>
-
-
