@@ -2,65 +2,205 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Free BMI Calculator for Indian Adults 2026</title>
-<meta name="description" content="Free BMI Calculator for Indian adults. Check your Body Mass Index instantly and know your healthy weight range.">
+<title>Fit Metrics Tool - BMI & Health Calculators</title>
+<meta name="description" content="Free online BMI Calculator and Calorie Calculator for daily health tracking.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body{margin:0;font-family:Arial;background:#121212;color:#fff;}
-.navbar{position:sticky;top:0;background:#1a1a1a;padding:15px;text-align:center;border-bottom:1px solid #2a2a2a;}
-.navbar a{color:#fff;margin:0 15px;text-decoration:none;font-weight:bold;}
-.navbar a:hover{color:#4facfe;}
-.container{max-width:900px;margin:auto;padding:20px;}
-.card{background:#1e1e1e;padding:25px;border-radius:12px;border:1px solid #2a2a2a;margin-top:20px;text-align:center;}
-input{width:100%;padding:12px;margin-bottom:10px;border-radius:6px;border:1px solid #333;background:#222;color:#fff;}
-input:focus{border-color:#4facfe;outline:none;box-shadow:0 0 5px #4facfe;}
-button{width:100%;padding:12px;border-radius:6px;border:none;background:linear-gradient(90deg,#4facfe,#00f2fe);color:#fff;cursor:pointer;transition:0.3s;}
-button:hover{transform:scale(1.05);box-shadow:0 0 10px #4facfe;}
-.result{margin-top:15px;font-weight:bold;font-size:18px;transition:0.3s;}
-table{width:100%;border-collapse:collapse;margin-top:20px;text-align:center;}
-th,td{border:1px solid #333;padding:10px;}
-th{background:#222;}
-.footer{text-align:center;margin-top:40px;color:#aaa;}
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:#121212;
+color:#ffffff;
+}
+
+/* ===== NAVBAR ===== */
+.navbar{
+position:sticky;
+top:0;
+background:#1a1a1a;
+padding:15px;
+text-align:center;
+border-bottom:1px solid #2a2a2a;
+}
+
+.navbar a{
+color:#ffffff;
+margin:0 15px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.navbar a:hover{
+color:#4facfe;
+}
+
+/* ===== CONTAINER ===== */
+.container{
+max-width:900px;
+margin:auto;
+padding:20px;
+}
+
+/* ===== CARD ===== */
+.card{
+background:#1e1e1e;
+padding:25px;
+border-radius:12px;
+border:1px solid #2a2a2a;
+margin-top:20px;
+text-align:center;
+}
+
+/* ===== INPUT ===== */
+input{
+width:100%;
+padding:12px;
+margin-bottom:10px;
+border-radius:6px;
+border:1px solid #333;
+background:#222;
+color:#fff;
+font-size:16px;
+}
+
+input:focus{
+border-color:#4facfe;
+outline:none;
+box-shadow:0 0 5px #4facfe;
+}
+
+/* ===== BUTTON ===== */
+button{
+width:100%;
+padding:12px;
+border-radius:6px;
+border:none;
+background:linear-gradient(90deg,#4facfe,#00f2fe);
+color:white;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+box-shadow:0 0 10px #4facfe;
+}
+
+/* ===== RESULT ===== */
+.result{
+margin-top:15px;
+font-weight:bold;
+font-size:18px;
+transition:0.3s;
+}
+
+/* ===== TABLE ===== */
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+text-align:center;
+}
+
+th,td{
+border:1px solid #333;
+padding:10px;
+}
+
+th{
+background:#222;
+}
+
+.footer{
+margin-top:40px;
+text-align:center;
+color:#aaa;
+font-size:14px;
+}
+
 a{color:#4facfe;}
-@media(max-width:600px){.navbar a{display:block;margin:8px 0;}}
+
+@media(max-width:600px){
+.navbar a{
+display:block;
+margin:8px 0;
+}
+}
 </style>
 </head>
 
 <body>
 
+<!-- ===== NAVBAR ===== -->
 <div class="navbar">
 <a href="index.html">Home</a>
-<a href="what-is-bmi.html">What is BMI?</a>
-<a href="healthy-weight-tips.html">Healthy Tips</a>
+<a href="calorie-calculator.html">Calorie Calculator</a>
 <a href="products.html">Products</a>
 <a href="about.html">About</a>
 </div>
 
 <div class="container">
 
+<!-- ===== BMI CALCULATOR ===== -->
 <div class="card">
-<h1>Free BMI Calculator</h1>
+<h1>BMI Calculator</h1>
+
 <input type="number" id="weight" placeholder="Enter Weight (kg)">
 <input type="number" id="height" placeholder="Enter Height (cm)">
+
 <button onclick="calculateBMI()">Calculate BMI</button>
+
 <div class="result" id="result"></div>
+
+<p style="margin-top:20px;">
+Also try our 
+<a href="calorie-calculator.html">Daily Calorie Calculator</a>
+</p>
 </div>
 
+<!-- ===== BMI TABLE ===== -->
 <div class="card">
-<h2>BMI Categories (Indian Standard)</h2>
+<h2>BMI Categories</h2>
+
 <table>
-<tr><th>BMI Range</th><th>Category</th><th>Health Risk</th></tr>
-<tr><td>Below 18.5</td><td style="color:#4fc3f7;">Underweight</td><td>Nutritional risk</td></tr>
-<tr><td>18.5 – 22.9</td><td style="color:#66bb6a;">Normal</td><td>Low risk</td></tr>
-<tr><td>23 – 24.9</td><td style="color:#ffa726;">Overweight</td><td>Moderate risk</td></tr>
-<tr><td>25+</td><td style="color:#ef5350;">Obese</td><td>High risk</td></tr>
+<tr>
+<th>BMI Range</th>
+<th>Category</th>
+<th>Health Risk</th>
+</tr>
+
+<tr>
+<td>Below 18.5</td>
+<td style="color:#4fc3f7;">Underweight</td>
+<td>Nutritional Risk</td>
+</tr>
+
+<tr>
+<td>18.5 – 22.9</td>
+<td style="color:#66bb6a;">Normal</td>
+<td>Low Risk</td>
+</tr>
+
+<tr>
+<td>23 – 24.9</td>
+<td style="color:#ffa726;">Overweight</td>
+<td>Moderate Risk</td>
+</tr>
+
+<tr>
+<td>25+</td>
+<td style="color:#ef5350;">Obese</td>
+<td>High Risk</td>
+</tr>
+
 </table>
 </div>
 
+<!-- ===== FOOTER ===== -->
 <div class="footer">
 Contact: <a href="mailto:anilvella999@gmail.com">anilvella999@gmail.com</a><br>
-© 2026 Anil BMI Calculator
+© 2026 Fit Metrics Tool
 </div>
 
 </div>
@@ -69,14 +209,23 @@ Contact: <a href="mailto:anilvella999@gmail.com">anilvella999@gmail.com</a><br>
 function calculateBMI(){
 var weight=document.getElementById("weight").value;
 var height=document.getElementById("height").value;
-if(weight==""||height==""){document.getElementById("result").innerHTML="Please enter valid values.";return;}
+
+if(weight==""||height==""){
+document.getElementById("result").innerHTML="Please enter valid values.";
+return;
+}
+
 height=height/100;
 var bmi=(weight/(height*height)).toFixed(2);
-var category="",color="";
+
+var category="";
+var color="white";
+
 if(bmi<18.5){category="Underweight";color="#4fc3f7";}
 else if(bmi<23){category="Normal";color="#66bb6a";}
 else if(bmi<25){category="Overweight";color="#ffa726";}
 else{category="Obese";color="#ef5350";}
+
 document.getElementById("result").innerHTML="Your BMI: "+bmi+"<br>Category: "+category;
 document.getElementById("result").style.color=color;
 }
