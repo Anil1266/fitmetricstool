@@ -1,46 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Advanced BMI Calculator for Indian Adults 2026</title>
+<meta charset="UTF-8">
+<title>Free BMI Calculator for Indian Adults 2026</title>
+<meta name="description" content="Use our free BMI Calculator for Indian adults to check your Body Mass Index instantly and know your healthy weight range.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://anil1266.github.io/bmicalculator/">
 
 <style>
 body {
     font-family: Arial, sans-serif;
     background: linear-gradient(to right, #4facfe, #00f2fe);
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-.main {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
 }
 
 .container {
     background: white;
     padding: 30px;
-    width: 380px;
+    max-width: 420px;
+    margin: 60px auto;
     border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    text-align: center;
 }
 
 input {
     padding: 10px;
     margin: 8px 0;
-    width: 95%;
+    width: 90%;
     border-radius: 5px;
     border: 1px solid #ccc;
 }
 
 button {
     padding: 10px;
-    width: 100%;
+    width: 95%;
     background: #4facfe;
     color: white;
     border: none;
@@ -53,71 +47,45 @@ button {
     font-weight: bold;
 }
 
-.bmi-box {
+.link-btn {
+    display: inline-block;
     margin-top: 15px;
-    padding: 10px;
-    border-radius: 6px;
-    color: white;
-    font-weight: bold;
-}
-
-.product-box {
-    margin-top: 15px;
-}
-
-.product-box a {
-    display: block;
-    margin: 8px 0;
-    padding: 10px;
+    padding: 10px 15px;
     background: #ff6b6b;
     color: white;
     text-decoration: none;
-    border-radius: 6px;
-    font-weight: bold;
-    transition: 0.2s;
-}
-
-.product-box a:hover {
-    background: #ff4c4c;
+    border-radius: 5px;
 }
 
 .footer {
-    text-align: center;
-    padding: 15px;
-    background: rgba(0,0,0,0.1);
+    margin-top: 30px;
     font-size: 13px;
+    color: #555;
 }
 </style>
 </head>
 
 <body>
 
-<div class="main">
 <div class="container">
-
-<h2>Advanced BMI Calculator</h2>
+<h1>Free BMI Calculator</h1>
+<p>Check your Body Mass Index instantly and know your healthy weight range.</p>
 
 <input type="number" id="weight" placeholder="Weight (kg)">
 <input type="number" id="height" placeholder="Height (cm)">
 <button onclick="calculateBMI()">Calculate BMI</button>
 
 <div class="result" id="result"></div>
-<div id="bmiBox"></div>
-<div id="products"></div>
-<div id="weightRange"></div>
 
-</div>
-</div>
+<a href="products.html" class="link-btn">View Recommended Fitness Products</a>
 
 <div class="footer">
-As an Amazon Associate, I earn from qualifying purchases.
-<br>
 © 2026 Anil BMI Calculator
+</div>
 </div>
 
 <script>
 function calculateBMI() {
-
 var weight = document.getElementById("weight").value;
 var height = document.getElementById("height").value;
 
@@ -131,79 +99,14 @@ var bmi = weight / (height * height);
 bmi = bmi.toFixed(2);
 
 var category = "";
-var color = "";
-var productsHTML = "";
 
-var idealMin = (18.5 * height * height).toFixed(1);
-var idealMax = (22.9 * height * height).toFixed(1);
-
-if (bmi < 18.5) {
-    category = "Underweight";
-    color = "#3498db";
-
-    productsHTML = `
-    <h4>Recommended Products Based On Your BMI</h4>
-    <div class="product-box">
-    <a href="https://amzn.to/3OCTjGa" target="_blank">Gain Healthy Weight Faster – MuscleBlaze Mass Gainer</a>
-    <a href="https://amzn.to/474Itiv" target="_blank">Start Muscle Building With Whey Protein</a>
-    <a href="https://amzn.to/4r0xde6" target="_blank">High-Calorie Peanut Butter for Weight Gain</a>
-    <p style="font-size:12px;color:gray;">Prices may change. Check availability on Amazon.</p>
-    </div>`;
-}
-
-else if (bmi < 23) {
-    category = "Normal";
-    color = "#2ecc71";
-
-    productsHTML = `
-    <h4>Recommended Products Based On Your BMI</h4>
-    <div class="product-box">
-    <a href="https://amzn.to/4qVkxoP" target="_blank">Maintain Fitness With Premium Yoga Mat</a>
-    <a href="https://amzn.to/4cnronD" target="_blank">Strengthen Muscles With Resistance Bands</a>
-    <a href="https://amzn.to/4rGeztm" target="_blank">Track Your Health With Fitness Band</a>
-    <p style="font-size:12px;color:gray;">Prices may change. Check availability on Amazon.</p>
-    </div>`;
-}
-
-else if (bmi < 25) {
-    category = "Overweight";
-    color = "#f39c12";
-
-    productsHTML = `
-    <h4>Recommended Products Based On Your BMI</h4>
-    <div class="product-box">
-    <a href="https://amzn.to/4rBEMsP" target="_blank">Track Your Weight Daily With Smart Scale</a>
-    <a href="https://amzn.to/3OQZF4N" target="_blank">Burn Calories Fast With Skipping Rope</a>
-    <a href="https://amzn.to/3MThgZk" target="_blank">Home Workout Dumbbells for Fat Loss</a>
-    <p style="font-size:12px;color:gray;">Prices may change. Check availability on Amazon.</p>
-    </div>`;
-}
-
-else {
-    category = "Obese";
-    color = "#e74c3c";
-
-    productsHTML = `
-    <h4>Recommended Products Based On Your BMI</h4>
-    <div class="product-box">
-    <a href="https://amzn.to/4aWfEGe" target="_blank">Monitor Body Fat With Smart Scale</a>
-    <a href="https://amzn.to/3MM1P5c" target="_blank">Low-Impact Cardio With Exercise Cycle</a>
-    <a href="https://amzn.to/4lhRr21" target="_blank">Start Home Cardio With Treadmill</a>
-    <p style="font-size:12px;color:gray;">Prices may change. Check availability on Amazon.</p>
-    </div>`;
-}
+if (bmi < 18.5) category = "Underweight";
+else if (bmi < 23) category = "Normal";
+else if (bmi < 25) category = "Overweight";
+else category = "Obese";
 
 document.getElementById("result").innerHTML =
 "Your BMI: " + bmi + "<br>Category: " + category;
-
-document.getElementById("bmiBox").innerHTML =
-"<div class='bmi-box' style='background:" + color + ";'>Your BMI Status: " + category + "</div>";
-
-document.getElementById("products").innerHTML = productsHTML;
-
-document.getElementById("weightRange").innerHTML =
-"<br>Healthy Weight Range: <strong>" + idealMin + " kg – " + idealMax + " kg</strong>";
-
 }
 </script>
 
