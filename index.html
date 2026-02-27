@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>BMI Calculator for Indian Men & Women 2026 | Free Online Tool</title>
-<meta name="description" content="Free BMI Calculator India. Calculate your BMI instantly and check your health category.">
+<title>Advanced BMI Calculator for Indian Adults 2026</title>
+<meta name="description" content="Advanced Free BMI Calculator India with BMI chart, healthy weight range and ideal weight suggestion.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -25,7 +25,7 @@ body {
 .container {
     background: white;
     padding: 30px;
-    width: 320px;
+    width: 350px;
     border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     text-align: center;
@@ -34,14 +34,14 @@ body {
 input {
     padding: 10px;
     margin: 8px 0;
-    width: 90%;
+    width: 95%;
     border-radius: 5px;
     border: 1px solid #ccc;
 }
 
 button {
     padding: 10px;
-    width: 95%;
+    width: 100%;
     background: #4facfe;
     color: white;
     border: none;
@@ -57,6 +57,32 @@ button:hover {
 .result {
     margin-top: 15px;
     font-weight: bold;
+}
+
+.bmi-box {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 6px;
+    color: white;
+}
+
+.chart {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid #ddd;
+    padding: 6px;
+}
+
+th {
+    background: #f2f2f2;
 }
 
 .footer {
@@ -77,65 +103,88 @@ button:hover {
 <body>
 
 <div class="main">
-    <div class="container">
-        <h2>BMI Calculator</h2>
+<div class="container">
+<h2>Advanced BMI Calculator</h2>
 
-        <input type="number" id="weight" placeholder="Weight (kg)">
-        <input type="number" id="height" placeholder="Height (cm)">
-        <button onclick="calculateBMI()">Calculate BMI</button>
+<input type="number" id="weight" placeholder="Weight (kg)">
+<input type="number" id="height" placeholder="Height (cm)">
+<button onclick="calculateBMI()">Calculate BMI</button>
 
-        <div class="result" id="result"></div>
-    </div>
+<div class="result" id="result"></div>
+<div id="bmiBox"></div>
+<div id="weightRange"></div>
+
+<div class="chart">
+<h3>BMI Chart (Indian Standards)</h3>
+<table>
+<tr><th>BMI</th><th>Category</th></tr>
+<tr><td>Below 18.5</td><td>Underweight</td></tr>
+<tr><td>18.5 – 22.9</td><td>Normal</td></tr>
+<tr><td>23 – 24.9</td><td>Overweight</td></tr>
+<tr><td>25+</td><td>Obese</td></tr>
+</table>
+</div>
+
+</div>
 </div>
 
 <div class="footer">
-    <a href="about.html">About</a> |
-    <a href="privacy.html">Privacy Policy</a> |
-    <a href="disclaimer.html">Disclaimer</a> |
-    Contact: anilvella999@gmail.com
-    <br><br>
-    © 2026 Anil BMI Calculator
+<a href="about.html">About</a> |
+<a href="privacy.html">Privacy Policy</a> |
+<a href="disclaimer.html">Disclaimer</a> |
+Contact: anilbmicalculator@gmail.com
+<br><br>
+© 2026 Anil BMI Calculator
 </div>
 
 <script>
 function calculateBMI() {
-    var weight = document.getElementById("weight").value;
-    var height = document.getElementById("height").value;
 
-    if (weight === "" || height === "") {
-        document.getElementById("result").innerHTML = "Please enter valid values.";
-        return;
-    }
+var weight = document.getElementById("weight").value;
+var height = document.getElementById("height").value;
 
-    height = height / 100;
-    var bmi = weight / (height * height);
-    bmi = bmi.toFixed(2);
+if (weight === "" || height === "") {
+document.getElementById("result").innerHTML = "Please enter valid values.";
+return;
+}
 
-    var category = "";
-    var suggestion = "";
+height = height / 100;
+var bmi = weight / (height * height);
+bmi = bmi.toFixed(2);
 
-    if (bmi < 18.5) {
-        category = "Underweight";
-        suggestion = '<br><br><a href="https://amzn.to/46ptCir" target="_blank" style="display:inline-block;padding:10px 15px;background:#ff6b6b;color:white;text-decoration:none;border-radius:5px;margin-top:10px;">View Recommended Products</a>';
-    } 
-    else if (bmi < 24.9) {
-        category = "Normal weight";
-        suggestion = '<br><br><a href="https://amzn.to/4u2Uijk" target="_blank">Maintain Fitness with Home Workout Tools</a>';
-    } 
-    else if (bmi < 29.9) {
-        category = "Overweight";
-        suggestion = '<br><br><a href="https://amzn.to/4rXgUQR" target="_blank" style="display:inline-block;padding:10px 15px;background:#ff6b6b;color:white;text-decoration:none;border-radius:5px;margin-top:10px;">View Recommended Products</a>';;
-    } 
-    else {
-        category = "Obese";
-        suggestion = '<br><br><a href="https://amzn.to/4kWjiob" target="_blank" style="display:inline-block;padding:10px 15px;background:#ff6b6b;color:white;text-decoration:none;border-radius:5px;margin-top:10px;">View Recommended Products</a>';
-    }
+var category = "";
+var color = "";
+var idealMin = (18.5 * height * height).toFixed(1);
+var idealMax = (22.9 * height * height).toFixed(1);
 
-    document.getElementById("result").innerHTML =
-        "Your BMI: " + bmi + "<br>Category: " + category + suggestion;
+if (bmi < 18.5) {
+category = "Underweight";
+color = "#3498db";
+}
+else if (bmi < 23) {
+category = "Normal";
+color = "#2ecc71";
+}
+else if (bmi < 25) {
+category = "Overweight";
+color = "#f39c12";
+}
+else {
+category = "Obese";
+color = "#e74c3c";
+}
+
+document.getElementById("result").innerHTML =
+"Your BMI: " + bmi + "<br>Category: " + category;
+
+document.getElementById("bmiBox").innerHTML =
+"<div class='bmi-box' style='background:" + color + ";'>Your BMI Status: " + category + "</div>";
+
+document.getElementById("weightRange").innerHTML =
+"<br>Healthy Weight Range for your height: <strong>" + idealMin + " kg – " + idealMax + " kg</strong>";
+
 }
 </script>
 
 </body>
-
 </html>
