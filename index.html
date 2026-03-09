@@ -1,56 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Daily Calorie Calculator | FitMetrics Tools</title>
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+crossorigin="anonymous"></script>
 
 <style>
 
 body{
-font-family:Arial, sans-serif;
 margin:0;
+font-family:Arial, Helvetica, sans-serif;
 background:#0f0f0f;
-color:#fff;
+color:white;
 }
 
-/* NAVIGATION */
+/* NAVBAR */
 
-.top-nav{
+.navbar{
 display:flex;
 justify-content:center;
-gap:25px;
+gap:30px;
 background:#111;
-padding:15px;
+padding:16px;
 flex-wrap:wrap;
 }
 
-.top-nav a{
+.navbar a{
 color:white;
 text-decoration:none;
 font-weight:600;
-padding:8px 14px;
+padding:8px 12px;
 border-radius:6px;
 transition:0.2s;
 }
 
-.top-nav a:hover{
+.navbar a:hover{
 background:#1e88e5;
 }
 
-/* CALCULATOR CARD */
+/* CONTAINER */
 
 .container{
-max-width:600px;
+max-width:700px;
 margin:auto;
 padding:25px;
 }
+
+/* CALCULATOR */
 
 .card{
 background:#1a1a1a;
 padding:25px;
 border-radius:12px;
-box-shadow:0 0 10px rgba(0,0,0,0.4);
+box-shadow:0 0 10px rgba(0,0,0,0.5);
 }
 
 .card h1{
@@ -64,7 +73,7 @@ padding:12px;
 margin-bottom:12px;
 border-radius:8px;
 border:none;
-background:#2b2b2b;
+background:#2c2c2c;
 color:white;
 }
 
@@ -82,25 +91,17 @@ cursor:pointer;
 /* FAQ */
 
 .faq{
-margin-top:30px;
-}
-
-.faq h2{
-margin-bottom:10px;
+margin-top:35px;
 }
 
 .faq p{
-color:#ccc;
+color:#bbb;
 }
 
-/* TOOLS GRID */
+/* TOOLS */
 
 .tools-section{
 margin-top:40px;
-}
-
-.tools-section h2{
-margin-bottom:20px;
 }
 
 .tools-grid{
@@ -123,8 +124,23 @@ transition:0.2s;
 background:#1e88e5;
 }
 
-.tool-card h3{
-margin-bottom:6px;
+/* ARTICLES */
+
+.articles{
+margin-top:40px;
+}
+
+.article-card{
+background:#1a1a1a;
+padding:15px;
+border-radius:10px;
+margin-bottom:12px;
+}
+
+.article-card a{
+color:#4db5ff;
+text-decoration:none;
+font-weight:bold;
 }
 
 /* FOOTER */
@@ -136,21 +152,36 @@ color:#aaa;
 font-size:14px;
 }
 
+/* MOBILE */
+
+@media (max-width:600px){
+
+.tools-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
 </style>
+
 </head>
 
 <body>
 
 <!-- NAVBAR -->
 
-<nav class="top-nav">
+<nav class="navbar">
+
 <a href="/">Home</a>
 <a href="/calorie-calculator.html">Calorie Calculator</a>
 <a href="/products.html">Products</a>
 <a href="/about.html">About</a>
+
 </nav>
 
 <div class="container">
+
+<!-- CALCULATOR -->
 
 <div class="card">
 
@@ -168,8 +199,8 @@ font-size:14px;
 
 <select>
 <option>Sedentary (little or no exercise)</option>
-<option>Lightly Active</option>
-<option>Moderately Active</option>
+<option>Light Exercise</option>
+<option>Moderate Exercise</option>
 <option>Very Active</option>
 </select>
 
@@ -184,14 +215,16 @@ font-size:14px;
 <h2>Frequently Asked Questions</h2>
 
 <h3>How accurate is a calorie calculator?</h3>
+
 <p>Calorie calculators provide an estimate. Individual metabolism may vary.</p>
 
 <h3>Should I eat exactly the number shown?</h3>
+
 <p>Use the number as a guideline and adjust based on your progress and health goals.</p>
 
 </div>
 
-<!-- TOOLS -->
+<!-- EXPLORE TOOLS -->
 
 <div class="tools-section">
 
@@ -201,29 +234,44 @@ font-size:14px;
 
 <a href="/bmi-calculator.html" class="tool-card">
 <h3>BMI Calculator</h3>
-<p>Check your body mass index.</p>
 </a>
 
 <a href="/calorie-calculator.html" class="tool-card">
 <h3>Calorie Calculator</h3>
-<p>Estimate daily calorie needs.</p>
 </a>
 
 <a href="/bmr-calculator.html" class="tool-card">
 <h3>BMR Calculator</h3>
-<p>Find your basal metabolic rate.</p>
 </a>
 
 <a href="/water-intake-calculator.html" class="tool-card">
 <h3>Water Intake</h3>
-<p>Know your daily water needs.</p>
 </a>
 
 <a href="/ideal-weight-calculator.html" class="tool-card">
 <h3>Ideal Weight</h3>
-<p>Check healthy weight range.</p>
 </a>
 
+</div>
+
+</div>
+
+<!-- ARTICLES SECTION -->
+
+<div class="articles">
+
+<h2>Health & Fitness Articles</h2>
+
+<div class="article-card">
+<a href="/how-many-calories-do-i-need.html">How Many Calories Do You Need Daily?</a>
+</div>
+
+<div class="article-card">
+<a href="/bmi-explained.html">What Is BMI And Why It Matters?</a>
+</div>
+
+<div class="article-card">
+<a href="/daily-water-intake-guide.html">Daily Water Intake Guide</a>
 </div>
 
 </div>
