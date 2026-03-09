@@ -1,323 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<title>BMI Calculator - Fit Metrics Tool</title>
-<meta name="description" content="Free BMI Calculator. Check your Body Mass Index instantly and know your health category.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="canonical" href="https://fitmetricstools.com/bmi-calculator.html">
+
+<title>BMI Calculator | FitMetrics Tools</title>
+
+<meta name="description" content="Calculate your Body Mass Index (BMI) to determine whether your weight is healthy.">
 
 <style>
+
 body{
+font-family:Arial, Helvetica, sans-serif;
 margin:0;
-font-family:Arial, sans-serif;
-background:#121212;
-color:#ffffff;
+background:#0f0f0f;
+color:white;
 }
 
+/* NAVBAR */
+
 .navbar{
-position:sticky;
-top:0;
-background:#1a1a1a;
-padding:15px;
-text-align:center;
-border-bottom:1px solid #2a2a2a;
+display:flex;
+justify-content:center;
+gap:30px;
+background:#111;
+padding:16px;
 }
 
 .navbar a{
-color:#ffffff;
-margin:0 12px;
+color:white;
 text-decoration:none;
 font-weight:bold;
 }
 
-.navbar a:hover{
-color:#4facfe;
-}
+/* CONTAINER */
 
 .container{
-max-width:900px;
+max-width:700px;
 margin:auto;
-padding:20px;
+padding:30px;
 }
 
+/* CARD */
+
 .card{
-background:#1e1e1e;
+background:#1a1a1a;
 padding:25px;
 border-radius:12px;
-border:1px solid #2a2a2a;
-margin-top:40px;
-text-align:center;
+box-shadow:0 0 10px rgba(0,0,0,0.4);
 }
 
 input{
 width:100%;
 padding:12px;
 margin-bottom:12px;
-border-radius:6px;
-border:1px solid #333;
-background:#222;
-color:#fff;
-font-size:16px;
-}
-
-input:focus{
-border-color:#4facfe;
-outline:none;
-box-shadow:0 0 6px #4facfe;
+border-radius:8px;
+border:none;
+background:#2c2c2c;
+color:white;
 }
 
 button{
 width:100%;
-padding:12px;
+padding:14px;
 border:none;
-border-radius:6px;
-background:linear-gradient(90deg,#4facfe,#00f2fe);
-color:#fff;
+border-radius:8px;
+background:linear-gradient(90deg,#3fa9f5,#00c6ff);
+color:white;
 font-size:16px;
 cursor:pointer;
-transition:0.3s;
-}
-
-button:hover{
-transform:scale(1.05);
-box-shadow:0 0 10px #4facfe;
 }
 
 .result{
-margin-top:15px;
+margin-top:20px;
 font-size:18px;
-font-weight:bold;
-}
-
-table{
-width:100%;
-border-collapse:collapse;
-margin-top:25px;
 text-align:center;
 }
 
-th,td{
-border:1px solid #333;
-padding:10px;
+/* RELATED TOOLS */
+
+.related-tools{
+margin-top:40px;
 }
 
-th{
-background:#222;
+.tools-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
 }
 
-.footer{
-margin-top:60px;
+.tool-card{
+background:#1a1a1a;
+padding:18px;
+border-radius:10px;
 text-align:center;
-color:#aaa;
-font-size:14px;
+text-decoration:none;
+color:white;
 }
 
-a{color:#4facfe;}
+.tool-card:hover{
+background:#1e88e5;
+}
 
-@media(max-width:600px){
-.navbar a{
+.tool-icon{
+font-size:28px;
 display:block;
-margin:8px 0;
+margin-bottom:8px;
 }
+
+footer{
+text-align:center;
+padding:30px;
+color:#aaa;
 }
+
+@media (max-width:768px){
+
+.tools-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
 </style>
+
 </head>
 
 <body>
 
-<div class="navbar">
-<a href="index.html">Home</a>
-<a href="calorie-calculator.html">Calorie</a>
-<a href="bmr-calculator.html">BMR</a>
-<a href="water-intake-calculator.html">Water Intake</a>
-<a href="ideal-weight-calculator.html">Ideal Weight</a>
-</div>
+<nav class="navbar">
+
+<a href="/">Home</a>
+<a href="/calorie-calculator.html">Calorie Calculator</a>
+
+</nav>
 
 <div class="container">
 
 <div class="card">
+
 <h1>BMI Calculator</h1>
 
-<input type="number" id="weight" placeholder="Enter Weight (kg)">
-<input type="number" id="height" placeholder="Enter Height (cm)">
+<input type="number" id="weight" placeholder="Weight (kg)">
+
+<input type="number" id="height" placeholder="Height (cm)">
 
 <button onclick="calculateBMI()">Calculate BMI</button>
 
 <div class="result" id="result"></div>
-</div>
-
-<div class="card">
-<h2>BMI Categories</h2>
-
-<table>
-<tr>
-<th>BMI Range</th>
-<th>Category</th>
-<th>Health Risk</th>
-</tr>
-
-<tr>
-<td>Below 18.5</td>
-<td style="color:#4fc3f7;">Underweight</td>
-<td>Nutritional Risk</td>
-</tr>
-
-<tr>
-<td>18.5 – 22.9</td>
-<td style="color:#66bb6a;">Normal</td>
-<td>Low Risk</td>
-</tr>
-
-<tr>
-<td>23 – 24.9</td>
-<td style="color:#ffa726;">Overweight</td>
-<td>Moderate Risk</td>
-</tr>
-
-<tr>
-<td>25+</td>
-<td style="color:#ef5350;">Obese</td>
-<td>High Risk</td>
-</tr>
-
-</table>
-</div>
-
-<div style="margin-top:40px; text-align:left;">
-
-<h2>What is BMI?</h2>
-<p>Body Mass Index (BMI) is a simple measurement used to assess whether a person has a healthy body weight for their height. It is calculated using weight and height and helps categorize individuals into underweight, normal weight, overweight, or obese categories.</p>
-
-<h2>How is BMI Calculated?</h2>
-<p>BMI is calculated using the formula:</p>
-<p><strong>BMI = Weight (kg) / Height (m²)</strong></p>
-<p>This calculator automatically converts your height from centimeters into meters and applies the formula to determine your BMI.</p>
-
-<h2>BMI Categories Explained</h2>
-<ul>
-<li><strong>Underweight (Below 18.5):</strong> May indicate nutritional deficiency or other health concerns.</li>
-<li><strong>Normal (18.5 – 22.9):</strong> Healthy weight range for most individuals.</li>
-<li><strong>Overweight (23 – 24.9):</strong> Increased risk of cardiovascular issues.</li>
-<li><strong>Obese (25+):</strong> Higher risk of chronic diseases such as diabetes and hypertension.</li>
-</ul>
-
-<h2>Health Risks Associated with High BMI</h2>
-<p>A higher BMI may increase the risk of:</p>
-<ul>
-<li>Heart disease</li>
-<li>Type 2 diabetes</li>
-<li>High blood pressure</li>
-<li>Joint problems</li>
-<li>Sleep apnea</li>
-</ul>
-
-<h2>Limitations of BMI</h2>
-<p>BMI does not directly measure body fat. Athletes or individuals with high muscle mass may have a high BMI but low body fat. Therefore, BMI should be used as a general guideline rather than a diagnostic tool.</p>
-
-<h2>Frequently Asked Questions</h2>
-
-<h3>Is BMI accurate?</h3>
-<p>BMI is accurate for most people as a general health indicator but may not be perfect for athletes or bodybuilders.</p>
-
-<h3>How often should I check my BMI?</h3>
-<p>You can check your BMI monthly or whenever you notice significant weight changes.</p>
 
 </div>
 
-<hr style="margin:40px 0; border-color:#333;">
+<!-- RELATED CALCULATORS -->
 
-<h2>Explore More Health Tools</h2>
-<ul>
-<li><a href="bmi-calculator.html">BMI Calculator</a></li>
-<li><a href="calorie-calculator.html">Calorie Calculator</a></li>
-<li><a href="bmr-calculator.html">BMR Calculator</a></li>
-<li><a href="water-intake-calculator.html">Water Intake Calculator</a></li>
-<li><a href="ideal-weight-calculator.html">Ideal Weight Calculator</a></li>
-</ul>
+<section class="related-tools">
 
-<hr style="margin:40px 0; border-color:#333;">
+<h2>Related Health Calculators</h2>
 
-<div style="display:grid; gap:15px;">
+<div class="tools-grid">
+
+<a href="/calorie-calculator.html" class="tool-card">
+<span class="tool-icon">🔥</span>
+<h3>Calorie Calculator</h3>
+</a>
+
+<a href="/bmr-calculator.html" class="tool-card">
+<span class="tool-icon">💪</span>
+<h3>BMR Calculator</h3>
+</a>
+
+<a href="/tdee-calculator.html" class="tool-card">
+<span class="tool-icon">📊</span>
+<h3>TDEE Calculator</h3>
+</a>
+
+<a href="/water-intake-calculator.html" class="tool-card">
+<span class="tool-icon">💧</span>
+<h3>Water Intake</h3>
+</a>
+
+<a href="/ideal-weight-calculator.html" class="tool-card">
+<span class="tool-icon">🏃</span>
+<h3>Ideal Weight</h3>
+</a>
 
 </div>
- 
-<div class="footer">
-Contact: <a href="mailto:fitmetricstools@gmail.com">fitmetricstools@gmail.com</a><br>
-© 2026 Fit Metrics Tool
-</div>
+
+</section>
 
 </div>
+
+<footer>
+
+<p>© 2026 FitMetrics Tools</p>
+
+</footer>
 
 <script>
-function calculateBMI() {
 
-var height = document.getElementById("height").value;
-var weight = document.getElementById("weight").value;
+function calculateBMI(){
 
-if(height=="" || weight==""){
-document.getElementById("result").innerHTML="Please fill all fields.";
-return;
-}
+let weight=document.getElementById("weight").value;
+let height=document.getElementById("height").value;
 
-height = height / 100;
-var bmi = weight / (height * height);
-bmi = bmi.toFixed(1);
+height=height/100;
 
-var category = "";
-var suggestionText = "";
+let bmi=weight/(height*height);
 
-if (bmi < 18.5) {
-category = "Underweight";
-suggestionText = "You may consider a nutrient-rich diet and strength training to gain healthy weight.";
-}
-else if (bmi < 23) {
-category = "Normal weight";
-suggestionText = "Maintain your healthy lifestyle with regular exercise and balanced nutrition.";
-}
-else if (bmi < 25) {
-category = "Overweight";
-suggestionText = "Consider increasing physical activity and monitoring calorie intake.";
-}
-else {
-category = "Obese";
-suggestionText = "Consult a healthcare professional and consider structured fitness planning.";
-}
-
-document.getElementById("result").innerHTML =
-"Your BMI: " + bmi + "<br>Category: " + category +
-"<br><br><strong>Suggestion:</strong> " + suggestionText;
+document.getElementById("result").innerHTML=
+"Your BMI: <b>"+bmi.toFixed(1)+"</b>";
 
 }
-</script>
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@type": "FAQPage",
- "mainEntity": [{
-   "@type": "Question",
-   "name": "What is BMI?",
-   "acceptedAnswer": {
-     "@type": "Answer",
-     "text": "BMI (Body Mass Index) is a number calculated from weight and height to determine whether a person has a healthy body weight."
-   }
- },{
-   "@type": "Question",
-   "name": "How is BMI calculated?",
-   "acceptedAnswer": {
-     "@type": "Answer",
-     "text": "BMI is calculated by dividing weight in kilograms by height in meters squared."
-   }
- },{
-   "@type": "Question",
-   "name": "Is BMI accurate for everyone?",
-   "acceptedAnswer": {
-     "@type": "Answer",
-     "text": "BMI is a general guideline and may not accurately reflect body fat percentage for athletes or individuals with high muscle mass."
-   }
- }]
-}
+
 </script>
 
 </body>
+
 </html>
