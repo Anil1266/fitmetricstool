@@ -8,114 +8,101 @@
 
 <title>BMI Calculator – Check Your Body Mass Index | FitMetrics Tools</title>
 
-<meta name="description" content="Use this free BMI calculator to check your body mass index and see if your weight is healthy.">
+<meta name="description" content="Use this free BMI calculator to check your body mass index and understand your weight category.">
 
 <style>
 
-.site-header{
-text-align:center;
-padding:30px 10px;
-background:#151515;
-}
-
-.site-header h1{
-margin:0;
-font-size:28px;
-}
-
-.site-header p{
-color:#aaa;
-margin-top:6px;
-}
-
 body{
-font-family:Arial, Helvetica, sans-serif;
 margin:0;
+font-family:Arial, Helvetica, sans-serif;
 background:#0f0f0f;
 color:white;
 }
 
-.navbar{
-display:flex;
-justify-content:center;
-gap:30px;
-background:#111;
-padding:16px;
-}
-
-.navbar a{
-color:white;
-text-decoration:none;
-font-weight:bold;
-}
+/* CENTER PAGE */
 
 .container{
-max-width:700px;
+max-width:900px;
 margin:auto;
-padding:30px;
+padding:40px 20px;
 }
 
-.card{
+/* CALCULATOR CARD */
+
+.calculator-card{
 background:#1a1a1a;
 padding:25px;
 border-radius:12px;
+box-shadow:0 4px 10px rgba(0,0,0,0.4);
+margin-bottom:30px;
 }
+
+/* INPUTS */
 
 input{
 width:100%;
-padding:12px;
-margin-bottom:12px;
+padding:14px;
+margin-top:10px;
+margin-bottom:15px;
 border-radius:8px;
 border:none;
-background:#2c2c2c;
+background:#2a2a2a;
 color:white;
+font-size:16px;
 }
+
+/* BUTTON */
 
 button{
 width:100%;
 padding:14px;
 border:none;
 border-radius:8px;
-background:linear-gradient(90deg,#3fa9f5,#00c6ff);
+background:linear-gradient(90deg,#2a7de1,#27c1e6);
 color:white;
+font-size:16px;
 cursor:pointer;
 }
 
-.result{
-margin-top:20px;
-font-size:20px;
-text-align:center;
-background:#1e88e5;
-padding:15px;
-border-radius:10px;
+/* RESULT */
+
+#result{
+margin-top:15px;
+font-size:18px;
 font-weight:bold;
 }
 
+/* INFO SECTION */
+
 .info-section{
-margin-top:30px;
 background:#1a1a1a;
 padding:20px;
 border-radius:10px;
 line-height:1.7;
+margin-bottom:30px;
 }
 
+/* RELATED TOOLS */
+
 .related-tools{
-margin-top:40px;
+margin-top:30px;
 }
 
 .tools-grid{
 display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:18px;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+margin-top:15px;
 }
 
 .tool-card{
 background:#1a1a1a;
-padding:18px;
-border-radius:10px;
+padding:20px;
+border-radius:12px;
 text-align:center;
 text-decoration:none;
 color:white;
+transition:0.2s;
 }
 
 .tool-card:hover{
@@ -125,81 +112,84 @@ background:#1e88e5;
 .tool-icon{
 font-size:28px;
 display:block;
-margin-bottom:8px;
-}
-
-.faq{
-margin-top:40px;
-}
-
-.faq-item{
-background:#1a1a1a;
-padding:15px;
-border-radius:10px;
-margin-bottom:12px;
+margin-bottom:10px;
 }
 
 footer{
 text-align:center;
-padding:30px;
+margin-top:40px;
 color:#aaa;
 }
 
-@media (max-width:768px){
-.tools-grid{
-grid-template-columns:repeat(2,1fr);
-}
+footer a{
+color:#4db5ff;
+text-decoration:none;
+margin:0 6px;
 }
 
 </style>
+
+<script>
+
+function calculateBMI(){
+
+let weight=document.getElementById("weight").value;
+let height=document.getElementById("height").value;
+
+height=height/100;
+
+let bmi=weight/(height*height);
+
+bmi=bmi.toFixed(1);
+
+let category="";
+
+if(bmi<18.5){
+category="Underweight";
+}
+else if(bmi<25){
+category="Normal weight";
+}
+else if(bmi<30){
+category="Overweight";
+}
+else{
+category="Obese";
+}
+
+document.getElementById("result").innerHTML="Your BMI: "+bmi+" ("+category+")";
+
+}
+
+</script>
 
 </head>
 
 <body>
 
-<nav class="navbar">
-
-<a href="/">Home</a>
-<a href="/calorie-calculator.html">Calorie Calculator</a>
-
-</nav>
-
-<header class="site-header">
-
-<h1>FitMetrics Tools</h1>
-
-<p>Free Health & Fitness Calculators</p>
-
-</header>
-  
 <div class="container">
 
-<div class="card">
+<div class="calculator-card">
 
-<h1>⚖️ BMI Calculator</h1>
+<h1>BMI Calculator</h1>
 
 <p>Calculate your Body Mass Index instantly using our free BMI calculator.</p>
 
 <input type="number" id="weight" placeholder="Weight (kg)">
-
 <input type="number" id="height" placeholder="Height (cm)">
 
 <button onclick="calculateBMI()">Calculate BMI</button>
 
-<div class="result" id="result"></div>
+<div id="result"></div>
 
 </div>
 
-</div>
 
-<section class="info-section">
+<div class="info-section">
 
 <h2>How to Use the BMI Calculator</h2>
 
-<p>
-Our BMI calculator helps estimate your body mass index based on your
-height and weight.
-</p>
+<p>Our BMI calculator helps estimate your body mass index based on your height and weight.</p>
 
 <h3>Steps to calculate BMI</h3>
 
@@ -219,36 +209,8 @@ height and weight.
 <li>30 or above – Obesity</li>
 </ul>
 
-</section>
+</div>
 
-<!-- EXPLANATION SECTION -->
-
-<section class="info-section">
-
-<h2>What Is BMI?</h2>
-
-<p>
-Body Mass Index (BMI) is a measurement that uses your height and weight
-to estimate whether your body weight falls within a healthy range.
-</p>
-
-<p>
-BMI is commonly used by health professionals as a quick screening tool
-to identify possible weight-related health risks.
-</p>
-
-<h3>BMI Categories</h3>
-
-<ul>
-<li>Underweight: BMI below 18.5</li>
-<li>Normal weight: BMI 18.5 – 24.9</li>
-<li>Overweight: BMI 25 – 29.9</li>
-<li>Obesity: BMI 30 or higher</li>
-</ul>
-
-</section>
-
-<!-- RELATED CALCULATORS -->
 
 <section class="related-tools">
 
@@ -273,82 +235,31 @@ to identify possible weight-related health risks.
 
 <a href="/water-intake-calculator.html" class="tool-card">
 <span class="tool-icon">💧</span>
-<h3>Water Intake</h3>
+<h3>Water Intake Calculator</h3>
 </a>
 
 <a href="/ideal-weight-calculator.html" class="tool-card">
 <span class="tool-icon">🏃</span>
-<h3>Ideal Weight</h3>
+<h3>Ideal Weight Calculator</h3>
 </a>
 
 </div>
 
 </section>
 
-<!-- FAQ -->
-
-<section class="faq">
-
-<h2>Frequently Asked Questions</h2>
-
-<div class="faq-item">
-<h3>What is BMI?</h3>
-<p>
-BMI is a number calculated from your height and weight that helps
-estimate whether your body weight is healthy.
-</p>
-</div>
-
-<div class="faq-item">
-<h3>Is BMI accurate for everyone?</h3>
-<p>
-BMI is a useful general guideline but does not consider muscle mass,
-body composition, or other health factors.
-</p>
-</div>
-
-<div class="faq-item">
-<h3>What is a healthy BMI range?</h3>
-<p>
-For most adults, a BMI between 18.5 and 24.9 is considered healthy.
-</p>
-</div>
-
-</section>
-
-</div>
 
 <footer>
 
 <p>© 2026 FitMetrics Tools</p>
 
-<p>
 <a href="/privacy-policy.html">Privacy Policy</a> |
 <a href="/terms.html">Terms</a> |
 <a href="/about.html">About</a> |
 <a href="/contact.html">Contact</a>
-</p>
 
 </footer>
 
-<script>
-
-function calculateBMI(){
-
-let weight=document.getElementById("weight").value;
-let height=document.getElementById("height").value;
-
-height=height/100;
-
-let bmi=weight/(height*height);
-
-document.getElementById("result").innerHTML =
-"Your BMI: <b>"+bmi.toFixed(1)+"</b>";
-
-}
-
-</script>
+</div>
 
 </body>
-
 </html>
