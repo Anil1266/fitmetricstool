@@ -1,67 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>TDEE Calculator – Total Daily Energy Expenditure | FitMetrics Tools</title>
+<title>TDEE Calculator | FitMetrics Tools</title>
 
-<meta name="description" content="Calculate your Total Daily Energy Expenditure (TDEE) to understand how many calories you burn each day.">
+<link rel="stylesheet" href="/styles.css">
 
 </head>
 
-<div class="container">
-
-<div class="calculator-card">
-
-<h1>🔥 Calculator Title</h1>
-
-<p>Short description of the calculator.</p>
-
-<input type="number" placeholder="Age">
-
-<select>
-<option>Male</option>
-<option>Female</option>
-</select>
-
-<input type="number" placeholder="Weight (kg)">
-<input type="number" placeholder="Height (cm)">
-
-<select>
-<option>Sedentary (little or no exercise)</option>
-<option>Light exercise</option>
-<option>Moderate exercise</option>
-<option>Heavy exercise</option>
-</select>
-
-<button>Calculate</button>
-
-<div id="result"></div>
-
-</div>
-
-<div class="info-section">
-
-<h2>How to Use the Calculator</h2>
-
-<p>This calculator helps estimate your health metrics based on your inputs.</p>
-
-<h3>Steps</h3>
-
-<ul>
-<li>Enter required information</li>
-<li>Select options</li>
-<li>Click calculate</li>
-<li>View results instantly</li>
-</ul>
-
-</div>
-
-</div>
-  
 <body>
 
 <header class="site-header">
@@ -82,130 +31,34 @@
 </div>
 </header>
 
-<nav class="navbar">
-
-<a href="/">Home</a>
-<a href="/calorie-calculator.html">Calorie Calculator</a>
-
-</nav>
-
-<header class="site-header">
-
-<h1>FitMetrics Tools</h1>
-
-<p>Free Health & Fitness Calculators</p>
-
-</header>  
-
 <div class="container">
 
-<div class="card">
+<div class="calculator-card">
 
-<h1>📊 TDEE Calculator</h1>
+<h1>TDEE Calculator</h1>
 
-<input type="number" id="age" placeholder="Enter Age">
+<input type="number" placeholder="Age">
 
-<select id="gender">
-<option value="male">Male</option>
-<option value="female">Female</option>
+<select>
+<option>Male</option>
+<option>Female</option>
 </select>
 
-<input type="number" id="weight" placeholder="Weight (kg)">
-<input type="number" id="height" placeholder="Height (cm)">
+<input type="number" placeholder="Weight (kg)">
+<input type="number" placeholder="Height (cm)">
 
-<select id="activity">
-<option value="1.2">Sedentary (little or no exercise)</option>
-<option value="1.375">Lightly active</option>
-<option value="1.55">Moderately active</option>
-<option value="1.725">Very active</option>
-<option value="1.9">Super active</option>
+<select>
+<option>Sedentary</option>
+<option>Light Exercise</option>
+<option>Moderate Exercise</option>
+<option>Heavy Exercise</option>
 </select>
 
-<button onclick="calculateTDEE()">Calculate TDEE</button>
-
-<div class="result" id="result"></div>
+<button>Calculate TDEE</button>
 
 </div>
 
-<section class="info-section">
-
-<h2>How to Use the TDEE Calculator</h2>
-
-<p>
-The TDEE calculator estimates the total number of calories your body
-burns each day based on your activity level and metabolism.
-</p>
-
-<h3>Steps to Calculate Your TDEE</h3>
-
-<ul>
-<li>Enter your age</li>
-<li>Select your gender</li>
-<li>Enter your height and weight</li>
-<li>Choose your daily activity level</li>
-<li>Click the calculate button</li>
-</ul>
-
-<h2>What Is TDEE?</h2>
-
-<p>
-TDEE stands for Total Daily Energy Expenditure. It represents the
-total number of calories your body burns in a day including
-exercise, daily activities, and basic body functions.
-</p>
-
-<h2>Why TDEE Is Important</h2>
-
-<ul>
-<li>Helps determine daily calorie needs</li>
-<li>Useful for weight loss planning</li>
-<li>Helps with muscle gain strategies</li>
-<li>Improves diet planning</li>
-</ul>
-
-</section>
-
 </div>
-
-<footer>
-
-<p>© 2026 FitMetrics Tools</p>
-
-<p>
-<a href="/privacy-policy.html">Privacy Policy</a> |
-<a href="/terms.html">Terms</a> |
-<a href="/about.html">About</a> |
-<a href="/contact.html">Contact</a>
-</p>
-
-</footer>
-<script>
-
-function calculateTDEE(){
-
-let age=document.getElementById("age").value;
-let gender=document.getElementById("gender").value;
-let weight=document.getElementById("weight").value;
-let height=document.getElementById("height").value;
-let activity=document.getElementById("activity").value;
-
-let bmr;
-
-if(gender==="male"){
-bmr=10*weight+6.25*height-5*age+5;
-}else{
-bmr=10*weight+6.25*height-5*age-161;
-}
-
-let tdee=bmr*activity;
-
-document.getElementById("result").innerHTML=
-"Your estimated daily calories: <b>"+Math.round(tdee)+" kcal</b>";
-
-}
-
-</script>
 
 </body>
-
 </html>
