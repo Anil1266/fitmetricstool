@@ -40,9 +40,7 @@
 
 <h1>BMI Calculator</h1>
 
-<p>
-Calculate your Body Mass Index using your weight and height.
-</p>
+<p>Calculate your Body Mass Index using your weight and height.</p>
 
 <input id="weight" type="number" placeholder="Weight (kg)">
 <input id="height" type="number" placeholder="Height (cm)">
@@ -56,13 +54,26 @@ Calculate your Body Mass Index using your weight and height.
 
 <div class="info-section">
 
-<h2>How to Use This Calculator</h2>
+<h2>What is BMI Calculator?</h2>
+
+<p>
+The BMI calculator estimates Body Mass Index using height and weight.
+It helps determine whether a person is underweight, normal weight,
+overweight, or obese based on health guidelines.
+</p>
+
+</div>
+
+
+<div class="info-section">
+
+<h2>Why Use a BMI Calculator?</h2>
 
 <ul>
-<li>Enter your weight in kilograms</li>
-<li>Enter your height in centimeters</li>
-<li>Click the Calculate button</li>
-<li>Your BMI result will appear instantly</li>
+<li>Helps understand body weight category</li>
+<li>Supports weight management goals</li>
+<li>Provides quick health estimation</li>
+<li>Widely used in health assessments</li>
 </ul>
 
 </div>
@@ -70,42 +81,21 @@ Calculate your Body Mass Index using your weight and height.
 
 <div class="info-section">
 
-<h2>BMI Categories</h2>
+<h2>How BMI is Calculated</h2>
 
-<ul>
-<li>Below 18.5 – Underweight</li>
-<li>18.5 – 24.9 – Normal weight</li>
-<li>25 – 29.9 – Overweight</li>
-<li>30+ – Obese</li>
-</ul>
+<p>
+BMI is calculated using the formula:
+</p>
 
-</div>
+<p><strong>BMI = Weight (kg) / Height² (meters)</strong></p>
 
-
-<div class="related-tools">
-
-<h2>Related Calculators</h2>
-
-<div class="tools-grid">
-
-<a class="tool-card" href="/calorie-calculator.html">
-<span class="tool-icon">🔥</span>
-Calorie Calculator
-</a>
-
-<a class="tool-card" href="/bmr-calculator.html">
-<span class="tool-icon">💪</span>
-BMR Calculator
-</a>
-
-<a class="tool-card" href="/tdee-calculator.html">
-<span class="tool-icon">📊</span>
-TDEE Calculator
-</a>
+<p>
+Enter your height and weight and the calculator will compute your BMI
+instantly.
+</p>
 
 </div>
 
-</div>
 
 <div class="related-tools">
 
@@ -113,22 +103,39 @@ TDEE Calculator
 
 <div class="tools-grid">
 
-<a href="/bmi-calculator.html" class="tool-card">BMI Calculator</a>
 <a href="/calorie-calculator.html" class="tool-card">Calorie Calculator</a>
+
 <a href="/bmr-calculator.html" class="tool-card">BMR Calculator</a>
+
 <a href="/tdee-calculator.html" class="tool-card">TDEE Calculator</a>
+
 <a href="/water-intake-calculator.html" class="tool-card">Water Intake Calculator</a>
+
 <a href="/ideal-weight-calculator.html" class="tool-card">Ideal Weight Calculator</a>
 
 </div>
 
 </div>
 
+
+<div class="info-section">
+
+<h2>Health Disclaimer</h2>
+
+<p>
+The results provided by this calculator are estimates based on standard
+health formulas. They are intended for informational purposes only and
+should not replace professional medical advice.
+</p>
+
+</div>
+
+
 <footer>
 
 <p>© 2026 FitMetrics Tools</p>
 
-<a href="/privacy-policy.html">Privacy</a> |
+<a href="/privacy-policy.html">Privacy Policy</a> |
 <a href="/terms.html">Terms</a> |
 <a href="/about.html">About</a> |
 <a href="/contact.html">Contact</a>
@@ -139,42 +146,7 @@ TDEE Calculator
 </div>
 
 
-<script>
-
-function calculateBMI(){
-
-let weight=document.getElementById("weight").value
-let height=document.getElementById("height").value
-
-height=height/100
-
-let bmi=weight/(height*height)
-
-bmi=bmi.toFixed(1)
-
-let category=""
-
-if(bmi<18.5){
-category="Underweight"
-}
-else if(bmi<25){
-category="Normal weight"
-}
-else if(bmi<30){
-category="Overweight"
-}
-else{
-category="Obese"
-}
-
-document.getElementById("result").innerHTML=
-"Your BMI: "+bmi+" ("+category+")"
-
-}
-
-</script>
-
-<script src="/scripts.js"></script>  
+<script src="/scripts.js"></script>
 
 </body>
 </html>
