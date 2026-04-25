@@ -1,43 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="description" content="Free health calculators including BMI, calorie, BMR, TDEE, water intake, and ideal weight calculators to help you stay fit and healthy.">
-<title>Ideal Weight</title>
-<link rel="stylesheet" href="/styles.css">
-<link rel="icon" href="/favicon.ico">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ideal Weight Calculator | FitMetrics Tools</title>
+
+<meta name="description" content="Calculate your ideal body weight using height.">
+
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="favicon.ico">
 
 </head>
 
 <body>
 
-<nav class="navbar">
-<a href="/">Home</a>
-<a href="/ideal-weight-calculator.html">Ideal Weight</a>
-</nav>
-
-<div class="container">
-
-<div class="calculator-card">
-
-<h1>Ideal Weight Calculator</h1>
-
-<input id="height" type="number" placeholder="Height (cm)">
-
-<button onclick="calculateIdealWeight()">Calculate</button>
-
-<div id="result"></div>
-
-<p>
-  👉 Based on your result, try:
-  <a href="tdee-calculator.html">TDEE Calculator</a>
-</p>  
-</div>
-
-</div>
-
-<script src="/scripts.js"></script>
-
-</body>
+<!-- ✅ HEADER (ONLY ONE) -->
 <header class="site-header">
   <div class="nav-container">
     <h2 class="logo"><a href="index.html">FitMetrics Tools</a></h2>
@@ -54,4 +33,36 @@
     </nav>
   </div>
 </header>
+
+
+<div class="container">
+
+  <div class="calculator-card">
+
+    <h1>Ideal Weight Calculator</h1>
+    <p>Find your ideal body weight based on height.</p>
+
+    <input id="height" type="number" placeholder="Height (cm)">
+
+    <button onclick="calculateIdealWeight()">Calculate</button>
+
+    <div id="result">Enter your height to calculate</div>
+
+    <p>
+      👉 Based on your result, try:
+      <a href="tdee-calculator.html">TDEE Calculator</a>
+    </p>
+
+  </div>
+
+</div>
+
+
+<footer>
+  <p>© 2026 FitMetrics Tools</p>
+</footer>
+
+<script src="scripts.js"></script>
+
+</body>
 </html>
