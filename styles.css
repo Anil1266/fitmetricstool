@@ -138,3 +138,19 @@ footer {
   text-align: center;
   border-top: 1px solid #1e293b;
 }
+
+#result div {
+  animation: fadeInUp 0.5s ease;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
