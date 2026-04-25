@@ -3,13 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BMR Calculator</title>
+
+<title>BMR Calculator | FitMetrics Tools</title>
+
 <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-<!-- NAV -->
+<!-- HEADER -->
 <header class="site-header">
   <div class="nav-container">
     <h2 class="logo"><a href="index.html">FitMetrics Tools</a></h2>
@@ -29,30 +31,56 @@
 
 <div class="container">
 
- <div class="calculator-card">
+  <div class="calculator-card">
 
-<h1>BMR Calculator</h1>
+    <h1>BMR Calculator</h1>
+    <p>Find how many calories your body needs at rest.</p>
 
-<input id="age" type="number" placeholder="Age">
-<input id="weight" type="number" placeholder="Weight (kg)">
-<input id="height" type="number" placeholder="Height (cm)">
+    <input id="age" type="number" placeholder="Age">
+    <input id="weight" type="number" placeholder="Weight (kg)">
+    <input id="height" type="number" placeholder="Height (cm)">
 
-<select id="gender">
-  <option value="male">Male</option>
-  <option value="female">Female</option>
-</select>
+    <select id="gender">
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
 
-<button onclick="calculateBMR()">Calculate</button>
+    <button onclick="calculateBMR()">Calculate</button>
 
-<div id="result">Enter your details</div>
+    <div id="result">Enter your details to see your BMR</div>
 
-<p>
-  👉 Based on your result, try:
-  <a href="tdee-calculator.html">TDEE Calculator</a>
-</p>
+    <p style="margin-top:10px;">
+      👉 Next step:
+      <a href="tdee-calculator.html">Calculate your daily calories (TDEE)</a>
+    </p>
+
+  </div>
+
+
+  <!-- INFO SECTION -->
+  <div class="info-section">
+
+    <h2>What is BMR?</h2>
+    <p>
+      BMR (Basal Metabolic Rate) is the number of calories your body needs
+      to perform basic functions like breathing, circulation, and cell repair.
+    </p>
+
+    <h2>Why is BMR important?</h2>
+    <p>
+      Knowing your BMR helps you plan your diet, lose weight, or gain muscle
+      effectively by understanding your calorie needs.
+    </p>
+
+  </div>
 
 </div>
 
+<footer>
+  <p>© 2026 FitMetrics Tools</p>
+</footer>
+
 <script src="scripts.js"></script>
+
 </body>
 </html>
