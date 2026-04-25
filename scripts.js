@@ -1,100 +1,25 @@
-// ===== Helper Functions =====
-function getVal(id){
-  const el = document.getElementById(id);
-  if(!el) return null;
-  const val = parseFloat(el.value);
-  return isNaN(val) ? null : val;
-}
-
-function show(text){
-  document.getElementById("result").innerHTML = text;
-}
-
-// ===== BMI =====
 function calculateBMI(){
   let w=getVal("weight");
-  let h=getVal("height");
+  let h=getVal("height")/100;
 
-  if(w===null || h===null){
+  if(!w || !h){
     show("Please enter valid inputs");
     return;
   }
 
-  let hm=h/100;
-  let bmi=(w/(hm*hm)).toFixed(1);
+  let bmi=(w/(h*h)).toFixed(1);
 
-  let cat="";
-  if(bmi<18.5) cat="Underweight";
-  else if(bmi<25) cat="Normal";
-  else if(bmi<30) cat="Overweight";
-  else cat="Obese";
+  let status="", color="";
+  if(bmi<18.5){ status="Underweight"; color="#3b82f6"; }
+  else if(bmi<25){ status="Normal"; color="#22c55e"; }
+  else if(bmi<30){ status="Overweight"; color="#facc15"; }
+  else { status="Obese"; color="#ef4444"; }
 
-  show(`BMI: ${bmi} (${cat})`);
-}
-
-// ===== BMR =====
-function calculateBMR(){
-  let w=getVal("weight");
-  let h=getVal("height");
-  let a=getVal("age");
-  let g=document.getElementById("gender").value;
-
-  if(w===null || h===null || a===null){
-    show("Fill all fields");
-    return;
-  }
-
-  let bmr = (g==="male") ?
-    (10*w+6.25*h-5*a+5) :
-    (10*w+6.25*h-5*a-161);
-
-  show(`BMR: ${Math.round(bmr)} kcal/day`);
-}
-
-// ===== TDEE =====
-function calculateTDEE(){
-  let w=getVal("weight");
-  let h=getVal("height");
-  let a=getVal("age");
-  let act=getVal("activity");
-  let g=document.getElementById("gender").value;
-
-  if(w===null || h===null || a===null || act===null){
-    show("Fill all fields");
-    return;
-  }
-
-  let bmr = (g==="male") ?
-    (10*w+6.25*h-5*a+5) :
-    (10*w+6.25*h-5*a-161);
-
-  let tdee=bmr*act;
-
-  show(`TDEE: ${Math.round(tdee)} kcal/day`);
-}
-
-// ===== WATER =====
-function calculateWater(){
-  let w=getVal("weight");
-
-  if(w===null){
-    show("Enter weight");
-    return;
-  }
-
-  let water=((w*35)/1000).toFixed(2);
-  show(`Water: ${water} L/day`);
-}
-
-// ===== IDEAL WEIGHT =====
-function calculateIdealWeight(){
-  let h=getVal("height");
-
-  if(h===null){
-    show("Enter height");
-    return;
-  }
-
-  let weight=((h-100)*0.9).toFixed(1);
-  show(`Ideal Weight: ${weight} kg`);
+  show(`
+    <div style="padding:15px; border-radius:10px; background:#020617;">
+      <h2 style="color:${color}">BMI: ${bmi}</h2>
+      <p>Status: <strong>${status}</strong></p>
+      <p>👉 Next: <a href="bmr-calculator.html">Calculate BMR</a></p>
+    </div>
+  `);
 }
