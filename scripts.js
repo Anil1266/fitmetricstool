@@ -1,36 +1,107 @@
-function calculateBMI(){
-let w=document.getElementById("weight").value
-let h=document.getElementById("height").value/100
-let bmi=(w/(h*h)).toFixed(1)
-document.getElementById("result").innerHTML="BMI: "+bmi
+// Utility: get numeric value safely
+function getValue(id) {
+  const val = parseFloat(document.getElementById(id).value);
+  return isNaN(val) ? null : val;
 }
 
-function calculateBMR(){
-let w=document.getElementById("weight").value
-let h=document.getElementById("height").value
-let a=document.getElementById("age").value
-let bmr=(10*w)+(6.25*h)-(5*a)+5
-document.getElementById("result").innerHTML="BMR: "+bmr
+// Utility: show result
+function showResult(id, text) {
+  document.getElementById(id).innerHTML = text;
 }
 
-function calculateTDEE(){
-let w=document.getElementById("weight").value
-let h=document.getElementById("height").value
-let a=document.getElementById("age").value
-let act=document.getElementById("activity").value
-let bmr=(10*w)+(6.25*h)-(5*a)+5
-let tdee=bmr*act
-document.getElementById("result").innerHTML="TDEE: "+tdee
+// BMI
+function calculateBMI() {
+  const w = getValue("weight");
+  const h = getValue("height");
+
+  if (!w || !h) {
+    showResult("result", "Please enter valid weight and height.");
+    return;
+  }
+
+  const heightM = h / 100;
+  const bmi = (w / (heightM * heightM)).toFixed(1);
+
+  let category = "";
+  if (bmi < 18.5) category = "Underweight";
+  else if (bmi < 25) category = "Normal";
+  else if (bmi < 30) category = "Overweight";
+  else category = "Obese";
+
+  showResult("result", `BMI: ${bmi} (${category})`);
 }
 
-function calculateWater(){
-let w=document.getElementById("weight").value
-let water=(w*35)/1000
-document.getElementById("result").innerHTML="Water: "+water+" L/day"
+// BMR (Mifflin-St Jeor Equation — more accurate)
+function calculateBMR() {
+  const w = getValue("weight");
+  const h = getValue("height");
+  const a = getValue("age");
+  const gender = document.getElementById("gender")?.value || "male";
+
+  if (!w || !h || !a) {
+    showResult("result", "Please enter all fields.");
+    return;
+  }
+
+  let bmr;
+  if (gender === "male") {
+    bmr = 10 * w + 6.25 * h - 5 * a + 5;
+  } else {
+    bmr = 10 * w + 6.25 * h - 5 * a - 161;
+  }
+
+  showResult("result", `BMR: ${Math.round(bmr)} kcal/day`);
 }
 
-function calculateIdealWeight(){
-let h=document.getElementById("height").value
-let weight=(h-100)*0.9
-document.getElementById("result").innerHTML="Ideal Weight: "+weight+" kg"
+// TDEE
+function calculateTDEE() {
+  const w = getValue("weight");
+  const h = getValue("height");
+  const a = getValue("age");
+  const act = getValue("activity");
+  const gender = document.getElementById("gender")?.value || "male";
+
+  if (!w || !h || !a || !act) {
+    showResult("result", "Please fill all fields.");
+    return;
+  }
+
+  let bmr;
+  if (gender === "male") {
+    bmr = 10 * w + 6.25 * h - 5 * a + 5;
+  } else {
+    bmr = 10 * w + 6.25 * h - 5 * a - 161;
+  }
+
+  const tdee = bmr * act;
+
+  showResult("result", `TDEE: ${Math.round(tdee)} kcal/day`);
+}
+
+// Water Intake
+function calculateWater() {
+  const w = getValue("weight");
+
+  if (!w) {
+    showResult("result", "Enter valid weight.");
+    return;
+  }
+
+  const water = ((w * 35) / 1000).toFixed(2);
+
+  showResult("result", `Water Intake: ${water} liters/day`);
+}
+
+// Ideal Weight
+function calculateIdealWeight() {
+  const h = getValue("height");
+
+  if (!h) {
+    showResult("result", "Enter valid height.");
+    return;
+  }
+
+  const weight = ((h - 100) * 0.9).toFixed(1);
+
+  showResult("result", `Ideal Weight: ${weight} kg`);
 }
