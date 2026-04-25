@@ -1,45 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="description" content="Free health calculators including BMI, calorie, BMR, TDEE, water intake, and ideal weight calculators to help you stay fit and healthy.">
-<title>Water Intake</title>
-<link rel="stylesheet" href="/styles.css">
-<link rel="icon" href="/favicon.ico">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Water Intake Calculator | FitMetrics Tools</title>
+
+<meta name="description" content="Calculate how much water you should drink daily based on your weight.">
+
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="favicon.ico">
 
 </head>
 
 <body>
 
-<nav class="navbar">
-<a href="/">Home</a>
-<a href="/water-intake-calculator.html">Water</a>
-</nav>
-
-<div class="container">
-
-<div class="calculator-card">
-
-<h1>Water Intake Calculator</h1>
-
-<input id="weight" type="number" placeholder="Weight (kg)">
-
-<button onclick="calculateWater()">Calculate</button>
-
-<div id="result"></div>
-
-<p>
-  👉 Based on your result, try:
-  <a href="tdee-calculator.html">TDEE Calculator</a>
-</p>
-
-</div>
-
-</div>
-
-<script src="/scripts.js"></script>
-
-</body>
-
+<!-- ✅ HEADER -->
 <header class="site-header">
   <div class="nav-container">
     <h2 class="logo"><a href="index.html">FitMetrics Tools</a></h2>
@@ -55,5 +32,60 @@
       <a href="ideal-weight-calculator.html">Ideal</a>
     </nav>
   </div>
-</header>  
+</header>
+
+
+<div class="container">
+
+  <div class="calculator-card">
+
+    <h1>Water Intake Calculator</h1>
+    <p>Estimate how much water you should drink daily.</p>
+
+    <input id="weight" type="number" placeholder="Weight (kg)">
+
+    <button onclick="calculateWater()">Calculate</button>
+
+    <div id="result" style="margin-top:15px;">
+      Enter your weight to calculate your daily water intake
+    </div>
+
+    <p>
+      👉 Stay hydrated! You can also
+      <a href="tdee-calculator.html">check your calorie needs</a>
+    </p>
+
+  </div>
+
+
+  <!-- INFO SECTION -->
+  <div class="info-section">
+
+    <h2>How Much Water Should You Drink?</h2>
+    <p>
+      A common guideline is about 30–35 ml of water per kg of body weight.
+      This calculator helps estimate your daily hydration needs.
+    </p>
+
+    <h2>Why Hydration is Important</h2>
+    <ul>
+      <li>Supports metabolism</li>
+      <li>Improves digestion</li>
+      <li>Boosts energy levels</li>
+      <li>Maintains overall health</li>
+    </ul>
+
+  </div>
+
+</div>
+
+
+<footer>
+  <p>© 2026 FitMetrics Tools</p>
+</footer>
+
+<!-- ✅ FIXED SCRIPT PATH -->
+<script src="scripts.js"></script>
+
+</body>
 </html>
