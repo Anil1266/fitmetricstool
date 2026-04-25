@@ -43,3 +43,23 @@ function calculateWater(){
     </div>
   `);
 }
+
+
+function calculateIdealWeight(){
+  let h=getVal("height");
+
+  if(!h){
+    show("Enter height");
+    return;
+  }
+
+  let weight=((h-100)*0.9).toFixed(1);
+
+  show(`
+    <div style="padding:15px; border-radius:10px; background:#020617;">
+      <h2 style="color:#22c55e">${weight} kg</h2>
+      <p>Your estimated ideal body weight.</p>
+      <p>👉 Next: <a href="tdee-calculator.html">Check calorie needs</a></p>
+    </div>
+  `);
+}
