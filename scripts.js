@@ -63,3 +63,8 @@ function calculateIdealWeight(){
     </div>
   `);
 }
+
+#result div {
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  transition: 0.3s;
+}
