@@ -1,20 +1,26 @@
-// Utility: get numeric value safely
+// ===== Helper Functions =====
+
+// Safely get numeric value
 function getValue(id) {
-  const val = parseFloat(document.getElementById(id).value);
+  const el = document.getElementById(id);
+  if (!el) return null;
+  const val = parseFloat(el.value);
   return isNaN(val) ? null : val;
 }
 
-// Utility: show result
+// Show result
 function showResult(id, text) {
-  document.getElementById(id).innerHTML = text;
+  const el = document.getElementById(id);
+  if (el) el.innerHTML = text;
 }
 
-// BMI
+
+// ===== BMI =====
 function calculateBMI() {
   const w = getValue("weight");
   const h = getValue("height");
 
-  if (!w || !h) {
+  if (w === null || h === null) {
     showResult("result", "Please enter valid weight and height.");
     return;
   }
@@ -31,14 +37,15 @@ function calculateBMI() {
   showResult("result", `BMI: ${bmi} (${category})`);
 }
 
-// BMR (Mifflin-St Jeor Equation — more accurate)
+
+// ===== BMR =====
 function calculateBMR() {
   const w = getValue("weight");
   const h = getValue("height");
   const a = getValue("age");
   const gender = document.getElementById("gender")?.value || "male";
 
-  if (!w || !h || !a) {
+  if (w === null || h === null || a === null) {
     showResult("result", "Please enter all fields.");
     return;
   }
@@ -50,10 +57,11 @@ function calculateBMR() {
     bmr = 10 * w + 6.25 * h - 5 * a - 161;
   }
 
-  showResult("result", `BMR: ${Math.round(bmr)} kcal/day`);
+  showResult("result", `Your BMR is ${Math.round(bmr)} kcal/day`);
 }
 
-// TDEE
+
+// ===== TDEE =====
 function calculateTDEE() {
   const w = getValue("weight");
   const h = getValue("height");
@@ -61,7 +69,7 @@ function calculateTDEE() {
   const act = getValue("activity");
   const gender = document.getElementById("gender")?.value || "male";
 
-  if (!w || !h || !a || !act) {
+  if (w === null || h === null || a === null || act === null) {
     showResult("result", "Please fill all fields.");
     return;
   }
@@ -75,14 +83,15 @@ function calculateTDEE() {
 
   const tdee = bmr * act;
 
-  showResult("result", `TDEE: ${Math.round(tdee)} kcal/day`);
+  showResult("result", `Your TDEE is ${Math.round(tdee)} kcal/day`);
 }
 
-// Water Intake
+
+// ===== WATER =====
 function calculateWater() {
   const w = getValue("weight");
 
-  if (!w) {
+  if (w === null) {
     showResult("result", "Enter valid weight.");
     return;
   }
@@ -92,11 +101,12 @@ function calculateWater() {
   showResult("result", `Water Intake: ${water} liters/day`);
 }
 
-// Ideal Weight
+
+// ===== IDEAL WEIGHT =====
 function calculateIdealWeight() {
   const h = getValue("height");
 
-  if (!h) {
+  if (h === null) {
     showResult("result", "Enter valid height.");
     return;
   }
