@@ -25,3 +25,21 @@ function calculateTDEE(){
     </div>
   `);
 }
+
+function calculateWater(){
+  let w=getVal("weight");
+
+  if(!w){
+    show("Enter weight");
+    return;
+  }
+
+  let water=(w*35/1000).toFixed(2);
+
+  show(`
+    <div style="padding:15px; border-radius:10px; background:#020617;">
+      <h2 style="color:#3b82f6">${water} L/day</h2>
+      <p>Stay hydrated for better health.</p>
+    </div>
+  `);
+}
