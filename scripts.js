@@ -1,25 +1,27 @@
-function calculateBMI(){
+function calculateTDEE(){
   let w=getVal("weight");
-  let h=getVal("height")/100;
+  let h=getVal("height");
+  let a=getVal("age");
+  let act=getVal("activity");
+  let g=document.getElementById("gender").value;
 
-  if(!w || !h){
-    show("Please enter valid inputs");
+  if(!w || !h || !a || !act){
+    show("Fill all fields");
     return;
   }
 
-  let bmi=(w/(h*h)).toFixed(1);
+  let bmr = (g==="male") ?
+    (10*w+6.25*h-5*a+5) :
+    (10*w+6.25*h-5*a-161);
 
-  let status="", color="";
-  if(bmi<18.5){ status="Underweight"; color="#3b82f6"; }
-  else if(bmi<25){ status="Normal"; color="#22c55e"; }
-  else if(bmi<30){ status="Overweight"; color="#facc15"; }
-  else { status="Obese"; color="#ef4444"; }
+  let tdee=bmr*act;
 
   show(`
     <div style="padding:15px; border-radius:10px; background:#020617;">
-      <h2 style="color:${color}">BMI: ${bmi}</h2>
-      <p>Status: <strong>${status}</strong></p>
-      <p>👉 Next: <a href="bmr-calculator.html">Calculate BMR</a></p>
+      <h2 style="color:#22c55e">${Math.round(tdee)} kcal/day</h2>
+      <p>Maintain weight: ${Math.round(tdee)}</p>
+      <p>Lose weight: ${Math.round(tdee-500)}</p>
+      <p>Gain weight: ${Math.round(tdee+500)}</p>
     </div>
   `);
 }
