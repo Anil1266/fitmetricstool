@@ -14,14 +14,24 @@ function calculateTDEE(){
     (10*w+6.25*h-5*a+5) :
     (10*w+6.25*h-5*a-161);
 
-  let tdee=bmr*act;
+  let tdee=Math.round(bmr*act);
+
+  let lose = tdee - 500;
+  let gain = tdee + 500;
 
   show(`
-    <div style="padding:15px; border-radius:10px; background:#020617;">
-      <h2 style="color:#22c55e">${Math.round(tdee)} kcal/day</h2>
-      <p>Maintain weight: ${Math.round(tdee)}</p>
-      <p>Lose weight: ${Math.round(tdee-500)}</p>
-      <p>Gain weight: ${Math.round(tdee+500)}</p>
+    <div style="padding:20px; border-radius:12px; background:#020617;">
+      
+      <h2 style="color:#22c55e">${tdee} kcal/day</h2>
+
+      <div style="background:#1e293b; height:10px; border-radius:5px; margin:10px 0;">
+        <div style="width:70%; height:10px; background:#22c55e; border-radius:5px;"></div>
+      </div>
+
+      <p>Maintain: ${tdee}</p>
+      <p>Lose: ${lose}</p>
+      <p>Gain: ${gain}</p>
+
     </div>
   `);
 }
