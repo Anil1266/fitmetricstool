@@ -8,7 +8,7 @@
 
   <meta 
     name="description" 
-    content="Calculate your daily calorie needs instantly using our free calorie calculator. Find calories for maintenance, weight loss and muscle gain."
+    content="Calculate your daily calorie needs instantly using our free Calorie Calculator. Find calories for maintenance, fat loss and muscle gain."
   />
 
   <style>
@@ -66,25 +66,28 @@
 
     .calculator-card {
       background: #1e293b;
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      padding: 35px;
+      border-radius: 22px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
     }
 
     h1 {
       text-align: center;
       margin-bottom: 10px;
+      font-size: 2.5rem;
     }
 
     .description {
       text-align: center;
       color: #cbd5e1;
-      margin-bottom: 30px;
-      line-height: 1.6;
+      line-height: 1.7;
+      margin-bottom: 35px;
     }
 
+    /* INPUTS */
+
     .input-group {
-      margin-bottom: 20px;
+      margin-bottom: 22px;
     }
 
     label {
@@ -96,8 +99,8 @@
     input,
     select {
       width: 100%;
-      padding: 14px;
-      border-radius: 10px;
+      padding: 15px;
+      border-radius: 12px;
       border: none;
       background: #334155;
       color: white;
@@ -110,14 +113,16 @@
       outline: 2px solid #22c55e;
     }
 
+    /* BUTTON */
+
     button {
       width: 100%;
-      padding: 15px;
+      padding: 16px;
       border: none;
-      border-radius: 12px;
+      border-radius: 14px;
       background: #22c55e;
       color: white;
-      font-size: 16px;
+      font-size: 17px;
       font-weight: bold;
       cursor: pointer;
       transition: 0.3s;
@@ -131,41 +136,110 @@
 
     .result-card {
       display: none;
-      margin-top: 30px;
-      padding: 25px;
-      border-radius: 18px;
+      margin-top: 35px;
+      padding: 35px;
+      border-radius: 22px;
       background: #15803d;
-      text-align: center;
+      animation: fadeIn 0.5s ease;
     }
 
-    .calorie-number {
-      font-size: 3rem;
+    .result-label {
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #dbeafe;
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+    }
+
+    .calorie-value {
+      text-align: center;
+      font-size: 4rem;
       font-weight: bold;
       margin-bottom: 10px;
     }
+
+    .result-subtitle {
+      text-align: center;
+      color: #f1f5f9;
+      margin-bottom: 30px;
+      line-height: 1.7;
+    }
+
+    /* GOAL CARDS */
 
     .goal-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 15px;
-      margin-top: 25px;
     }
 
     .goal-card {
-      background: rgba(255,255,255,0.1);
-      padding: 18px;
-      border-radius: 14px;
+      background: rgba(255,255,255,0.12);
+      padding: 20px;
+      border-radius: 16px;
+      text-align: center;
     }
 
     .goal-card h3 {
-      margin: 0 0 10px;
+      margin-top: 0;
+      margin-bottom: 10px;
       font-size: 1rem;
     }
 
-    .goal-card p {
-      font-size: 1.3rem;
+    .goal-value {
+      font-size: 1.8rem;
       font-weight: bold;
-      margin: 0;
+    }
+
+    .goal-desc {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #e2e8f0;
+      line-height: 1.5;
+    }
+
+    /* RECOMMENDATION */
+
+    .recommendation-box {
+      margin-top: 25px;
+      background: rgba(255,255,255,0.12);
+      padding: 20px;
+      border-radius: 16px;
+      line-height: 1.7;
+    }
+
+    /* RELATED TOOLS */
+
+    .related-tools {
+      margin-top: 35px;
+    }
+
+    .related-tools h3 {
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+    }
+
+    .tool-card {
+      background: rgba(255,255,255,0.12);
+      padding: 14px;
+      border-radius: 12px;
+      text-align: center;
+      text-decoration: none;
+      color: white;
+      transition: 0.3s;
+      font-size: 0.95rem;
+    }
+
+    .tool-card:hover {
+      background: rgba(255,255,255,0.22);
+      transform: translateY(-3px);
     }
 
     /* INFO */
@@ -173,48 +247,21 @@
     .info-section {
       margin-top: 50px;
       background: #1e293b;
-      padding: 30px;
-      border-radius: 20px;
+      padding: 35px;
+      border-radius: 22px;
       line-height: 1.8;
     }
 
     .info-section h2 {
       margin-top: 0;
-    }
-
-    /* RELATED TOOLS */
-
-    .related-tools {
-      margin-top: 50px;
-    }
-
-    .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .tool-card {
-      background: #1e293b;
-      padding: 20px;
-      border-radius: 14px;
-      text-align: center;
-      text-decoration: none;
-      color: white;
-      transition: 0.3s;
-    }
-
-    .tool-card:hover {
-      background: #334155;
-      transform: translateY(-5px);
+      color: #22c55e;
     }
 
     /* FOOTER */
 
     footer {
       background: black;
-      padding: 25px;
+      padding: 30px;
       text-align: center;
       margin-top: 60px;
     }
@@ -223,6 +270,22 @@
       color: #22c55e;
       text-decoration: none;
       margin: 0 5px;
+    }
+
+    /* ANIMATION */
+
+    @keyframes fadeIn {
+
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
     }
 
     /* MOBILE */
@@ -235,15 +298,15 @@
 
       .calculator-card,
       .info-section {
-        padding: 20px;
+        padding: 25px;
       }
 
       h1 {
         font-size: 2rem;
       }
 
-      .calorie-number {
-        font-size: 2.3rem;
+      .calorie-value {
+        font-size: 3rem;
       }
 
     }
@@ -267,7 +330,7 @@
         <a href="index.html">Home</a>
         <a href="guides.html">Guides</a>
         <a href="bmi-calculator.html">BMI</a>
-        <a href="water-intake-calculator.html">Water</a>
+        <a href="tdee-calculator.html">TDEE</a>
       </nav>
 
     </div>
@@ -283,46 +346,87 @@
       <h1>Calorie Calculator</h1>
 
       <p class="description">
-        Calculate your daily calorie needs for maintenance,
-        weight loss or muscle gain using our free calorie calculator.
+        Calculate your estimated daily calorie needs
+        for maintenance, fat loss and muscle gain.
       </p>
 
       <!-- AGE -->
 
       <div class="input-group">
-        <label for="age">Age</label>
-        <input type="number" id="age" placeholder="Enter your age">
+
+        <label for="age">
+          Age
+        </label>
+
+        <input 
+          type="number" 
+          id="age" 
+          placeholder="Enter your age"
+        >
+
       </div>
 
       <!-- GENDER -->
 
       <div class="input-group">
-        <label for="gender">Gender</label>
+
+        <label for="gender">
+          Gender
+        </label>
 
         <select id="gender">
-          <option value="male">Male</option>
-          <option value="female">Female</option>
+
+          <option value="male">
+            Male
+          </option>
+
+          <option value="female">
+            Female
+          </option>
+
         </select>
+
       </div>
 
       <!-- HEIGHT -->
 
       <div class="input-group">
-        <label for="height">Height (cm)</label>
-        <input type="number" id="height" placeholder="Enter your height">
+
+        <label for="height">
+          Height (cm)
+        </label>
+
+        <input 
+          type="number" 
+          id="height" 
+          placeholder="Enter your height"
+        >
+
       </div>
 
       <!-- WEIGHT -->
 
       <div class="input-group">
-        <label for="weight">Weight (kg)</label>
-        <input type="number" id="weight" placeholder="Enter your weight">
+
+        <label for="weight">
+          Weight (kg)
+        </label>
+
+        <input 
+          type="number" 
+          id="weight" 
+          placeholder="Enter your weight"
+        >
+
       </div>
 
       <!-- ACTIVITY -->
 
       <div class="input-group">
-        <label for="activity">Activity Level</label>
+
+        <label for="activity">
+          Activity Level
+        </label>
 
         <select id="activity">
 
@@ -347,6 +451,7 @@
           </option>
 
         </select>
+
       </div>
 
       <!-- BUTTON -->
@@ -359,27 +464,91 @@
 
       <div id="resultCard" class="result-card">
 
-        <div id="maintenanceCalories" class="calorie-number"></div>
+        <div class="result-label">
+          Estimated Daily Calories
+        </div>
 
-        <p>
-          Daily calories needed to maintain your current weight.
-        </p>
+        <div id="maintenanceCalories" class="calorie-value"></div>
+
+        <div class="result-subtitle">
+          Estimated calories your body needs daily
+          based on your body metrics and activity level.
+        </div>
+
+        <!-- GOALS -->
 
         <div class="goal-grid">
 
           <div class="goal-card">
+
             <h3>Weight Loss</h3>
-            <p id="weightLoss"></p>
+
+            <div id="weightLoss" class="goal-value"></div>
+
+            <div class="goal-desc">
+              Moderate calorie deficit for sustainable fat loss.
+            </div>
+
           </div>
 
           <div class="goal-card">
+
             <h3>Maintenance</h3>
-            <p id="maintenance"></p>
+
+            <div id="maintenance" class="goal-value"></div>
+
+            <div class="goal-desc">
+              Calories to maintain your current body weight.
+            </div>
+
           </div>
 
           <div class="goal-card">
+
             <h3>Muscle Gain</h3>
-            <p id="muscleGain"></p>
+
+            <div id="muscleGain" class="goal-value"></div>
+
+            <div class="goal-desc">
+              Slight calorie surplus to support muscle growth.
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- RECOMMENDATION -->
+
+        <div class="recommendation-box">
+
+          <strong>Recommendation:</strong>
+
+          Combine balanced nutrition,
+          strength training, hydration and proper sleep
+          for better long-term results.
+
+        </div>
+
+        <!-- RELATED TOOLS -->
+
+        <div class="related-tools">
+
+          <h3>Try Other Fitness Tools</h3>
+
+          <div class="tools-grid">
+
+            <a href="bmi-calculator.html" class="tool-card">
+              BMI Calculator
+            </a>
+
+            <a href="tdee-calculator.html" class="tool-card">
+              TDEE Calculator
+            </a>
+
+            <a href="water-intake-calculator.html" class="tool-card">
+              Water Intake
+            </a>
+
           </div>
 
         </div>
@@ -395,45 +564,19 @@
       <h2>What is a Calorie Calculator?</h2>
 
       <p>
-        A calorie calculator estimates how many calories your body needs daily based on age, gender, weight, height and activity level.
+        A calorie calculator estimates how many calories
+        your body needs daily based on
+        age, gender, height, weight and activity level.
       </p>
 
       <h2>Why Calories Matter</h2>
 
       <ul>
-        <li>Calories provide energy for your body.</li>
+        <li>Calories provide energy for daily activities.</li>
         <li>Weight loss requires a calorie deficit.</li>
-        <li>Muscle gain usually requires a calorie surplus.</li>
+        <li>Muscle gain often requires a calorie surplus.</li>
         <li>Balanced calorie intake supports overall health.</li>
       </ul>
-
-    </div>
-
-    <!-- RELATED TOOLS -->
-
-    <div class="related-tools">
-
-      <h2>Try Other Fitness Tools</h2>
-
-      <div class="tools-grid">
-
-        <a href="bmi-calculator.html" class="tool-card">
-          BMI Calculator
-        </a>
-
-        <a href="bmr-calculator.html" class="tool-card">
-          BMR Calculator
-        </a>
-
-        <a href="tdee-calculator.html" class="tool-card">
-          TDEE Calculator
-        </a>
-
-        <a href="water-intake-calculator.html" class="tool-card">
-          Water Intake Calculator
-        </a>
-
-      </div>
 
     </div>
 
@@ -458,14 +601,33 @@
 
     function calculateCalories() {
 
-      const age = parseInt(document.getElementById("age").value);
-      const gender = document.getElementById("gender").value;
-      const height = parseFloat(document.getElementById("height").value);
-      const weight = parseFloat(document.getElementById("weight").value);
-      const activity = parseFloat(document.getElementById("activity").value);
+      const age =
+        parseInt(
+          document.getElementById("age").value
+        );
+
+      const gender =
+        document.getElementById("gender").value;
+
+      const height =
+        parseFloat(
+          document.getElementById("height").value
+        );
+
+      const weight =
+        parseFloat(
+          document.getElementById("weight").value
+        );
+
+      const activity =
+        parseFloat(
+          document.getElementById("activity").value
+        );
 
       if (!age || !height || !weight) {
+
         alert("Please fill all fields.");
+
         return;
       }
 
@@ -479,7 +641,9 @@
           5 * age +
           5;
 
-      } else {
+      }
+
+      else {
 
         bmr =
           10 * weight +
@@ -489,10 +653,14 @@
 
       }
 
-      const maintenanceCalories = Math.round(bmr * activity);
+      const maintenanceCalories =
+        Math.round(bmr * activity);
 
-      const weightLoss = maintenanceCalories - 500;
-      const muscleGain = maintenanceCalories + 300;
+      const weightLoss =
+        maintenanceCalories - 500;
+
+      const muscleGain =
+        maintenanceCalories + 300;
 
       document.getElementById("maintenanceCalories").innerHTML =
         maintenanceCalories + " kcal";
@@ -506,7 +674,8 @@
       document.getElementById("muscleGain").innerHTML =
         muscleGain + " kcal";
 
-      document.getElementById("resultCard").style.display = "block";
+      document.getElementById("resultCard").style.display =
+        "block";
 
     }
 
