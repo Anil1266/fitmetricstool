@@ -8,7 +8,7 @@
 
   <meta 
     name="description" 
-    content="Calculate your Basal Metabolic Rate (BMR) instantly using our free BMR Calculator. Find how many calories your body burns at rest."
+    content="Calculate your Basal Metabolic Rate (BMR) instantly using our free BMR Calculator. Estimate calories your body burns at rest."
   />
 
   <style>
@@ -66,25 +66,28 @@
 
     .calculator-card {
       background: #1e293b;
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      padding: 35px;
+      border-radius: 22px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
     }
 
     h1 {
       text-align: center;
       margin-bottom: 10px;
+      font-size: 2.5rem;
     }
 
     .description {
       text-align: center;
       color: #cbd5e1;
-      line-height: 1.6;
-      margin-bottom: 30px;
+      line-height: 1.7;
+      margin-bottom: 35px;
     }
 
+    /* INPUTS */
+
     .input-group {
-      margin-bottom: 20px;
+      margin-bottom: 22px;
     }
 
     label {
@@ -96,8 +99,8 @@
     input,
     select {
       width: 100%;
-      padding: 14px;
-      border-radius: 10px;
+      padding: 15px;
+      border-radius: 12px;
       border: none;
       background: #334155;
       color: white;
@@ -110,14 +113,16 @@
       outline: 2px solid #22c55e;
     }
 
+    /* BUTTON */
+
     button {
       width: 100%;
-      padding: 15px;
+      padding: 16px;
       border: none;
-      border-radius: 12px;
+      border-radius: 14px;
       background: #22c55e;
       color: white;
-      font-size: 16px;
+      font-size: 17px;
       font-weight: bold;
       cursor: pointer;
       transition: 0.3s;
@@ -131,70 +136,132 @@
 
     .result-card {
       display: none;
-      margin-top: 30px;
-      background: #15803d;
-      padding: 30px;
-      border-radius: 18px;
+      margin-top: 35px;
+      padding: 35px;
+      border-radius: 22px;
+      background: #ea580c;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .result-label {
       text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #ffedd5;
+      margin-bottom: 10px;
+      font-size: 0.95rem;
     }
 
     .bmr-value {
-      font-size: 3rem;
+      text-align: center;
+      font-size: 4rem;
       font-weight: bold;
       margin-bottom: 10px;
     }
 
-    .result-card p {
-      line-height: 1.6;
+    .result-subtitle {
+      text-align: center;
+      color: #fff7ed;
+      margin-bottom: 30px;
+      line-height: 1.7;
     }
 
-    /* INFO */
+    /* INFO GRID */
 
-    .info-section {
-      margin-top: 50px;
-      background: #1e293b;
-      padding: 30px;
-      border-radius: 20px;
-      line-height: 1.8;
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
     }
 
-    .info-section h2 {
+    .info-card {
+      background: rgba(255,255,255,0.12);
+      padding: 20px;
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    .info-card h3 {
       margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+
+    .info-number {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    .info-desc {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #ffedd5;
+      line-height: 1.5;
+    }
+
+    /* TIP BOX */
+
+    .tip-box {
+      margin-top: 25px;
+      background: rgba(255,255,255,0.12);
+      padding: 20px;
+      border-radius: 16px;
+      line-height: 1.7;
     }
 
     /* RELATED TOOLS */
 
     .related-tools {
-      margin-top: 50px;
+      margin-top: 35px;
+    }
+
+    .related-tools h3 {
+      margin-bottom: 15px;
+      text-align: center;
     }
 
     .tools-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 15px;
-      margin-top: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
     }
 
     .tool-card {
-      background: #1e293b;
-      padding: 20px;
-      border-radius: 14px;
+      background: rgba(255,255,255,0.12);
+      padding: 14px;
+      border-radius: 12px;
       text-align: center;
       text-decoration: none;
       color: white;
       transition: 0.3s;
+      font-size: 0.95rem;
     }
 
     .tool-card:hover {
-      background: #334155;
-      transform: translateY(-5px);
+      background: rgba(255,255,255,0.22);
+      transform: translateY(-3px);
+    }
+
+    /* INFO SECTION */
+
+    .info-section {
+      margin-top: 50px;
+      background: #1e293b;
+      padding: 35px;
+      border-radius: 22px;
+      line-height: 1.8;
+    }
+
+    .info-section h2 {
+      margin-top: 0;
+      color: #22c55e;
     }
 
     /* FOOTER */
 
     footer {
       background: black;
-      padding: 25px;
+      padding: 30px;
       text-align: center;
       margin-top: 60px;
     }
@@ -203,6 +270,22 @@
       color: #22c55e;
       text-decoration: none;
       margin: 0 5px;
+    }
+
+    /* ANIMATION */
+
+    @keyframes fadeIn {
+
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
     }
 
     /* MOBILE */
@@ -215,7 +298,7 @@
 
       .calculator-card,
       .info-section {
-        padding: 20px;
+        padding: 25px;
       }
 
       h1 {
@@ -223,7 +306,7 @@
       }
 
       .bmr-value {
-        font-size: 2.3rem;
+        font-size: 3rem;
       }
 
     }
@@ -247,7 +330,7 @@
         <a href="index.html">Home</a>
         <a href="guides.html">Guides</a>
         <a href="bmi-calculator.html">BMI</a>
-        <a href="calorie-calculator.html">Calories</a>
+        <a href="tdee-calculator.html">TDEE</a>
       </nav>
 
     </div>
@@ -263,39 +346,79 @@
       <h1>BMR Calculator</h1>
 
       <p class="description">
-        Calculate your Basal Metabolic Rate (BMR) and discover how many calories your body burns at rest.
+        Calculate your Basal Metabolic Rate (BMR)
+        to estimate how many calories your body burns
+        at complete rest.
       </p>
 
       <!-- AGE -->
 
       <div class="input-group">
-        <label for="age">Age</label>
-        <input type="number" id="age" placeholder="Enter your age">
+
+        <label for="age">
+          Age
+        </label>
+
+        <input 
+          type="number" 
+          id="age" 
+          placeholder="Enter your age"
+        >
+
       </div>
 
       <!-- GENDER -->
 
       <div class="input-group">
-        <label for="gender">Gender</label>
+
+        <label for="gender">
+          Gender
+        </label>
 
         <select id="gender">
-          <option value="male">Male</option>
-          <option value="female">Female</option>
+
+          <option value="male">
+            Male
+          </option>
+
+          <option value="female">
+            Female
+          </option>
+
         </select>
+
       </div>
 
       <!-- HEIGHT -->
 
       <div class="input-group">
-        <label for="height">Height (cm)</label>
-        <input type="number" id="height" placeholder="Enter your height">
+
+        <label for="height">
+          Height (cm)
+        </label>
+
+        <input 
+          type="number" 
+          id="height" 
+          placeholder="Enter your height"
+        >
+
       </div>
 
       <!-- WEIGHT -->
 
       <div class="input-group">
-        <label for="weight">Weight (kg)</label>
-        <input type="number" id="weight" placeholder="Enter your weight">
+
+        <label for="weight">
+          Weight (kg)
+        </label>
+
+        <input 
+          type="number" 
+          id="weight" 
+          placeholder="Enter your weight"
+        >
+
       </div>
 
       <!-- BUTTON -->
@@ -308,64 +431,127 @@
 
       <div id="resultCard" class="result-card">
 
+        <div class="result-label">
+          Estimated Basal Metabolic Rate
+        </div>
+
         <div id="bmrValue" class="bmr-value"></div>
 
-        <p>
-          Calories your body burns daily while resting.
-        </p>
+        <div class="result-subtitle">
+          Estimated calories your body burns daily
+          while at complete rest.
+        </div>
 
-        <p id="bmrTip"></p>
+        <!-- INFO GRID -->
+
+        <div class="info-grid">
+
+          <div class="info-card">
+
+            <h3>Resting Energy</h3>
+
+            <div class="info-number">
+              Essential
+            </div>
+
+            <div class="info-desc">
+              Your body uses calories
+              for breathing, circulation and recovery.
+            </div>
+
+          </div>
+
+          <div class="info-card">
+
+            <h3>Nutrition</h3>
+
+            <div class="info-number">
+              Fuel Smart
+            </div>
+
+            <div class="info-desc">
+              Balanced nutrition supports
+              metabolism and energy production.
+            </div>
+
+          </div>
+
+          <div class="info-card">
+
+            <h3>Fitness Goal</h3>
+
+            <div class="info-number">
+              Stay Active
+            </div>
+
+            <div class="info-desc">
+              Physical activity increases
+              total calorie expenditure beyond BMR.
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- TIP BOX -->
+
+        <div class="tip-box">
+
+          <strong>Tip:</strong>
+
+          BMR represents resting calorie needs.
+          Your TDEE includes daily movement and exercise.
+
+        </div>
+
+        <!-- RELATED TOOLS -->
+
+        <div class="related-tools">
+
+          <h3>Try Other Fitness Tools</h3>
+
+          <div class="tools-grid">
+
+            <a href="tdee-calculator.html" class="tool-card">
+              TDEE Calculator
+            </a>
+
+            <a href="calorie-calculator.html" class="tool-card">
+              Calorie Calculator
+            </a>
+
+            <a href="bmi-calculator.html" class="tool-card">
+              BMI Calculator
+            </a>
+
+          </div>
+
+        </div>
 
       </div>
 
     </div>
 
-    <!-- INFO SECTION -->
+    <!-- INFO -->
 
     <div class="info-section">
 
       <h2>What is BMR?</h2>
 
       <p>
-        BMR (Basal Metabolic Rate) is the number of calories your body needs to maintain basic functions such as breathing, circulation and body temperature while at rest.
+        BMR (Basal Metabolic Rate) estimates
+        the number of calories your body needs
+        to perform essential functions at rest.
       </p>
 
-      <h2>Why is BMR Important?</h2>
+      <h2>Why BMR Matters</h2>
 
       <ul>
-        <li>Helps estimate calorie needs.</li>
-        <li>Useful for weight loss planning.</li>
-        <li>Supports muscle gain calculations.</li>
-        <li>Used in TDEE and calorie calculators.</li>
+        <li>Helps estimate calorie requirements.</li>
+        <li>Useful for fat loss and muscle gain planning.</li>
+        <li>Supports nutrition and fitness tracking.</li>
+        <li>Forms the base of TDEE calculations.</li>
       </ul>
-
-    </div>
-
-    <!-- RELATED TOOLS -->
-
-    <div class="related-tools">
-
-      <h2>Try Other Fitness Tools</h2>
-
-      <div class="tools-grid">
-
-        <a href="calorie-calculator.html" class="tool-card">
-          Calorie Calculator
-        </a>
-
-        <a href="tdee-calculator.html" class="tool-card">
-          TDEE Calculator
-        </a>
-
-        <a href="bmi-calculator.html" class="tool-card">
-          BMI Calculator
-        </a>
-
-        <a href="water-intake-calculator.html" class="tool-card">
-          Water Intake Calculator
-        </a>
-
-      </div>
 
     </div>
 
@@ -390,13 +576,23 @@
 
     function calculateBMR() {
 
-      const age = parseInt(document.getElementById("age").value);
+      const age =
+        parseInt(
+          document.getElementById("age").value
+        );
 
-      const gender = document.getElementById("gender").value;
+      const gender =
+        document.getElementById("gender").value;
 
-      const height = parseFloat(document.getElementById("height").value);
+      const height =
+        parseFloat(
+          document.getElementById("height").value
+        );
 
-      const weight = parseFloat(document.getElementById("weight").value);
+      const weight =
+        parseFloat(
+          document.getElementById("weight").value
+        );
 
       if (!age || !height || !weight) {
 
@@ -415,7 +611,9 @@
           5 * age +
           5;
 
-      } else {
+      }
+
+      else {
 
         bmr =
           10 * weight +
@@ -428,14 +626,10 @@
       bmr = Math.round(bmr);
 
       document.getElementById("bmrValue").innerHTML =
-        bmr + " kcal/day";
+        bmr + " kcal";
 
-      document.getElementById("bmrTip").innerHTML =
-        "Your body needs approximately " +
-        bmr +
-        " calories daily to maintain basic functions while resting.";
-
-      document.getElementById("resultCard").style.display = "block";
+      document.getElementById("resultCard").style.display =
+        "block";
 
     }
 
