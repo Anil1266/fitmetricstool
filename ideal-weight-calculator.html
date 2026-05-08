@@ -8,7 +8,7 @@
 
   <meta 
     name="description" 
-    content="Calculate your ideal body weight instantly using our free Ideal Weight Calculator. Find a healthy target weight based on your height and gender."
+    content="Calculate your ideal body weight instantly using our free Ideal Weight Calculator. Find a healthy target weight based on height and gender."
   />
 
   <style>
@@ -66,25 +66,28 @@
 
     .calculator-card {
       background: #1e293b;
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      padding: 35px;
+      border-radius: 22px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
     }
 
     h1 {
       text-align: center;
       margin-bottom: 10px;
+      font-size: 2.5rem;
     }
 
     .description {
       text-align: center;
       color: #cbd5e1;
-      line-height: 1.6;
-      margin-bottom: 30px;
+      line-height: 1.7;
+      margin-bottom: 35px;
     }
 
+    /* INPUTS */
+
     .input-group {
-      margin-bottom: 20px;
+      margin-bottom: 22px;
     }
 
     label {
@@ -96,8 +99,8 @@
     input,
     select {
       width: 100%;
-      padding: 14px;
-      border-radius: 10px;
+      padding: 15px;
+      border-radius: 12px;
       border: none;
       background: #334155;
       color: white;
@@ -110,14 +113,16 @@
       outline: 2px solid #22c55e;
     }
 
+    /* BUTTON */
+
     button {
       width: 100%;
-      padding: 15px;
+      padding: 16px;
       border: none;
-      border-radius: 12px;
+      border-radius: 14px;
       background: #22c55e;
       color: white;
-      font-size: 16px;
+      font-size: 17px;
       font-weight: bold;
       cursor: pointer;
       transition: 0.3s;
@@ -131,70 +136,130 @@
 
     .result-card {
       display: none;
-      margin-top: 30px;
+      margin-top: 35px;
+      padding: 35px;
+      border-radius: 22px;
       background: #7c3aed;
-      padding: 30px;
-      border-radius: 18px;
+      animation: fadeIn 0.5s ease;
       text-align: center;
     }
 
-    .weight-value {
-      font-size: 3rem;
-      font-weight: bold;
+    .result-label {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #ddd6fe;
       margin-bottom: 10px;
+      font-size: 0.95rem;
     }
 
-    .result-card p {
-      line-height: 1.6;
+    .weight-value {
+      font-size: 4rem;
+      font-weight: bold;
+      margin-bottom: 15px;
     }
 
-    /* INFO */
-
-    .info-section {
-      margin-top: 50px;
-      background: #1e293b;
-      padding: 30px;
-      border-radius: 20px;
-      line-height: 1.8;
+    .result-subtitle {
+      color: #f3f4f6;
+      line-height: 1.7;
+      margin-bottom: 30px;
     }
 
-    .info-section h2 {
+    /* INFO GRID */
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+    }
+
+    .info-card {
+      background: rgba(255,255,255,0.12);
+      padding: 20px;
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    .info-card h3 {
       margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+
+    .info-number {
+      font-size: 1.7rem;
+      font-weight: bold;
+    }
+
+    .info-desc {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #e9d5ff;
+      line-height: 1.5;
+    }
+
+    /* TIP BOX */
+
+    .tip-box {
+      margin-top: 25px;
+      background: rgba(255,255,255,0.12);
+      padding: 20px;
+      border-radius: 16px;
+      line-height: 1.7;
     }
 
     /* RELATED TOOLS */
 
     .related-tools {
-      margin-top: 50px;
+      margin-top: 35px;
+    }
+
+    .related-tools h3 {
+      margin-bottom: 15px;
+      text-align: center;
     }
 
     .tools-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 15px;
-      margin-top: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
     }
 
     .tool-card {
-      background: #1e293b;
-      padding: 20px;
-      border-radius: 14px;
+      background: rgba(255,255,255,0.12);
+      padding: 14px;
+      border-radius: 12px;
       text-align: center;
       text-decoration: none;
       color: white;
       transition: 0.3s;
+      font-size: 0.95rem;
     }
 
     .tool-card:hover {
-      background: #334155;
-      transform: translateY(-5px);
+      background: rgba(255,255,255,0.22);
+      transform: translateY(-3px);
+    }
+
+    /* INFO SECTION */
+
+    .info-section {
+      margin-top: 50px;
+      background: #1e293b;
+      padding: 35px;
+      border-radius: 22px;
+      line-height: 1.8;
+    }
+
+    .info-section h2 {
+      margin-top: 0;
+      color: #22c55e;
     }
 
     /* FOOTER */
 
     footer {
       background: black;
-      padding: 25px;
+      padding: 30px;
       text-align: center;
       margin-top: 60px;
     }
@@ -203,6 +268,22 @@
       color: #22c55e;
       text-decoration: none;
       margin: 0 5px;
+    }
+
+    /* ANIMATION */
+
+    @keyframes fadeIn {
+
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
     }
 
     /* MOBILE */
@@ -215,7 +296,7 @@
 
       .calculator-card,
       .info-section {
-        padding: 20px;
+        padding: 25px;
       }
 
       h1 {
@@ -223,7 +304,7 @@
       }
 
       .weight-value {
-        font-size: 2.3rem;
+        font-size: 3rem;
       }
 
     }
@@ -263,7 +344,8 @@
       <h1>Ideal Weight Calculator</h1>
 
       <p class="description">
-        Calculate your ideal body weight based on your height and gender using our free calculator.
+        Calculate your estimated ideal body weight
+        based on your height and gender.
       </p>
 
       <!-- GENDER -->
@@ -314,9 +396,103 @@
 
       <div id="resultCard" class="result-card">
 
+        <div class="result-label">
+          Estimated Ideal Weight
+        </div>
+
         <div id="weightValue" class="weight-value"></div>
 
-        <p id="weightTip"></p>
+        <div class="result-subtitle">
+          Estimated healthy weight range
+          based on standard ideal weight formulas.
+        </div>
+
+        <!-- INFO GRID -->
+
+        <div class="info-grid">
+
+          <div class="info-card">
+
+            <h3>Healthy Goal</h3>
+
+            <div class="info-number">
+              Balanced
+            </div>
+
+            <div class="info-desc">
+              Focus on long-term healthy habits
+              rather than extreme dieting.
+            </div>
+
+          </div>
+
+          <div class="info-card">
+
+            <h3>Fitness Tip</h3>
+
+            <div class="info-number">
+              Stay Active
+            </div>
+
+            <div class="info-desc">
+              Regular exercise supports
+              better health and body composition.
+            </div>
+
+          </div>
+
+          <div class="info-card">
+
+            <h3>Nutrition</h3>
+
+            <div class="info-number">
+              Eat Smart
+            </div>
+
+            <div class="info-desc">
+              Balanced meals help maintain
+              healthy body weight and energy.
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- TIP BOX -->
+
+        <div class="tip-box">
+
+          <strong>Reminder:</strong>
+
+          Ideal weight is only an estimate.
+          Muscle mass, body composition and lifestyle
+          also influence overall health.
+
+        </div>
+
+        <!-- RELATED TOOLS -->
+
+        <div class="related-tools">
+
+          <h3>Try Other Fitness Tools</h3>
+
+          <div class="tools-grid">
+
+            <a href="bmi-calculator.html" class="tool-card">
+              BMI Calculator
+            </a>
+
+            <a href="tdee-calculator.html" class="tool-card">
+              TDEE Calculator
+            </a>
+
+            <a href="water-intake-calculator.html" class="tool-card">
+              Water Intake
+            </a>
+
+          </div>
+
+        </div>
 
       </div>
 
@@ -326,48 +502,21 @@
 
     <div class="info-section">
 
-      <h2>What is Ideal Weight?</h2>
+      <h2>What is Ideal Body Weight?</h2>
 
       <p>
-        Ideal body weight is an estimated healthy weight range based on height and gender. It can help guide fitness and health goals.
+        Ideal body weight is an estimated healthy weight
+        range calculated using height and gender.
       </p>
 
-      <h2>Why Ideal Weight Matters</h2>
+      <h2>Why It Matters</h2>
 
       <ul>
-        <li>Supports healthy lifestyle planning.</li>
-        <li>Helps track fitness goals.</li>
-        <li>Useful for weight management.</li>
-        <li>Can improve long-term health awareness.</li>
+        <li>Supports health awareness.</li>
+        <li>Useful for fitness goal planning.</li>
+        <li>Helps guide healthy weight management.</li>
+        <li>Can improve long-term wellness tracking.</li>
       </ul>
-
-    </div>
-
-    <!-- RELATED TOOLS -->
-
-    <div class="related-tools">
-
-      <h2>Try Other Fitness Tools</h2>
-
-      <div class="tools-grid">
-
-        <a href="bmi-calculator.html" class="tool-card">
-          BMI Calculator
-        </a>
-
-        <a href="calorie-calculator.html" class="tool-card">
-          Calorie Calculator
-        </a>
-
-        <a href="tdee-calculator.html" class="tool-card">
-          TDEE Calculator
-        </a>
-
-        <a href="water-intake-calculator.html" class="tool-card">
-          Water Intake Calculator
-        </a>
-
-      </div>
 
     </div>
 
@@ -407,17 +556,19 @@
         return;
       }
 
-      let idealWeight;
-
       const heightInInches =
         height / 2.54;
+
+      let idealWeight;
 
       if (gender === "male") {
 
         idealWeight =
           50 + (2.3 * (heightInInches - 60));
 
-      } else {
+      }
+
+      else {
 
         idealWeight =
           45.5 + (2.3 * (heightInInches - 60));
@@ -429,11 +580,6 @@
 
       document.getElementById("weightValue").innerHTML =
         idealWeight + " kg";
-
-      document.getElementById("weightTip").innerHTML =
-        "Your estimated ideal body weight is approximately " +
-        idealWeight +
-        " kg based on standard healthy weight formulas.";
 
       document.getElementById("resultCard").style.display =
         "block";
