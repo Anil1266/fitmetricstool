@@ -1,141 +1,524 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TDEE Calculator | FitMetrics Tools</title>
 
-<title>TDEE Calculator | FitMetrics Tools</title>
+  <meta 
+    name="description" 
+    content="Calculate your Total Daily Energy Expenditure (TDEE) instantly using our free TDEE Calculator. Find calories needed for maintenance, weight loss and muscle gain."
+  />
 
-<meta name="description" content="Calculate your total daily calorie needs based on activity level.">
+  <style>
 
-<link rel="stylesheet" href="styles.css">
-<link rel="icon" href="favicon.ico">
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #111827;
+      color: white;
+    }
 
+    /* HEADER */
+
+    .site-header {
+      background: black;
+      padding: 15px 20px;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+      flex-wrap: wrap;
+    }
+
+    .logo a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .nav-menu a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .nav-menu a:hover {
+      color: #22c55e;
+    }
+
+    /* MAIN */
+
+    .container {
+      max-width: 700px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+
+    .calculator-card {
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .description {
+      text-align: center;
+      color: #cbd5e1;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 14px;
+      border-radius: 10px;
+      border: none;
+      background: #334155;
+      color: white;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    input:focus,
+    select:focus {
+      outline: 2px solid #22c55e;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 12px;
+      background: #22c55e;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #16a34a;
+    }
+
+    /* RESULT */
+
+    .result-card {
+      display: none;
+      margin-top: 30px;
+      background: #15803d;
+      padding: 30px;
+      border-radius: 18px;
+      text-align: center;
+    }
+
+    .tdee-value {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .goal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .goal-card {
+      background: rgba(255,255,255,0.1);
+      padding: 18px;
+      border-radius: 14px;
+    }
+
+    .goal-card h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+    }
+
+    .goal-card p {
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    /* INFO */
+
+    .info-section {
+      margin-top: 50px;
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 20px;
+      line-height: 1.8;
+    }
+
+    .info-section h2 {
+      margin-top: 0;
+    }
+
+    /* RELATED TOOLS */
+
+    .related-tools {
+      margin-top: 50px;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .tool-card {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 14px;
+      text-align: center;
+      text-decoration: none;
+      color: white;
+      transition: 0.3s;
+    }
+
+    .tool-card:hover {
+      background: #334155;
+      transform: translateY(-5px);
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: black;
+      padding: 25px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    footer a {
+      color: #22c55e;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 768px) {
+
+      .container {
+        padding: 15px;
+      }
+
+      .calculator-card,
+      .info-section {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .tdee-value {
+        font-size: 2.3rem;
+      }
+
+    }
+
+  </style>
 </head>
 
 <body>
 
-<!-- ✅ HEADER -->
-<header class="site-header">
-  <div class="nav-container">
-    <h2 class="logo"><a href="index.html">FitMetrics Tools</a></h2>
+  <!-- HEADER -->
 
-    <nav class="nav-menu">
-      <a href="index.html">Home</a>
-      <a href="guides.html">Guides</a>
-      <a href="bmi-calculator.html">BMI</a>
-      <a href="calorie-calculator.html">Calorie</a>
-      <a href="bmr-calculator.html">BMR</a>
-      <a href="tdee-calculator.html">TDEE</a>
-      <a href="water-intake-calculator.html">Water</a>
-      <a href="ideal-weight-calculator.html">Ideal</a>
-    </nav>
-  </div>
-</header>
+  <header class="site-header">
 
+    <div class="nav-container">
 
-<div class="container">
+      <h2 class="logo">
+        <a href="index.html">FitMetrics Tools</a>
+      </h2>
 
-  <!-- CALCULATOR -->
-  <div class="calculator-card">
+      <nav class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="guides.html">Guides</a>
+        <a href="bmi-calculator.html">BMI</a>
+        <a href="calorie-calculator.html">Calories</a>
+      </nav>
 
-    <h1>TDEE Calculator</h1>
-    <p>Estimate your total daily calorie needs based on your activity level.</p>
-
-    <input id="age" type="number" placeholder="Age">
-    <input id="weight" type="number" placeholder="Weight (kg)">
-    <input id="height" type="number" placeholder="Height (cm)">
-
-    <select id="gender">
-      <option value="male">Male</option>
-      <option value="female">Female</option>
-    </select>
-
-    <select id="activity">
-      <option value="1.2">Sedentary</option>
-      <option value="1.375">Light Exercise</option>
-      <option value="1.55">Moderate Exercise</option>
-      <option value="1.725">Heavy Exercise</option>
-    </select>
-
-    <button onclick="calculateTDEE()">Calculate TDEE</button>
-
-    <div id="result" style="margin-top:15px;">
-      Enter your details to calculate your daily calories
     </div>
 
-    <p>
-      👉 Based on your result, plan your diet or
-      <a href="calorie-calculator.html">adjust your calorie intake</a>
-    </p>
+  </header>
 
-  </div>
+  <!-- MAIN -->
 
+  <div class="container">
 
-  <!-- INFO -->
-  <div class="info-section">
+    <div class="calculator-card">
 
-    <h2>What is TDEE?</h2>
-    <p>
-      Total Daily Energy Expenditure (TDEE) is the total number of calories
-      your body burns in a day, including activity and metabolism.
-    </p>
+      <h1>TDEE Calculator</h1>
 
-    <h2>Who Should Use This?</h2>
-    <p>
-      Anyone who wants to lose weight, gain muscle, or maintain a healthy lifestyle.
-    </p>
+      <p class="description">
+        Calculate your Total Daily Energy Expenditure (TDEE)
+        to estimate how many calories you burn daily.
+      </p>
 
-    <h2>Why TDEE is Important</h2>
-    <ul>
-      <li>Helps determine daily calorie needs</li>
-      <li>Supports weight loss planning</li>
-      <li>Useful for muscle building diets</li>
-      <li>Helps maintain a healthy lifestyle</li>
-    </ul>
+      <!-- AGE -->
 
-    <h2>How TDEE is Calculated</h2>
-    <p>
-      TDEE is calculated by multiplying your BMR with your activity level.
-    </p>
+      <div class="input-group">
+        <label for="age">Age</label>
+        <input type="number" id="age" placeholder="Enter your age">
+      </div>
 
-  </div>
+      <!-- GENDER -->
 
+      <div class="input-group">
+        <label for="gender">Gender</label>
 
-  <!-- RELATED -->
-  <div class="related-tools">
+        <select id="gender">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
 
-    <h2>Other Health Calculators</h2>
+      <!-- HEIGHT -->
 
-    <div class="tools-grid">
-      <a href="bmi-calculator.html" class="tool-card">BMI Calculator</a>
-      <a href="calorie-calculator.html" class="tool-card">Calorie Calculator</a>
-      <a href="bmr-calculator.html" class="tool-card">BMR Calculator</a>
-      <a href="water-intake-calculator.html" class="tool-card">Water Intake</a>
-      <a href="ideal-weight-calculator.html" class="tool-card">Ideal Weight</a>
+      <div class="input-group">
+        <label for="height">Height (cm)</label>
+        <input type="number" id="height" placeholder="Enter your height">
+      </div>
+
+      <!-- WEIGHT -->
+
+      <div class="input-group">
+        <label for="weight">Weight (kg)</label>
+        <input type="number" id="weight" placeholder="Enter your weight">
+      </div>
+
+      <!-- ACTIVITY -->
+
+      <div class="input-group">
+        <label for="activity">Activity Level</label>
+
+        <select id="activity">
+
+          <option value="1.2">
+            Sedentary (little or no exercise)
+          </option>
+
+          <option value="1.375">
+            Light Exercise (1–3 days/week)
+          </option>
+
+          <option value="1.55">
+            Moderate Exercise (3–5 days/week)
+          </option>
+
+          <option value="1.725">
+            Heavy Exercise (6–7 days/week)
+          </option>
+
+          <option value="1.9">
+            Athlete / Very Active
+          </option>
+
+        </select>
+      </div>
+
+      <!-- BUTTON -->
+
+      <button onclick="calculateTDEE()">
+        Calculate TDEE
+      </button>
+
+      <!-- RESULT -->
+
+      <div id="resultCard" class="result-card">
+
+        <div id="tdeeValue" class="tdee-value"></div>
+
+        <p>
+          Estimated calories your body burns daily.
+        </p>
+
+        <div class="goal-grid">
+
+          <div class="goal-card">
+            <h3>Weight Loss</h3>
+            <p id="weightLoss"></p>
+          </div>
+
+          <div class="goal-card">
+            <h3>Maintenance</h3>
+            <p id="maintenance"></p>
+          </div>
+
+          <div class="goal-card">
+            <h3>Muscle Gain</h3>
+            <p id="muscleGain"></p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- INFO -->
+
+    <div class="info-section">
+
+      <h2>What is TDEE?</h2>
+
+      <p>
+        TDEE (Total Daily Energy Expenditure) is the total number of calories your body burns daily including exercise, movement and basic body functions.
+      </p>
+
+      <h2>Why TDEE Matters</h2>
+
+      <ul>
+        <li>Helps estimate daily calorie needs.</li>
+        <li>Useful for fat loss and muscle gain goals.</li>
+        <li>Supports meal planning and nutrition tracking.</li>
+        <li>Used by athletes and fitness enthusiasts.</li>
+      </ul>
+
+    </div>
+
+    <!-- RELATED TOOLS -->
+
+    <div class="related-tools">
+
+      <h2>Try Other Fitness Tools</h2>
+
+      <div class="tools-grid">
+
+        <a href="calorie-calculator.html" class="tool-card">
+          Calorie Calculator
+        </a>
+
+        <a href="bmr-calculator.html" class="tool-card">
+          BMR Calculator
+        </a>
+
+        <a href="bmi-calculator.html" class="tool-card">
+          BMI Calculator
+        </a>
+
+        <a href="water-intake-calculator.html" class="tool-card">
+          Water Intake Calculator
+        </a>
+
+      </div>
+
     </div>
 
   </div>
 
-
-  <!-- DISCLAIMER -->
-  <div class="info-section">
-    <h2>Disclaimer</h2>
-    <p>
-      Results are estimates and should not replace professional medical advice.
-    </p>
-  </div>
-
+  <!-- FOOTER -->
 
   <footer>
+
     <p>© 2026 FitMetrics Tools</p>
+
+    <a href="privacy-policy.html">Privacy Policy</a> |
+    <a href="terms.html">Terms</a> |
+    <a href="about.html">About</a> |
+    <a href="contact.html">Contact</a>
+
   </footer>
 
-</div>
+  <!-- SCRIPT -->
 
-<!-- ✅ FIXED SCRIPT PATH -->
-<script src="scripts.js"></script>
+  <script>
+
+    function calculateTDEE() {
+
+      const age = parseInt(document.getElementById("age").value);
+
+      const gender = document.getElementById("gender").value;
+
+      const height = parseFloat(document.getElementById("height").value);
+
+      const weight = parseFloat(document.getElementById("weight").value);
+
+      const activity = parseFloat(document.getElementById("activity").value);
+
+      if (!age || !height || !weight) {
+
+        alert("Please fill all fields.");
+
+        return;
+      }
+
+      let bmr;
+
+      if (gender === "male") {
+
+        bmr =
+          10 * weight +
+          6.25 * height -
+          5 * age +
+          5;
+
+      } else {
+
+        bmr =
+          10 * weight +
+          6.25 * height -
+          5 * age -
+          161;
+
+      }
+
+      const tdee = Math.round(bmr * activity);
+
+      const weightLoss = tdee - 500;
+
+      const muscleGain = tdee + 300;
+
+      document.getElementById("tdeeValue").innerHTML =
+        tdee + " kcal/day";
+
+      document.getElementById("weightLoss").innerHTML =
+        weightLoss + " kcal";
+
+      document.getElementById("maintenance").innerHTML =
+        tdee + " kcal";
+
+      document.getElementById("muscleGain").innerHTML =
+        muscleGain + " kcal";
+
+      document.getElementById("resultCard").style.display =
+        "block";
+
+    }
+
+  </script>
 
 </body>
 </html>
