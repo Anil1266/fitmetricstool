@@ -1,14 +1,638 @@
-<!-- Open Graph Meta Tags -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<meta property="og:title" content="BMI Calculator | FitMetrics Tools">
-<meta property="og:description" content="Calculate your Body Mass Index (BMI) instantly and check whether you are underweight, healthy, overweight or obese.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://fitmetricstools.com/bmi-calculator.html">
-<meta property="og:image" content="https://fitmetricstools.com/preview-image.jpg">
+  <title>BMI Calculator | FitMetrics Tools</title>
 
-<!-- Twitter Card -->
+  <meta 
+    name="description" 
+    content="Calculate your Body Mass Index (BMI) instantly using our free BMI Calculator. Check whether you are underweight, healthy, overweight or obese."
+  />
 
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="BMI Calculator | FitMetrics Tools">
-<meta name="twitter:description" content="Free BMI Calculator for health and fitness tracking.">
-<meta name="twitter:image" content="https://fitmetricstools.com/preview-image.jpg">
+  <!-- Open Graph Meta Tags -->
+
+  <meta property="og:title" content="BMI Calculator | FitMetrics Tools">
+  <meta property="og:description" content="Calculate your Body Mass Index (BMI) instantly and check whether you are underweight, healthy, overweight or obese.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fitmetricstools.com/bmi-calculator.html">
+  <meta property="og:image" content="https://fitmetricstools.com/preview-image.jpg">
+
+  <!-- Twitter Card -->
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BMI Calculator | FitMetrics Tools">
+  <meta name="twitter:description" content="Free BMI Calculator for health and fitness tracking.">
+  <meta name="twitter:image" content="https://fitmetricstools.com/preview-image.jpg">
+
+  <style>
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #111827;
+      color: white;
+    }
+
+    /* HEADER */
+
+    .site-header {
+      background: black;
+      padding: 15px 20px;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+      flex-wrap: wrap;
+    }
+
+    .logo a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .nav-menu {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .nav-menu a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .nav-menu a:hover {
+      color: #22c55e;
+    }
+
+    /* MAIN */
+
+    .container {
+      max-width: 700px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+
+    .calculator-card {
+      background: #1e293b;
+      padding: 35px;
+      border-radius: 22px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 2.5rem;
+    }
+
+    .description {
+      text-align: center;
+      color: #cbd5e1;
+      margin-bottom: 35px;
+      line-height: 1.7;
+    }
+
+    /* INPUTS */
+
+    .input-group {
+      margin-bottom: 22px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 15px;
+      border-radius: 12px;
+      border: none;
+      background: #334155;
+      color: white;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    input:focus {
+      outline: 2px solid #22c55e;
+    }
+
+    /* BUTTON */
+
+    button {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 14px;
+      background: #22c55e;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #16a34a;
+    }
+
+    /* RESULT */
+
+    .result-card {
+      margin-top: 35px;
+      padding: 30px;
+      border-radius: 22px;
+      text-align: center;
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .bmi-label {
+      font-size: 1rem;
+      color: #e2e8f0;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .bmi-value {
+      font-size: 4rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 50px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      font-size: 1rem;
+    }
+
+    .tip {
+      line-height: 1.7;
+      margin-bottom: 20px;
+      color: #f8fafc;
+    }
+
+    .healthy-range {
+      margin-top: 15px;
+      font-size: 0.95rem;
+      color: #dbeafe;
+    }
+
+    /* BMI BAR */
+
+    .bmi-bar-container {
+      margin-top: 30px;
+    }
+
+    .bmi-bar {
+      height: 20px;
+      border-radius: 50px;
+      overflow: hidden;
+      display: flex;
+    }
+
+    .underweight {
+      background: #3b82f6;
+      width: 25%;
+    }
+
+    .healthy {
+      background: #22c55e;
+      width: 25%;
+    }
+
+    .overweight {
+      background: #facc15;
+      width: 25%;
+    }
+
+    .obese {
+      background: #ef4444;
+      width: 25%;
+    }
+
+    .bmi-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      margin-top: 8px;
+      color: #cbd5e1;
+    }
+
+    /* RELATED TOOLS */
+
+    .related-tools {
+      margin-top: 35px;
+    }
+
+    .related-tools h3 {
+      margin-bottom: 15px;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+    }
+
+    .tool-card {
+      background: rgba(255,255,255,0.1);
+      padding: 14px;
+      border-radius: 12px;
+      text-decoration: none;
+      color: white;
+      transition: 0.3s;
+      font-size: 0.95rem;
+    }
+
+    .tool-card:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-3px);
+    }
+
+    /* INFO SECTION */
+
+    .info-section {
+      margin-top: 50px;
+      background: #1e293b;
+      padding: 35px;
+      border-radius: 22px;
+      line-height: 1.8;
+    }
+
+    .info-section h2 {
+      margin-top: 0;
+      color: #22c55e;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: black;
+      padding: 30px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    footer a {
+      color: #22c55e;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+
+    /* ANIMATION */
+
+    @keyframes fadeIn {
+
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 768px) {
+
+      .container {
+        padding: 15px;
+      }
+
+      .calculator-card,
+      .info-section {
+        padding: 25px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .bmi-value {
+        font-size: 3rem;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header class="site-header">
+
+    <div class="nav-container">
+
+      <h2 class="logo">
+        <a href="index.html">FitMetrics Tools</a>
+      </h2>
+
+      <nav class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="guides.html">Guides</a>
+        <a href="calorie-calculator.html">Calories</a>
+        <a href="tdee-calculator.html">TDEE</a>
+      </nav>
+
+    </div>
+
+  </header>
+
+  <!-- MAIN -->
+
+  <div class="container">
+
+    <div class="calculator-card">
+
+      <h1>BMI Calculator</h1>
+
+      <p class="description">
+        Calculate your Body Mass Index (BMI) instantly
+        and understand whether you are underweight,
+        healthy, overweight or obese.
+      </p>
+
+      <!-- HEIGHT -->
+
+      <div class="input-group">
+
+        <label for="height">
+          Height (cm)
+        </label>
+
+        <input 
+          type="number" 
+          id="height" 
+          placeholder="Enter your height"
+        >
+
+      </div>
+
+      <!-- WEIGHT -->
+
+      <div class="input-group">
+
+        <label for="weight">
+          Weight (kg)
+        </label>
+
+        <input 
+          type="number" 
+          id="weight" 
+          placeholder="Enter your weight"
+        >
+
+      </div>
+
+      <!-- BUTTON -->
+
+      <button onclick="calculateBMI()">
+        Calculate BMI
+      </button>
+
+      <!-- RESULT -->
+
+      <div id="resultCard" class="result-card">
+
+        <div class="bmi-label">
+          Your BMI Result
+        </div>
+
+        <div id="bmiValue" class="bmi-value"></div>
+
+        <div id="statusBadge" class="status-badge"></div>
+
+        <p id="tip" class="tip"></p>
+
+        <div class="healthy-range">
+          Healthy BMI Range: 18.5 – 24.9
+        </div>
+
+        <!-- BMI BAR -->
+
+        <div class="bmi-bar-container">
+
+          <div class="bmi-bar">
+
+            <div class="underweight"></div>
+
+            <div class="healthy"></div>
+
+            <div class="overweight"></div>
+
+            <div class="obese"></div>
+
+          </div>
+
+          <div class="bmi-labels">
+
+            <span>Under</span>
+            <span>Healthy</span>
+            <span>Over</span>
+            <span>Obese</span>
+
+          </div>
+
+        </div>
+
+        <!-- RELATED TOOLS -->
+
+        <div class="related-tools">
+
+          <h3>Try Other Fitness Tools</h3>
+
+          <div class="tools-grid">
+
+            <a href="calorie-calculator.html" class="tool-card">
+              Calorie Calculator
+            </a>
+
+            <a href="tdee-calculator.html" class="tool-card">
+              TDEE Calculator
+            </a>
+
+            <a href="water-intake-calculator.html" class="tool-card">
+              Water Intake
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- INFO -->
+
+    <div class="info-section">
+
+      <h2>What is BMI?</h2>
+
+      <p>
+        BMI (Body Mass Index) is a simple calculation
+        using height and weight to estimate body fat levels.
+      </p>
+
+      <h2>BMI Categories</h2>
+
+      <ul>
+        <li>Below 18.5 → Underweight</li>
+        <li>18.5 – 24.9 → Healthy</li>
+        <li>25 – 29.9 → Overweight</li>
+        <li>30+ → Obese</li>
+      </ul>
+
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>© 2026 FitMetrics Tools</p>
+
+    <a href="privacy-policy.html">Privacy Policy</a> |
+    <a href="terms.html">Terms</a> |
+    <a href="about.html">About</a> |
+    <a href="contact.html">Contact</a>
+
+  </footer>
+
+  <!-- SCRIPT -->
+
+  <script>
+
+    function calculateBMI() {
+
+      const height =
+        document.getElementById("height").value;
+
+      const weight =
+        document.getElementById("weight").value;
+
+      if(height === "" || weight === "") {
+
+        alert("Please enter height and weight.");
+
+        return;
+      }
+
+      const heightInMeters = height / 100;
+
+      const bmi =
+        (
+          weight /
+          (heightInMeters * heightInMeters)
+        ).toFixed(1);
+
+      const resultCard =
+        document.getElementById("resultCard");
+
+      const bmiValue =
+        document.getElementById("bmiValue");
+
+      const statusBadge =
+        document.getElementById("statusBadge");
+
+      const tip =
+        document.getElementById("tip");
+
+      bmiValue.innerHTML = bmi;
+
+      let bmiStatus = "";
+      let bmiTip = "";
+      let backgroundColor = "";
+      let badgeColor = "";
+
+      if(bmi < 18.5) {
+
+        bmiStatus = "Underweight";
+
+        bmiTip =
+          "You may need to increase calorie intake and focus on healthy weight gain.";
+
+        backgroundColor = "#1d4ed8";
+
+        badgeColor = "#60a5fa";
+
+      }
+
+      else if(bmi < 25) {
+
+        bmiStatus = "Healthy";
+
+        bmiTip =
+          "Great! Maintain balanced nutrition and regular physical activity.";
+
+        backgroundColor = "#15803d";
+
+        badgeColor = "#4ade80";
+
+      }
+
+      else if(bmi < 30) {
+
+        bmiStatus = "Overweight";
+
+        bmiTip =
+          "Consider improving nutrition quality and increasing physical activity.";
+
+        backgroundColor = "#ca8a04";
+
+        badgeColor = "#fde047";
+
+      }
+
+      else {
+
+        bmiStatus = "Obese";
+
+        bmiTip =
+          "Consult a healthcare professional for personalized weight management guidance.";
+
+        backgroundColor = "#dc2626";
+
+        badgeColor = "#f87171";
+
+      }
+
+      statusBadge.innerHTML = bmiStatus;
+
+      statusBadge.style.background = badgeColor;
+
+      statusBadge.style.color = "#111827";
+
+      tip.innerHTML = bmiTip;
+
+      resultCard.style.display = "block";
+
+      resultCard.style.background = backgroundColor;
+
+    }
+
+  </script>
+
+</body>
+</html>
