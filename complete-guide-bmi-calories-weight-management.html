@@ -1,278 +1,399 @@
 <!DOCTYPE html>
 <html lang="en">
-  
 <head>
-  <meta charset="UTF-8">
-  <title>Complete Guide to BMI, Calories & Weight Management | Fit Metrics Tools</title>
-  <meta name="description" content="Learn how BMI, calorie needs, BMR and water intake affect weight loss and weight gain. Complete guide with formulas, tips and free health calculators.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="canonical" href="https://fitmetricstools.com/complete-guide-bmi-calories-weight-management.html">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Calories Per Day Guide | FitMetrics Tools</title>
+
+  <meta 
+    name="description" 
+    content="Learn how daily calorie needs work, how to calculate calories for weight loss or muscle gain, and practical nutrition tips."
+  />
+
+  <style>
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #111827;
+      color: white;
+      line-height: 1.8;
+    }
+
+    /* HEADER */
+
+    .site-header {
+      background: black;
+      padding: 15px 20px;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .nav-menu a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .nav-menu a:hover {
+      color: #22c55e;
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 80px 20px;
+      text-align: center;
+      background: linear-gradient(to bottom, #111827, #0f172a);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: auto;
+      color: #cbd5e1;
+      font-size: 1.1rem;
+    }
+
+    /* ARTICLE */
+
+    .article-container {
+      max-width: 900px;
+      margin: auto;
+      padding: 50px 20px;
+    }
+
+    .article-card {
+      background: #1e293b;
+      padding: 35px;
+      border-radius: 20px;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      color: #22c55e;
+      margin-top: 0;
+    }
+
+    p {
+      color: #e2e8f0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    /* TIP BOX */
+
+    .tip-box {
+      background: #0f172a;
+      border-left: 5px solid #22c55e;
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+
+    .tip-box strong {
+      color: #22c55e;
+    }
+
+    /* TOOL SECTION */
+
+    .tools-section {
+      margin-top: 50px;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .tool-card {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 14px;
+      text-align: center;
+      text-decoration: none;
+      color: white;
+      transition: 0.3s;
+    }
+
+    .tool-card:hover {
+      background: #334155;
+      transform: translateY(-5px);
+    }
+
+    /* FAQ */
+
+    .faq-item {
+      margin-bottom: 25px;
+    }
+
+    .faq-item h3 {
+      margin-bottom: 10px;
+      color: #22c55e;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: black;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 60px;
+    }
+
+    footer a {
+      color: #22c55e;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 768px) {
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .article-card {
+        padding: 25px;
+      }
+
+    }
+
+  </style>
 </head>
 
-<body style="font-family: Arial, sans-serif; line-height:1.6; max-width:900px; margin:auto; padding:20px;">
+<body>
 
-<h1>Complete Guide to BMI, Calories & Weight Management</h1>
+  <!-- HEADER -->
 
-<p>
-Understanding your body weight is not just about appearance. It is about health, energy, and long-term well-being. 
-This complete guide explains Body Mass Index (BMI), calorie needs, weight loss, weight gain, and hydration in simple terms.
-</p>
+  <header class="site-header">
 
-<hr>
+    <div class="nav-container">
 
-<h2>1. What is BMI (Body Mass Index)?</h2>
+      <h2 class="logo">
+        <a href="index.html">FitMetrics Tools</a>
+      </h2>
 
-<p>
-BMI is a simple calculation used to estimate whether your body weight is healthy for your height.
-</p>
+      <nav class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="guides.html">Guides</a>
+        <a href="calorie-calculator.html">Calorie Calculator</a>
+        <a href="tdee-calculator.html">TDEE</a>
+      </nav>
 
-<h3>BMI Formula:</h3>
-<p><strong>BMI = Weight (kg) ÷ Height (m²)</strong></p>
+    </div>
 
-<p>
-Example: If your weight is 70 kg and height is 1.75 m:
-</p>
+  </header>
 
-<ul>
-<li>1.75 × 1.75 = 3.06</li>
-<li>70 ÷ 3.06 = 22.86</li>
-</ul>
+  <!-- HERO -->
 
-<p>Your BMI is 22.86.</p>
+  <section class="hero">
 
-<h3>Global BMI Categories:</h3>
-<ul>
-<li>Below 18.5 → Underweight</li>
-<li>18.5 – 24.9 → Normal weight</li>
-<li>25 – 29.9 → Overweight</li>
-<li>30+ → Obese</li>
-</ul>
+    <h1>Calories Per Day Guide</h1>
 
-<p>
-You can calculate your BMI instantly using our 
-<a href="https://fitmetricstools.com/bmi-calculator.html">free BMI calculator</a>.
-</p>
+    <p>
+      Learn how calorie needs work, how to estimate your daily intake,
+      and how calories affect weight loss, maintenance and muscle gain.
+    </p>
 
-<hr>
+  </section>
 
-<h2>2. How Many Calories Do You Need Per Day?</h2>
+  <!-- ARTICLE -->
 
-<p>
-Calories are units of energy. Your body needs calories to breathe, move, digest food, and function daily.
-</p>
+  <div class="article-container">
 
-<h3>Step 1: Calculate BMR</h3>
-<p>
-BMR (Basal Metabolic Rate) is the number of calories your body burns at rest.
-</p>
+    <!-- SECTION 1 -->
 
-<h3>Step 2: Multiply by Activity Level</h3>
+    <div class="article-card">
 
-<ul>
-<li>Sedentary → BMR × 1.2</li>
-<li>Lightly active → BMR × 1.375</li>
-<li>Moderately active → BMR × 1.55</li>
-<li>Very active → BMR × 1.725</li>
-</ul>
+      <h2>What Are Calories?</h2>
 
-<p>
-For accurate results, use our 
-<a href="https://fitmetricstools.com/calorie-calculator.html">calorie calculator</a>.
-</p>
+      <p>
+        Calories are units of energy your body uses
+        for daily activities, exercise and essential functions
+        like breathing and digestion.
+      </p>
 
-<hr>
+      <ul>
+        <li>Food provides energy through calories</li>
+        <li>Your body burns calories throughout the day</li>
+        <li>Activity level affects calorie needs</li>
+        <li>Nutrition quality still matters</li>
+      </ul>
 
-<h2>3. How to Lose Weight Safely</h2>
+    </div>
 
-<p>
-Weight loss happens when you create a calorie deficit — meaning you burn more calories than you consume.
-</p>
+    <!-- SECTION 2 -->
 
-<h3>1 kg of body fat ≈ 7,700 calories</h3>
+    <div class="article-card">
 
-<p>
-To lose 5 kg, you need about 38,500 calories deficit over time.
-</p>
+      <h2>Calories for Weight Loss and Muscle Gain</h2>
 
-<h3>Safe Weight Loss Rate:</h3>
-<ul>
-<li>0.5 to 1 kg per week</li>
-</ul>
+      <p>
+        Your calorie intake directly affects body weight changes.
+      </p>
 
-<h3>Healthy Weight Loss Tips:</h3>
-<ul>
-<li>Reduce 300–500 calories daily</li>
-<li>Increase physical activity</li>
-<li>Eat sufficient protein</li>
-<li>Sleep 7–8 hours</li>
-<li>Stay hydrated</li>
-</ul>
+      <ul>
+        <li>Weight loss requires a calorie deficit</li>
+        <li>Maintenance calories keep weight stable</li>
+        <li>Muscle gain usually requires a calorie surplus</li>
+      </ul>
 
-<p>
-Read detailed guide: 
-<a href="https://fitmetricstools.com/how-to-lose-weight-safely.html">How to Lose Weight Safely</a>
-</p>
+      <div class="tip-box">
 
-<hr>
+        <strong>Pro Tip:</strong>
 
-<h2>4. How to Gain Weight in a Healthy Way</h2>
+        A moderate calorie deficit is usually
+        easier to maintain long term than extreme dieting.
 
-<p>
-Weight gain requires a calorie surplus — consuming more calories than you burn.
-</p>
+      </div>
 
-<h3>Healthy Weight Gain Tips:</h3>
-<ul>
-<li>Add 300–500 extra calories daily</li>
-<li>Focus on protein-rich foods</li>
-<li>Include healthy fats</li>
-<li>Strength training exercises</li>
-</ul>
+    </div>
 
-<p>
-Read full guide here:
-<a href="https://fitmetricstools.com/best-diet-for-weight-gain.html">Best Diet for Healthy Weight Gain</a>
-</p>
+    <!-- SECTION 3 -->
 
-<hr>
+    <div class="article-card">
 
-<h2>5. How Much Water Should You Drink?</h2>
+      <h2>How to Estimate Daily Calories</h2>
 
-<p>
-Hydration supports metabolism, digestion, and energy levels.
-</p>
+      <p>
+        Daily calorie needs depend on:
+      </p>
 
-<h3>Basic Formula:</h3>
-<p><strong>30–35 ml per kg of body weight</strong></p>
+      <ul>
+        <li>Age</li>
+        <li>Gender</li>
+        <li>Body weight</li>
+        <li>Height</li>
+        <li>Activity level</li>
+      </ul>
 
-<p>
-If you weigh 70 kg:
-</p>
+      <p>
+        Calorie calculators and TDEE calculators
+        can help estimate these values more accurately.
+      </p>
 
-<ul>
-<li>70 × 30 = 2100 ml (2.1 liters)</li>
-<li>70 × 35 = 2450 ml (2.45 liters)</li>
-</ul>
+    </div>
 
-<p>
-Calculate your personal requirement:
-<a href="https://fitmetricstools.com/water-intake-calculator.html">Water Intake Calculator</a>
-</p>
+    <!-- FAQ -->
 
-<hr>
+    <div class="article-card">
 
-<h2>6. Why Weight Management Matters</h2>
+      <h2>Frequently Asked Questions</h2>
 
-<p>
-Maintaining a healthy weight reduces risk of:
-</p>
+      <div class="faq-item">
 
-<ul>
-<li>Heart disease</li>
-<li>Type 2 diabetes</li>
-<li>High blood pressure</li>
-<li>Joint problems</li>
-<li>Low energy levels</li>
-</ul>
+        <h3>How many calories should I eat daily?</h3>
 
-<p>
-Balanced nutrition, consistent exercise, and regular monitoring are key to long-term health.
-</p>
+        <p>
+          Daily calorie needs vary based on body size,
+          activity level and fitness goals.
+        </p>
 
-<hr>
+      </div>
 
-<h2>Frequently Asked Questions (FAQ)</h2>
+      <div class="faq-item">
 
-<h3>Is BMI accurate?</h3>
-<p>
-BMI is a screening tool. It does not measure body fat percentage but gives a general health estimate.
-</p>
+        <h3>Are all calories equal?</h3>
 
-<h3>How many calories should I cut to lose weight?</h3>
-<p>
-A daily deficit of 300–500 calories is generally considered safe and sustainable.
-</p>
+        <p>
+          Calorie quantity matters, but food quality,
+          nutrients and protein intake are also important.
+        </p>
 
-<h3>Can I lose weight without exercise?</h3>
-<p>
-Yes, through diet control, but combining exercise improves results and muscle retention.
-</p>
+      </div>
 
-<h3>How long does it take to see results?</h3>
-<p>
-Most people see noticeable changes within 4–6 weeks of consistent effort.
-</p>
+      <div class="faq-item">
 
-<hr>
+        <h3>Can eating too little slow progress?</h3>
 
-<h2>Final Thoughts</h2>
+        <p>
+          Extremely low calorie intake may reduce energy,
+          recovery and long-term sustainability.
+        </p>
 
-<p>
-Understanding BMI, calorie needs, hydration, and balanced nutrition empowers you to take control of your health. 
-Use our free online tools to track your progress and make informed decisions.
-</p>
+      </div>
 
-<p>
-Explore all tools at:
-<a href="https://fitmetricstools.com/">Fit Metrics Tools</a>
-</p>
+    </div>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is BMI and how is it calculated?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "BMI (Body Mass Index) is calculated by dividing weight in kilograms by height in meters squared. BMI = kg/m²."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many calories do I need per day?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Daily calorie needs depend on age, gender, weight, height and activity level. You can estimate this by calculating your BMR and multiplying by your activity factor."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many calories equal 1 kg of fat?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Approximately 7,700 calories equal 1 kilogram of body fat."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How much water should I drink daily?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A common recommendation is 30 to 35 milliliters of water per kilogram of body weight."
-      }
-    }
-  ]
-}
-</script>
-  
-</body>
-<header class="site-header">
-  <div class="nav-container">
-    <h2 class="logo"><a href="index.html">FitMetrics Tools</a></h2>
+    <!-- TOOLS -->
 
-    <nav class="nav-menu">
-      <a href="index.html">Home</a>
-      <a href="guides.html">Guides</a>
-      <a href="bmi-calculator.html">BMI</a>
-      <a href="calorie-calculator.html">Calorie</a>
-      <a href="bmr-calculator.html">BMR</a>
-      <a href="tdee-calculator.html">TDEE</a>
-      <a href="water-intake-calculator.html">Water</a>
-      <a href="ideal-weight-calculator.html">Ideal</a>
-    </nav>
+    <div class="tools-section">
+
+      <h2>Useful Fitness Tools</h2>
+
+      <div class="tools-grid">
+
+        <a href="calorie-calculator.html" class="tool-card">
+          Calorie Calculator
+        </a>
+
+        <a href="tdee-calculator.html" class="tool-card">
+          TDEE Calculator
+        </a>
+
+        <a href="bmr-calculator.html" class="tool-card">
+          BMR Calculator
+        </a>
+
+        <a href="bmi-calculator.html" class="tool-card">
+          BMI Calculator
+        </a>
+
+      </div>
+
+    </div>
+
   </div>
-</header>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>© 2026 FitMetrics Tools</p>
+
+    <a href="privacy-policy.html">Privacy Policy</a> |
+    <a href="terms.html">Terms</a> |
+    <a href="about.html">About</a> |
+    <a href="contact.html">Contact</a>
+
+  </footer>
+
+</body>
 </html>
