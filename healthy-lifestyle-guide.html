@@ -1,87 +1,388 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Healthy Lifestyle Guide | FitMetrics Tools</title>
 
-<title>Muscle Gain Guide | FitMetrics Tools</title>
+  <meta 
+    name="description" 
+    content="Learn healthy lifestyle habits including nutrition, exercise, sleep, hydration and stress management for long-term wellness."
+  />
 
-<link rel="stylesheet" href="/styles.css">
+  <style>
 
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #111827;
+      color: white;
+      line-height: 1.8;
+    }
+
+    /* HEADER */
+
+    .site-header {
+      background: black;
+      padding: 15px 20px;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .nav-menu a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .nav-menu a:hover {
+      color: #22c55e;
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 80px 20px;
+      text-align: center;
+      background: linear-gradient(to bottom, #111827, #0f172a);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: auto;
+      color: #cbd5e1;
+      font-size: 1.1rem;
+    }
+
+    /* ARTICLE */
+
+    .article-container {
+      max-width: 900px;
+      margin: auto;
+      padding: 50px 20px;
+    }
+
+    .article-card {
+      background: #1e293b;
+      padding: 35px;
+      border-radius: 20px;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      color: #22c55e;
+      margin-top: 0;
+    }
+
+    p {
+      color: #e2e8f0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    /* TIP BOX */
+
+    .tip-box {
+      background: #0f172a;
+      border-left: 5px solid #22c55e;
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+
+    .tip-box strong {
+      color: #22c55e;
+    }
+
+    /* TOOL SECTION */
+
+    .tools-section {
+      margin-top: 50px;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .tool-card {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 14px;
+      text-align: center;
+      text-decoration: none;
+      color: white;
+      transition: 0.3s;
+    }
+
+    .tool-card:hover {
+      background: #334155;
+      transform: translateY(-5px);
+    }
+
+    /* FAQ */
+
+    .faq-item {
+      margin-bottom: 25px;
+    }
+
+    .faq-item h3 {
+      margin-bottom: 10px;
+      color: #22c55e;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: black;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 60px;
+    }
+
+    footer a {
+      color: #22c55e;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 768px) {
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .article-card {
+        padding: 25px;
+      }
+
+    }
+
+  </style>
 </head>
 
 <body>
 
-<header class="site-header">
-<div class="nav-container">
+  <!-- HEADER -->
 
-<h2 class="logo">FitMetrics Tools</h2>
+  <header class="site-header">
 
-<nav class="navbar">
-<a href="/">Home</a>
-<a href="/guides.html">Guides</a>
-</nav>
+    <div class="nav-container">
 
-</div>
-</header>
+      <h2 class="logo">
+        <a href="index.html">FitMetrics Tools</a>
+      </h2>
 
+      <nav class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="guides.html">Guides</a>
+        <a href="bmi-calculator.html">BMI</a>
+        <a href="calorie-calculator.html">Calories</a>
+      </nav>
 
-<div class="container">
+    </div>
 
-<h1>Muscle Gain Nutrition Guide</h1>
+  </header>
 
-<div class="info-section">
+  <!-- HERO -->
 
-<p>
-Muscle gain requires proper nutrition and strength training.
-Consuming enough protein and calories is essential.
-</p>
+  <section class="hero">
 
-<h2>Tips for Muscle Growth</h2>
+    <h1>Healthy Lifestyle Guide</h1>
 
-<ul>
-<li>Increase protein intake</li>
-<li>Follow strength training</li>
-<li>Maintain calorie surplus</li>
-<li>Allow recovery time</li>
-</ul>
+    <p>
+      Learn healthy daily habits for better physical health,
+      mental well-being and long-term fitness.
+    </p>
 
-<h2>Recommended Tools</h2>
+  </section>
 
-<p>
-Use our <a href="/bmr-calculator.html">BMR Calculator</a>
-and <a href="/tdee-calculator.html">TDEE Calculator</a>
-to plan your diet.
-</p>
+  <!-- ARTICLE -->
 
-</div>
+  <div class="article-container">
 
-</div>
+    <!-- SECTION 1 -->
 
+    <div class="article-card">
 
-<footer>
+      <h2>What is a Healthy Lifestyle?</h2>
 
-<p>© 2026 FitMetrics Tools</p>
+      <p>
+        A healthy lifestyle includes balanced nutrition,
+        regular exercise, quality sleep, hydration and
+        stress management.
+      </p>
 
-</footer>
+      <ul>
+        <li>Eat nutritious foods</li>
+        <li>Exercise consistently</li>
+        <li>Sleep 7–9 hours daily</li>
+        <li>Manage stress levels</li>
+      </ul>
+
+    </div>
+
+    <!-- SECTION 2 -->
+
+    <div class="article-card">
+
+      <h2>Healthy Eating Habits</h2>
+
+      <ul>
+        <li>Eat more fruits and vegetables</li>
+        <li>Reduce processed foods</li>
+        <li>Drink enough water daily</li>
+        <li>Maintain balanced calorie intake</li>
+      </ul>
+
+      <div class="tip-box">
+
+        <strong>Pro Tip:</strong>
+
+        Small consistent habits usually create
+        better long-term results than extreme diets.
+
+      </div>
+
+    </div>
+
+    <!-- SECTION 3 -->
+
+    <div class="article-card">
+
+      <h2>Importance of Exercise and Recovery</h2>
+
+      <p>
+        Physical activity improves strength,
+        heart health, mood and energy levels.
+      </p>
+
+      <p>
+        Recovery and sleep are equally important
+        for maintaining long-term health.
+      </p>
+
+    </div>
+
+    <!-- FAQ -->
+
+    <div class="article-card">
+
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+
+        <h3>How much exercise is recommended?</h3>
+
+        <p>
+          Adults should aim for at least
+          150 minutes of moderate activity weekly.
+        </p>
+
+      </div>
+
+      <div class="faq-item">
+
+        <h3>Why is sleep important?</h3>
+
+        <p>
+          Sleep supports recovery, hormone balance,
+          mental focus and overall health.
+        </p>
+
+      </div>
+
+      <div class="faq-item">
+
+        <h3>Do healthy habits need to be perfect?</h3>
+
+        <p>
+          No. Consistency matters more than perfection.
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- TOOLS -->
+
+    <div class="tools-section">
+
+      <h2>Useful Fitness Tools</h2>
+
+      <div class="tools-grid">
+
+        <a href="bmi-calculator.html" class="tool-card">
+          BMI Calculator
+        </a>
+
+        <a href="calorie-calculator.html" class="tool-card">
+          Calorie Calculator
+        </a>
+
+        <a href="water-intake-calculator.html" class="tool-card">
+          Water Intake Calculator
+        </a>
+
+        <a href="ideal-weight-calculator.html" class="tool-card">
+          Ideal Weight Calculator
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>© 2026 FitMetrics Tools</p>
+
+    <a href="privacy-policy.html">Privacy Policy</a> |
+    <a href="terms.html">Terms</a> |
+    <a href="about.html">About</a> |
+    <a href="contact.html">Contact</a>
+
+  </footer>
 
 </body>
-<header class="site-header">
-  <div class="nav-container">
-    <h2 class="logo"><a href="index.html">FitMetrics Tools</a></h2>
-
-    <nav class="nav-menu">
-      <a href="index.html">Home</a>
-      <a href="guides.html">Guides</a>
-      <a href="bmi-calculator.html">BMI</a>
-      <a href="calorie-calculator.html">Calorie</a>
-      <a href="bmr-calculator.html">BMR</a>
-      <a href="tdee-calculator.html">TDEE</a>
-      <a href="water-intake-calculator.html">Water</a>
-      <a href="ideal-weight-calculator.html">Ideal</a>
-    </nav>
-  </div>
-</header>
 </html>
