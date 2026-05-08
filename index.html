@@ -4,7 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>FitMetrics Tools</title>
+  <title>FitMetrics Tools | Free Fitness & Health Calculators</title>
+
+  <meta 
+    name="description" 
+    content="Free fitness calculators and health tools including BMI, Calories, TDEE, BMR, Water Intake and Ideal Weight calculators."
+  />
+
+  <!-- Open Graph Meta Tags -->
+
+  <meta property="og:title" content="FitMetrics Tools">
+  <meta property="og:description" content="Free fitness calculators and health tools including BMI, Calories, TDEE, BMR and Water Intake.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fitmetricstools.com">
+  <meta property="og:image" content="https://fitmetricstools.com/preview-image.jpg">
+
+  <!-- Twitter Card -->
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FitMetrics Tools">
+  <meta name="twitter:description" content="Free fitness calculators and health tools.">
+  <meta name="twitter:image" content="https://fitmetricstools.com/preview-image.jpg">
 
   <style>
 
@@ -18,7 +38,7 @@
     /* HEADER */
 
     .site-header {
-      background: #000;
+      background: black;
       padding: 15px 20px;
       position: sticky;
       top: 0;
@@ -29,69 +49,67 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
       max-width: 1200px;
       margin: auto;
+      flex-wrap: wrap;
     }
 
     .logo a {
       color: white;
       text-decoration: none;
+      font-size: 1.6rem;
+      font-weight: bold;
     }
 
     .nav-menu {
       display: flex;
-      flex-wrap: wrap;
       gap: 15px;
+      flex-wrap: wrap;
     }
 
     .nav-menu a {
       color: white;
       text-decoration: none;
-      font-size: 14px;
+      transition: 0.3s;
     }
 
     .nav-menu a:hover {
       color: #22c55e;
     }
 
-    /* HERO SECTION */
+    /* HERO */
 
     .hero {
-      padding: 90px 20px;
+      padding: 100px 20px;
       text-align: center;
       background: linear-gradient(to bottom, #111827, #0f172a);
     }
 
-    .hero-content {
-      max-width: 800px;
-      margin: auto;
-    }
-
     .hero h1 {
-      font-size: 3rem;
-      line-height: 1.2;
+      font-size: 3.5rem;
       margin-bottom: 20px;
+      line-height: 1.2;
     }
 
     .hero p {
-      font-size: 1.1rem;
+      max-width: 750px;
+      margin: auto;
       color: #cbd5e1;
-      line-height: 1.6;
-      margin-bottom: 35px;
+      line-height: 1.8;
+      font-size: 1.1rem;
     }
 
     .hero-buttons {
+      margin-top: 35px;
       display: flex;
       justify-content: center;
       gap: 15px;
       flex-wrap: wrap;
     }
 
-    .primary-btn,
-    .secondary-btn {
-      padding: 14px 24px;
-      border-radius: 10px;
+    .hero-btn {
+      padding: 15px 28px;
+      border-radius: 14px;
       text-decoration: none;
       font-weight: bold;
       transition: 0.3s;
@@ -109,88 +127,129 @@
     .secondary-btn {
       background: #1e293b;
       color: white;
-      border: 1px solid #334155;
     }
 
     .secondary-btn:hover {
       background: #334155;
     }
 
-    /* SECTIONS */
+    /* SECTION */
+
+    .section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 70px 20px;
+    }
 
     .section-title {
       text-align: center;
-      margin-top: 60px;
-      margin-bottom: 20px;
-      font-size: 2rem;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: 2.3rem;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #cbd5e1;
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.7;
     }
 
     /* GRID */
 
     .tools-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      padding: 20px;
-      max-width: 1200px;
-      margin: auto;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
     }
-
-    /* CARDS */
 
     .tool-card {
       background: #1e293b;
-      padding: 24px;
-      border-radius: 16px;
+      padding: 30px;
+      border-radius: 22px;
       text-decoration: none;
       color: white;
       transition: 0.3s;
-      font-weight: bold;
-      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     }
 
     .tool-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-6px);
       background: #334155;
     }
 
-    /* WHY SECTION */
-
-    .why-section {
-      max-width: 1200px;
-      margin: auto;
-      padding: 60px 20px;
+    .tool-card h3 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      color: #22c55e;
     }
 
-    .benefits-grid {
+    .tool-card p {
+      color: #cbd5e1;
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+
+    /* FEATURES */
+
+    .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 20px;
+      margin-top: 40px;
     }
 
-    .benefit-card {
+    .feature-card {
       background: #1e293b;
-      padding: 24px;
-      border-radius: 16px;
+      padding: 25px;
+      border-radius: 20px;
       text-align: center;
     }
 
-    .benefit-card h3 {
+    .feature-card h3 {
+      color: #22c55e;
+      margin-bottom: 12px;
+    }
+
+    .feature-card p {
+      color: #cbd5e1;
+      line-height: 1.6;
+    }
+
+    /* CTA */
+
+    .cta-section {
+      background: linear-gradient(to right, #15803d, #166534);
+      padding: 70px 20px;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
       margin-bottom: 15px;
     }
 
-    .benefit-card p {
-      color: #cbd5e1;
-      line-height: 1.6;
+    .cta-section p {
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.8;
+      margin-bottom: 30px;
     }
 
     /* FOOTER */
 
     footer {
-      background: #000;
+      background: black;
+      padding: 35px 20px;
       text-align: center;
-      padding: 30px 20px;
-      margin-top: 60px;
+    }
+
+    footer p {
+      margin-bottom: 15px;
     }
 
     footer a {
@@ -199,29 +258,28 @@
       margin: 0 5px;
     }
 
-    footer a:hover {
-      text-decoration: underline;
-    }
-
     /* MOBILE */
 
     @media (max-width: 768px) {
 
+      .hero {
+        padding: 80px 20px;
+      }
+
       .hero h1 {
-        font-size: 2rem;
+        font-size: 2.4rem;
       }
 
       .hero p {
         font-size: 1rem;
       }
 
-      .nav-container {
-        justify-content: center;
-        gap: 15px;
+      .section-title h2 {
+        font-size: 2rem;
       }
 
-      .nav-menu {
-        justify-content: center;
+      .cta-section h2 {
+        font-size: 2rem;
       }
 
     }
@@ -242,14 +300,13 @@
       </h2>
 
       <nav class="nav-menu">
+
         <a href="index.html">Home</a>
         <a href="guides.html">Guides</a>
         <a href="bmi-calculator.html">BMI</a>
-        <a href="calorie-calculator.html">Calorie</a>
-        <a href="bmr-calculator.html">BMR</a>
+        <a href="calorie-calculator.html">Calories</a>
         <a href="tdee-calculator.html">TDEE</a>
-        <a href="water-intake-calculator.html">Water</a>
-        <a href="ideal-weight-calculator.html">Ideal</a>
+
       </nav>
 
     </div>
@@ -260,28 +317,24 @@
 
   <section class="hero">
 
-    <div class="hero-content">
+    <h1>
+      Free Fitness & Health Calculators
+    </h1>
 
-      <h1>
-        Free Fitness & Health Calculators That Actually Help
-      </h1>
+    <p>
+      Track your fitness goals using modern calculators
+      for BMI, calories, TDEE, BMR, hydration and healthy weight management.
+    </p>
 
-      <p>
-        Calculate BMI, calories, BMR, TDEE, water intake and more
-        using fast, accurate and free fitness tools.
-      </p>
+    <div class="hero-buttons">
 
-      <div class="hero-buttons">
+      <a href="bmi-calculator.html" class="hero-btn primary-btn">
+        Start Calculating
+      </a>
 
-        <a href="#calculators" class="primary-btn">
-          Start Calculating
-        </a>
-
-        <a href="guides.html" class="secondary-btn">
-          Explore Guides
-        </a>
-
-      </div>
+      <a href="guides.html" class="hero-btn secondary-btn">
+        Read Fitness Guides
+      </a>
 
     </div>
 
@@ -289,104 +342,244 @@
 
   <!-- CALCULATORS -->
 
-  <h2 id="calculators" class="section-title">
-    Health Calculators
-  </h2>
+  <section class="section">
 
-  <div class="tools-grid">
+    <div class="section-title">
 
-    <a href="bmi-calculator.html" class="tool-card">
-      BMI Calculator
-    </a>
+      <h2>Fitness Calculators</h2>
 
-    <a href="bmr-calculator.html" class="tool-card">
-      BMR Calculator
-    </a>
+      <p>
+        Use our free health and fitness calculators
+        to estimate calories, BMI, hydration needs
+        and more.
+      </p>
 
-    <a href="tdee-calculator.html" class="tool-card">
-      TDEE Calculator
-    </a>
+    </div>
 
-    <a href="calorie-calculator.html" class="tool-card">
-      Calorie Calculator
-    </a>
+    <div class="tools-grid">
 
-    <a href="water-intake-calculator.html" class="tool-card">
-      Water Intake Calculator
-    </a>
+      <a href="bmi-calculator.html" class="tool-card">
 
-    <a href="ideal-weight-calculator.html" class="tool-card">
-      Ideal Weight Calculator
-    </a>
+        <h3>BMI Calculator</h3>
 
-  </div>
+        <p>
+          Check your Body Mass Index
+          and understand your weight category.
+        </p>
+
+      </a>
+
+      <a href="calorie-calculator.html" class="tool-card">
+
+        <h3>Calorie Calculator</h3>
+
+        <p>
+          Estimate daily calorie needs
+          for weight loss or muscle gain.
+        </p>
+
+      </a>
+
+      <a href="bmr-calculator.html" class="tool-card">
+
+        <h3>BMR Calculator</h3>
+
+        <p>
+          Calculate calories your body burns
+          while resting.
+        </p>
+
+      </a>
+
+      <a href="tdee-calculator.html" class="tool-card">
+
+        <h3>TDEE Calculator</h3>
+
+        <p>
+          Estimate total daily calories burned
+          including activity and exercise.
+        </p>
+
+      </a>
+
+      <a href="water-intake-calculator.html" class="tool-card">
+
+        <h3>Water Intake Calculator</h3>
+
+        <p>
+          Find out how much water
+          your body needs daily.
+        </p>
+
+      </a>
+
+      <a href="ideal-weight-calculator.html" class="tool-card">
+
+        <h3>Ideal Weight Calculator</h3>
+
+        <p>
+          Estimate a healthy target weight
+          based on height and gender.
+        </p>
+
+      </a>
+
+    </div>
+
+  </section>
 
   <!-- GUIDES -->
 
-  <h2 class="section-title">
-    Fitness Guides
-  </h2>
+  <section class="section">
 
-  <div class="tools-grid">
+    <div class="section-title">
 
-    <a href="weight-loss-guide.html" class="tool-card">
-      Weight Loss Guide
-    </a>
+      <h2>Fitness & Health Guides</h2>
 
-    <a href="muscle-gain-guide.html" class="tool-card">
-      Muscle Gain Guide
-    </a>
+      <p>
+        Learn practical strategies for healthy living,
+        fat loss, hydration and muscle gain.
+      </p>
 
-    <a href="healthy-lifestyle-guide.html" class="tool-card">
-      Healthy Lifestyle
-    </a>
+    </div>
 
-    <a href="how-to-lose-weight-safely.html" class="tool-card">
-      Lose Weight Safely
-    </a>
+    <div class="tools-grid">
 
-    <a href="how-many-calories-per-day.html" class="tool-card">
-      Calories Per Day
-    </a>
+      <a href="weight-loss-guide.html" class="tool-card">
 
-    <a href="daily-water-intake-guide.html" class="tool-card">
-      Water Intake Guide
-    </a>
+        <h3>Weight Loss Guide</h3>
 
-  </div>
-
-  <!-- WHY USE US -->
-
-  <section class="why-section">
-
-    <h2 class="section-title">
-      Why Use FitMetrics Tools?
-    </h2>
-
-    <div class="benefits-grid">
-
-      <div class="benefit-card">
-        <h3>Fast Results</h3>
         <p>
-          Instant fitness calculations with no signup required.
+          Learn sustainable fat loss strategies
+          and healthy nutrition habits.
         </p>
+
+      </a>
+
+      <a href="muscle-gain-guide.html" class="tool-card">
+
+        <h3>Muscle Gain Guide</h3>
+
+        <p>
+          Discover effective muscle-building
+          techniques and recovery tips.
+        </p>
+
+      </a>
+
+      <a href="healthy-lifestyle-guide.html" class="tool-card">
+
+        <h3>Healthy Lifestyle Guide</h3>
+
+        <p>
+          Improve overall wellness through
+          healthy habits and daily routines.
+        </p>
+
+      </a>
+
+      <a href="daily-water-intake-guide.html" class="tool-card">
+
+        <h3>Water Intake Guide</h3>
+
+        <p>
+          Learn hydration strategies
+          and water intake recommendations.
+        </p>
+
+      </a>
+
+      <a href="complete-guide-bmi-calories-weight-management.html" class="tool-card">
+
+        <h3>BMI & Calories Guide</h3>
+
+        <p>
+          Understand BMI, calories,
+          TDEE and healthy weight management.
+        </p>
+
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- FEATURES -->
+
+  <section class="section">
+
+    <div class="section-title">
+
+      <h2>Why Use FitMetrics Tools?</h2>
+
+      <p>
+        Built to provide fast, simple and practical
+        fitness calculations for everyone.
+      </p>
+
+    </div>
+
+    <div class="features-grid">
+
+      <div class="feature-card">
+
+        <h3>Free Tools</h3>
+
+        <p>
+          All calculators are completely free to use.
+        </p>
+
       </div>
 
-      <div class="benefit-card">
+      <div class="feature-card">
+
         <h3>Mobile Friendly</h3>
+
         <p>
-          Designed for fast and smooth mobile experience.
+          Optimized for phones, tablets and desktops.
         </p>
+
       </div>
 
-      <div class="benefit-card">
-        <h3>100% Free</h3>
+      <div class="feature-card">
+
+        <h3>Easy to Use</h3>
+
         <p>
-          Use all health and fitness tools completely free.
+          Simple interfaces designed for quick calculations.
         </p>
+
+      </div>
+
+      <div class="feature-card">
+
+        <h3>Fitness Focused</h3>
+
+        <p>
+          Designed for health awareness and fitness planning.
+        </p>
+
       </div>
 
     </div>
+
+  </section>
+
+  <!-- CTA -->
+
+  <section class="cta-section">
+
+    <h2>Start Tracking Your Fitness Today</h2>
+
+    <p>
+      Use our calculators and guides
+      to support your health, nutrition
+      and fitness goals.
+    </p>
+
+    <a href="bmi-calculator.html" class="hero-btn primary-btn">
+      Use Free Tools
+    </a>
 
   </section>
 
