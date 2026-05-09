@@ -1,49 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-<url>
-<loc>https://fitmetricstools.com/</loc>
-</url>
+  <url>
+    <loc>https://fitmetricstools.com/</loc>
+  </url>
 
-<url>
-<loc>https://fitmetricstools.com/bmi-calculator.html</loc>
-</url>
+  <url>
+    <loc>https://fitmetricstools.com/index.html</loc>
+  </url>
 
-<url>
-<loc>https://fitmetricstools.com/calorie-calculator.html</loc>
-</url>
+  <url>
+    <loc>https://fitmetricstools.com/guides.html</loc>
+  </url>
 
-<url>
-<loc>https://fitmetricstools.com/bmr-calculator.html</loc>
-</url>
+  <url>
+    <loc>https://fitmetricstools.com/about.html</loc>
+  </url>
 
-<url>
-<loc>https://fitmetricstools.com/tdee-calculator.html</loc>
-</url>
+  <url>
+    <loc>https://fitmetricstools.com/contact.html</loc>
+  </url>
 
-<url>
-<loc>https://fitmetricstools.com/water-intake-calculator.html</loc>
-</url>
+  <url>
+    <loc>https://fitmetricstools.com/privacy-policy.html</loc>
+  </url>
 
-<url>
-<loc>https://fitmetricstools.com/ideal-weight-calculator.html</loc>
-</url>
+  <url>
+    <loc>https://fitmetricstools.com/terms.html</loc>
+  </url>
 
-<url>
-<loc>https://fitmetricstools.com/guides.html</loc>
-</url>
+  <url>
+    <loc>https://fitmetricstools.com/bmi-calculator.html</loc>
+  </url>
 
-<url>
-<loc>https://fitmetricstools.com/weight-loss-guide.html</loc>
-</url>
+  <url>
+    <loc>https://fitmetricstools.com/calorie-calculator.html</loc>
+  </url>
 
-<url>
-<loc>https://fitmetricstools.com/muscle-gain-guide.html</loc>
-</url>
+  <url>
+    <loc>https://fitmetricstools.com/bmr-calculator.html</loc>
+  </url>
 
-<url>
-<loc>https://fitmetricstools.com/healthy-lifestyle-guide.html</loc>
-</url>
+  <url>
+    <loc>https://fitmetricstools.com/tdee-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://fitmetricstools.com/water-intake-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://fitmetricstools.com/ideal-weight-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://fitmetricstools.com/weight-loss-guide.html</loc>
+  </url>
+
+  <url>
+    <loc>https://fitmetricstools.com/muscle-gain-guide.html</loc>
+  </url>
+
+  <url>
+    <loc>https://fitmetricstools.com/healthy-lifestyle-guide.html</loc>
+  </url>
+
+  <url>
+    <loc>https://fitmetricstools.com/daily-water-intake-guide.html</loc>
+  </url>
+
+  <url>
+    <loc>https://fitmetricstools.com/complete-guide-bmi-calories-weight-management.html</loc>
+  </url>
 
 </urlset>
