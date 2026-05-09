@@ -1,173 +1,415 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | FitMetrics Tools</title>
 
-<title>Contact | FitMetrics Tools</title>
+  <meta 
+    name="description" 
+    content="Contact FitMetrics Tools for questions, feedback or support related to our fitness calculators and health guides."
+  />
 
-<style>
+  <!-- Open Graph Meta Tags -->
 
-.site-header{
-text-align:center;
-padding:30px 10px;
-background:#151515;
-}
+  <meta property="og:title" content="Contact FitMetrics Tools">
+  <meta property="og:description" content="Get in touch with FitMetrics Tools for support, feedback or questions.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fitmetricstools.com/contact.html">
+  <meta property="og:image" content="https://fitmetricstools.com/preview-image.jpg">
 
-.site-header h1{
-margin:0;
-font-size:28px;
-}
+  <!-- Twitter Card -->
 
-.site-header p{
-color:#aaa;
-margin-top:6px;
-}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact FitMetrics Tools">
+  <meta name="twitter:description" content="Contact our fitness and wellness tools platform.">
+  <meta name="twitter:image" content="https://fitmetricstools.com/preview-image.jpg">
 
-body{
-font-family:Arial, Helvetica, sans-serif;
-margin:0;
-background:#0f0f0f;
-color:white;
-}
+  <style>
 
-/* NAVBAR */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #111827;
+      color: white;
+    }
 
-.navbar{
-display:flex;
-justify-content:center;
-gap:30px;
-background:#111;
-padding:16px;
-}
+    /* HEADER */
 
-.navbar a{
-color:white;
-text-decoration:none;
-font-weight:bold;
-}
+    .site-header {
+      background: black;
+      padding: 15px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-/* CONTAINER */
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
 
-.container{
-max-width:700px;
-margin:auto;
-padding:30px;
-}
+    .logo a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
 
-/* FORM */
+    .nav-menu {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
 
-.contact-form{
-background:#1a1a1a;
-padding:25px;
-border-radius:12px;
-}
+    .nav-menu a {
+      color: white;
+      text-decoration: none;
+      transition: 0.3s;
+    }
 
-input,textarea{
-width:100%;
-padding:12px;
-margin-bottom:12px;
-border-radius:8px;
-border:none;
-background:#2c2c2c;
-color:white;
-}
+    .nav-menu a:hover {
+      color: #22c55e;
+    }
 
-button{
-padding:12px 20px;
-border:none;
-border-radius:8px;
-background:#1e88e5;
-color:white;
-cursor:pointer;
-}
+    /* HERO */
 
-footer{
-text-align:center;
-padding:30px;
-color:#aaa;
-}
+    .hero {
+      text-align: center;
+      padding: 90px 20px;
+      background: linear-gradient(to bottom, #111827, #0f172a);
+    }
 
-</style>
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
 
+    .hero p {
+      max-width: 700px;
+      margin: auto;
+      color: #cbd5e1;
+      line-height: 1.8;
+      font-size: 1.1rem;
+    }
+
+    /* MAIN */
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 70px 20px;
+    }
+
+    .contact-card {
+      background: #1e293b;
+      padding: 45px;
+      border-radius: 25px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .contact-card h2 {
+      color: #22c55e;
+      margin-top: 0;
+      margin-bottom: 25px;
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    .contact-card p {
+      color: #cbd5e1;
+      line-height: 1.9;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    /* FORM */
+
+    .input-group {
+      margin-bottom: 22px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 15px;
+      border-radius: 12px;
+      border: none;
+      background: #334155;
+      color: white;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: 2px solid #22c55e;
+    }
+
+    /* BUTTON */
+
+    button {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 14px;
+      background: #22c55e;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #16a34a;
+    }
+
+    /* INFO */
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .info-card {
+      background: rgba(255,255,255,0.06);
+      padding: 25px;
+      border-radius: 18px;
+      text-align: center;
+    }
+
+    .info-card h3 {
+      color: #22c55e;
+      margin-bottom: 12px;
+    }
+
+    .info-card p {
+      color: #cbd5e1;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: black;
+      padding: 35px 20px;
+      text-align: center;
+      margin-top: 70px;
+    }
+
+    footer p {
+      margin-bottom: 15px;
+    }
+
+    footer a {
+      color: #22c55e;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 768px) {
+
+      .hero {
+        padding: 70px 20px;
+      }
+
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+
+      .contact-card {
+        padding: 30px 25px;
+      }
+
+      .contact-card h2 {
+        font-size: 1.8rem;
+      }
+
+    }
+
+  </style>
 </head>
 
 <body>
 
-<nav class="navbar">
+  <!-- HEADER -->
 
-<a href="/">Home</a>
+  <header class="site-header">
 
-</nav>
+    <div class="nav-container">
 
-<header class="site-header">
+      <h2 class="logo">
+        <a href="index.html">FitMetrics Tools</a>
+      </h2>
 
-<h1>FitMetrics Tools</h1>
+      <nav class="nav-menu">
 
-<p>Free Health & Fitness Calculators</p>
+        <a href="index.html">Home</a>
+        <a href="guides.html">Guides</a>
+        <a href="bmi-calculator.html">BMI</a>
+        <a href="calorie-calculator.html">Calories</a>
+        <a href="about.html">About</a>
 
-</header>
-  
-<div class="container">
+      </nav>
 
-<h1>Contact Us</h1>
+    </div>
 
-<p>
-If you have any questions, feedback, or suggestions regarding
-FitMetrics Tools, feel free to contact us using the form below.
-</p>
+  </header>
 
-<div class="contact-form">
+  <!-- HERO -->
 
-<input type="text" placeholder="Your Name">
+  <section class="hero">
 
-<input type="email" placeholder="Your Email">
+    <h1>
+      Contact Us
+    </h1>
 
-<textarea rows="5" placeholder="Your Message"></textarea>
+    <p>
+      Have questions, feedback or suggestions?
+      We'd love to hear from you.
+    </p>
 
-<button>Send Message</button>
+  </section>
 
-</div>
+  <!-- MAIN -->
 
-<p style="margin-top:20px;">
-You can also contact us directly at:
-<br><br>
-<strong>Email:</strong> anilvella999@gmail.com
-</p>
+  <div class="container">
 
-</div>
+    <div class="contact-card">
 
-<footer>
+      <h2>
+        Send a Message
+      </h2>
 
-<p>© 2026 FitMetrics Tools</p>
+      <p>
+        Use the form below to contact FitMetrics Tools.
+      </p>
 
-<p>
-<a href="/privacy-policy.html">Privacy Policy</a> |
-<a href="/terms.html">Terms</a> |
-<a href="/about.html">About</a> |
-<a href="/contact.html">Contact</a>
-</p>
+      <!-- FORM -->
 
-</footer>
+      <form>
+
+        <div class="input-group">
+
+          <label for="name">
+            Name
+          </label>
+
+          <input 
+            type="text" 
+            id="name" 
+            placeholder="Enter your name"
+          >
+
+        </div>
+
+        <div class="input-group">
+
+          <label for="email">
+            Email
+          </label>
+
+          <input 
+            type="email" 
+            id="email" 
+            placeholder="Enter your email"
+          >
+
+        </div>
+
+        <div class="input-group">
+
+          <label for="message">
+            Message
+          </label>
+
+          <textarea 
+            id="message"
+            placeholder="Write your message here"
+          ></textarea>
+
+        </div>
+
+        <button type="submit">
+          Send Message
+        </button>
+
+      </form>
+
+      <!-- INFO -->
+
+      <div class="info-grid">
+
+        <div class="info-card">
+
+          <h3>Fitness Tools</h3>
+
+          <p>
+            Access free health and fitness calculators anytime.
+          </p>
+
+        </div>
+
+        <div class="info-card">
+
+          <h3>Guides & Articles</h3>
+
+          <p>
+            Learn about nutrition, wellness and healthy living.
+          </p>
+
+        </div>
+
+        <div class="info-card">
+
+          <h3>User Support</h3>
+
+          <p>
+            Share feedback and suggestions to improve the platform.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>© 2026 FitMetrics Tools</p>
+
+    <a href="privacy-policy.html">Privacy Policy</a> |
+    <a href="terms.html">Terms</a> |
+    <a href="about.html">About</a> |
+    <a href="contact.html">Contact</a>
+
+  </footer>
 
 </body>
-
-<header class="site-header">
-  <div class="nav-container">
-    <h2 class="logo"><a href="index.html">FitMetrics Tools</a></h2>
-
-    <nav class="nav-menu">
-      <a href="index.html">Home</a>
-      <a href="guides.html">Guides</a>
-      <a href="bmi-calculator.html">BMI</a>
-      <a href="calorie-calculator.html">Calorie</a>
-      <a href="bmr-calculator.html">BMR</a>
-      <a href="tdee-calculator.html">TDEE</a>
-      <a href="water-intake-calculator.html">Water</a>
-      <a href="ideal-weight-calculator.html">Ideal</a>
-    </nav>
-  </div>
-</header>
 </html>
