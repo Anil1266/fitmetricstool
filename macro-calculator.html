@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Free Macro Calculator | Protein, Carbs & Fat Targets | FitMetrics Tools</title>
+
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <meta 
+    name="description" 
+    content="Use our free Macro Calculator to find your daily protein, carb, and fat targets in grams based on your calorie needs and fitness goal."
+  />
+
+  <!-- Open Graph Meta Tags -->
+
+  <meta property="og:title" content="Macro Calculator | FitMetrics Tools">
+  <meta property="og:description" content="Calculate your daily protein, carb, and fat targets instantly for weight loss, maintenance, or muscle gain.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fitmetricstools.com/macro-calculator.html">
+  <meta property="og:image" content="https://fitmetricstools.com/preview-image.jpg">
+
+  <!-- Twitter Card -->
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Macro Calculator | FitMetrics Tools">
+  <meta name="twitter:description" content="Free macro calculator for protein, carb, and fat targets.">
+  <meta name="twitter:image" content="https://fitmetricstools.com/preview-image.jpg">
+
+  <style>
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #111827;
+      color: white;
+    }
+
+    /* HEADER */
+
+    .site-header {
+      background: black;
+      padding: 15px 20px;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+      flex-wrap: wrap;
+    }
+
+    .logo a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .nav-menu a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .nav-menu a:hover {
+      color: #22c55e;
+    }
+
+    /* MAIN */
+
+    .container {
+      max-width: 700px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+
+    .calculator-card {
+      background: #1e293b;
+      padding: 35px;
+      border-radius: 22px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 2.5rem;
+    }
+
+    .description {
+      text-align: center;
+      color: #cbd5e1;
+      line-height: 1.7;
+      margin-bottom: 35px;
+    }
+
+    /* INPUTS */
+
+    .input-group {
+      margin-bottom: 22px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 15px;
+      border-radius: 12px;
+      border: none;
+      background: #334155;
+      color: white;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    input:focus,
+    select:focus {
+      outline: 2px solid #22c55e;
+    }
+
+    /* BUTTON */
+
+    button {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 14px;
+      background: #22c55e;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #16a34a;
+    }
+
+    /* RESULT */
+
+    .result-card {
+      display: none;
+      margin-top: 35px;
+      padding: 35px;
+      border-radius: 22px;
+      background: #15803d;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .result-label {
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #dbeafe;
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+    }
+
+    .calorie-value {
+      text-align: center;
+      font-size: 4rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .result-subtitle {
+      text-align: center;
+      color: #f1f5f9;
+      margin-bottom: 30px;
+      line-height: 1.7;
+    }
+
+    /* MACRO CARDS */
+
+    .goal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+    }
+
+    .goal-card {
+      background: rgba(255,255,255,0.12);
+      padding: 20px;
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    .goal-card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+
+    .goal-value {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    .goal-desc {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #e2e8f0;
+      line-height: 1.5;
+    }
+
+    /* MACRO BAR */
+
+    .macro-bar {
+      display: flex;
+      height: 14px;
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 22px 0 8px;
+    }
+
+    .macro-bar-protein { background: #4ade80; }
+    .macro-bar-carbs { background: #60a5fa; }
+    .macro-bar-fat { background: #fbbf24; }
+
+    .macro-legend {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      font-size: 0.85rem;
+      color: #e2e8f0;
+      flex-wrap: wrap;
+    }
+
+    .macro-legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    /* RECOMMENDATION */
+
+    .recommendation-box {
+      margin-top: 25px;
+      background: rgba(255,255,255,0.12);
+      padding: 20px;
+      border-radius: 16px;
+      line-height: 1.7;
+    }
+
+    /* RELATED TOOLS */
+
+    .related-tools {
+      margin-top: 35px;
+    }
+
+    .related-tools h3 {
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+    }
+
+    .tool-card {
+      background: rgba(255,255,255,0.12);
+      padding: 14px;
+      border-radius: 12px;
+      text-align: center;
+      text-decoration: none;
+      color: white;
+      transition: 0.3s;
+      font-size: 0.95rem;
+    }
+
+    .tool-card:hover {
+      background: rgba(255,255,255,0.22);
+      transform: translateY(-3px);
+    }
+
+    /* INFO */
+
+    .info-section {
+      margin-top: 50px;
+      background: #1e293b;
+      padding: 35px;
+      border-radius: 22px;
+      line-height: 1.8;
+    }
+
+    .info-section h2 {
+      margin-top: 0;
+      color: #22c55e;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: black;
+      padding: 30px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    footer a {
+      color: #22c55e;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+
+    /* ANIMATION */
+
+    @keyframes fadeIn {
+
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 768px) {
+
+      .container {
+        padding: 15px;
+      }
+
+      .calculator-card,
+      .info-section {
+        padding: 25px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .calorie-value {
+        font-size: 3rem;
+      }
+
+    }
+
+  </style>
+
+<link rel="canonical" href="https://fitmetricstools.com/macro-calculator.html">
+<meta name="robots" content="index,follow">
+<meta name="author" content="FitMetrics Tools">
+<meta name="theme-color" content="#111827">
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"WebPage",
+ "name":"Macro Calculator",
+ "url":"https://fitmetricstools.com/macro-calculator.html",
+ "description":"Free online macro calculator from FitMetrics Tools."
+}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"How are macros calculated?","acceptedAnswer":{"@type":"Answer","text":"Protein and fat are set as grams per kilogram of body weight based on your goal, then remaining calories are filled with carbohydrates."}},
+  {"@type":"Question","name":"How much protein do I need?","acceptedAnswer":{"@type":"Answer","text":"Most active adults benefit from roughly 1.6-2.2 grams of protein per kilogram of body weight per day, with higher amounts often used during fat loss to preserve muscle."}},
+  {"@type":"Question","name":"Do carbs or fat matter more?","acceptedAnswer":{"@type":"Answer","text":"Total calories and adequate protein matter most for body composition; carb and fat ratios can be adjusted to personal preference as long as minimums for fat are met."}}
+]}
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZ7YK5VC1L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+
+  gtag('js', new Date());
+
+  gtag('config', 'G-RZ7YK5VC1L');
+</script>
+
+<!-- AdSense: paste your <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"> tag here once approved -->
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header class="site-header">
+
+    <div class="nav-container">
+
+      <h2 class="logo">
+        <a href="index.html">FitMetrics Tools</a>
+      </h2>
+
+      <nav class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="guides.html">Guides</a>
+        <a href="calorie-calculator.html">Calories</a>
+        <a href="tdee-calculator.html">TDEE</a>
+      </nav>
+
+    </div>
+
+  </header>
+
+  <!-- MAIN -->
+
+  <div class="container">
+
+    <div class="calculator-card">
+
+      <h1>Macro Calculator</h1>
+
+      <p class="description">
+        Find your daily protein, carb, and fat targets in
+        grams based on your calorie needs and fitness goal.
+      </p>
+
+      <!-- AGE -->
+
+      <div class="input-group">
+        <label for="age">Age</label>
+        <input type="number" id="age" placeholder="Enter your age">
+      </div>
+
+      <!-- GENDER -->
+
+      <div class="input-group">
+        <label for="gender">Gender</label>
+        <select id="gender">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+
+      <!-- HEIGHT -->
+
+      <div class="input-group">
+        <label for="height">Height (cm)</label>
+        <input type="number" id="height" placeholder="Enter your height">
+      </div>
+
+      <!-- WEIGHT -->
+
+      <div class="input-group">
+        <label for="weight">Weight (kg)</label>
+        <input type="number" id="weight" placeholder="Enter your weight">
+      </div>
+
+      <!-- ACTIVITY -->
+
+      <div class="input-group">
+        <label for="activity">Activity Level</label>
+        <select id="activity">
+          <option value="1.2">Sedentary (little or no exercise)</option>
+          <option value="1.375">Light Exercise (1–3 days/week)</option>
+          <option value="1.55">Moderate Exercise (3–5 days/week)</option>
+          <option value="1.725">Heavy Exercise (6–7 days/week)</option>
+          <option value="1.9">Athlete / Very Active</option>
+        </select>
+      </div>
+
+      <!-- GOAL -->
+
+      <div class="input-group">
+        <label for="goal">Goal</label>
+        <select id="goal">
+          <option value="loss">Weight Loss</option>
+          <option value="maintain" selected>Maintenance</option>
+          <option value="gain">Muscle Gain</option>
+        </select>
+      </div>
+
+      <!-- BUTTON -->
+
+      <button onclick="calculateMacros()">Calculate Macros</button>
+
+      <!-- RESULT -->
+
+      <div id="resultCard" class="result-card">
+
+        <div class="result-label">Daily Calorie Target</div>
+        <div id="calorieTarget" class="calorie-value"></div>
+
+        <div class="result-subtitle" id="resultSubtitle"></div>
+
+        <div class="macro-bar">
+          <div id="barProtein" class="macro-bar-protein"></div>
+          <div id="barCarbs" class="macro-bar-carbs"></div>
+          <div id="barFat" class="macro-bar-fat"></div>
+        </div>
+
+        <div class="macro-legend">
+          <span><span class="legend-dot" style="background:#4ade80;"></span>Protein</span>
+          <span><span class="legend-dot" style="background:#60a5fa;"></span>Carbs</span>
+          <span><span class="legend-dot" style="background:#fbbf24;"></span>Fat</span>
+        </div>
+
+        <!-- MACROS -->
+
+        <div class="goal-grid" style="margin-top:22px;">
+
+          <div class="goal-card">
+            <h3>Protein</h3>
+            <div id="proteinGrams" class="goal-value"></div>
+            <div class="goal-desc">Supports muscle repair and satiety.</div>
+          </div>
+
+          <div class="goal-card">
+            <h3>Carbs</h3>
+            <div id="carbGrams" class="goal-value"></div>
+            <div class="goal-desc">Primary fuel for training and daily activity.</div>
+          </div>
+
+          <div class="goal-card">
+            <h3>Fat</h3>
+            <div id="fatGrams" class="goal-value"></div>
+            <div class="goal-desc">Supports hormone production and nutrient absorption.</div>
+          </div>
+
+        </div>
+
+        <!-- RECOMMENDATION -->
+
+        <div class="recommendation-box">
+          <strong>Recommendation:</strong>
+          These are starting targets, not rigid rules. Adjust
+          weekly based on progress, hunger, and training performance.
+        </div>
+
+        <!-- GEAR / AFFILIATE (disabled until ready to monetize) -->
+        <!-- MONETIZATION PLACEHOLDER (disabled until ready to monetize)
+        GEAR / AFFILIATE:
+        <div class="recommendation-box" style="margin-top:15px;">
+          <div style="font-size:11px; letter-spacing:1px; text-transform:uppercase; color:#e2e8f0; margin-bottom:14px;">Recommended</div>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:14px;">
+            <a href="#" rel="sponsored nofollow" style="display:block; background:#0f172a; border-radius:14px; padding:16px; text-decoration:none; color:white;">
+              <div style="font-weight:bold; margin-bottom:4px;">Whey protein powder</div>
+              <div style="font-size:13px; color:#cbd5e1;">An easy way to close a protein gap without extra cooking.</div>
+              <div style="font-size:12px; color:#4ade80; margin-top:8px;">View on Amazon →</div>
+            </a>
+            <a href="#" rel="sponsored nofollow" style="display:block; background:#0f172a; border-radius:14px; padding:16px; text-decoration:none; color:white;">
+              <div style="font-weight:bold; margin-bottom:4px;">Digital food scale</div>
+              <div style="font-size:13px; color:#cbd5e1;">Weigh portions precisely to hit gram-level macro targets.</div>
+              <div style="font-size:12px; color:#4ade80; margin-top:8px;">View on Amazon →</div>
+            </a>
+          </div>
+          <p style="font-size:12px; color:#cbd5e1; margin-top:12px;">As an Amazon Associate, FitMetrics Tools earns from qualifying purchases. Replace these placeholder links with your own affiliate links.</p>
+        </div>
+        -->
+
+        <!-- RELATED TOOLS -->
+
+        <div class="related-tools">
+
+          <h3>Try Other Fitness Tools</h3>
+
+          <div class="tools-grid">
+            <a href="calorie-calculator.html" class="tool-card">Calorie Calculator</a>
+            <a href="tdee-calculator.html" class="tool-card">TDEE Calculator</a>
+            <a href="bmi-calculator.html" class="tool-card">BMI Calculator</a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- INFO SECTION -->
+
+    <div class="info-section">
+
+      <h2>How Macros Are Calculated</h2>
+
+      <p>
+        Your calorie target is estimated using the Mifflin-St Jeor
+        formula (age, height, weight, gender) multiplied by your
+        activity level, then adjusted for your goal:
+        a 20% deficit for weight loss, or a 10% surplus for muscle gain.
+      </p>
+
+      <p>
+        From there:
+      </p>
+
+      <ul>
+        <li><strong>Protein</strong> is set per kilogram of body weight — higher during weight loss to help preserve muscle.</li>
+        <li><strong>Fat</strong> is set at a percentage of total calories to support hormone health.</li>
+        <li><strong>Carbs</strong> fill the remaining calories, fueling training and daily activity.</li>
+      </ul>
+
+      <!-- MONETIZATION PLACEHOLDER (disabled until ready to monetize)
+      AD SLOT:
+      <div style="border:1px dashed #334155; background:#0f172a; color:#94a3b8; font-family:monospace; font-size:12px; text-align:center; padding:18px 10px; border-radius:14px; margin:30px 0;" aria-hidden="true">
+        Ad slot — in-article (responsive)
+      </div>
+      -->
+
+      <h2>Frequently Asked Questions</h2>
+
+      <h3>How much protein do I need?</h3>
+      <p>Most active adults benefit from roughly 1.6–2.2 grams of protein per kilogram of body weight per day, with higher amounts often used during fat loss to preserve muscle.</p>
+
+      <h3>Do carbs or fat matter more?</h3>
+      <p>Total calories and adequate protein matter most for body composition. Carb and fat ratios can be adjusted to personal preference as long as fat minimums are met.</p>
+
+      <h3>Should I track macros exactly?</h3>
+      <p>Exact tracking isn't required for everyone — getting close consistently over time matters more than hitting numbers perfectly every single day.</p>
+
+      <p><strong>Last Updated:</strong> July 2026</p>
+
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>© 2026 FitMetrics Tools</p>
+
+    <a href="privacy-policy.html">Privacy Policy</a> |
+    <a href="terms.html">Terms</a> |
+    <a href="about.html">About</a> |
+    <a href="contact.html">Contact</a>
+
+  </footer>
+
+  <script>
+
+    function calculateMacros() {
+
+      const age = parseInt(document.getElementById("age").value);
+      const gender = document.getElementById("gender").value;
+      const height = parseFloat(document.getElementById("height").value);
+      const weight = parseFloat(document.getElementById("weight").value);
+      const activity = parseFloat(document.getElementById("activity").value);
+      const goal = document.getElementById("goal").value;
+
+      if (!age || !height || !weight) {
+        alert("Please fill all fields.");
+        return;
+      }
+
+      let bmr;
+
+      if (gender === "male") {
+        bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+      } else {
+        bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+      }
+
+      const tdee = bmr * activity;
+
+      let calorieTarget;
+      let proteinPerKg;
+      let fatPercent;
+      let subtitle;
+
+      if (goal === "loss") {
+        calorieTarget = tdee * 0.8;
+        proteinPerKg = 2.0;
+        fatPercent = 0.30;
+        subtitle = "A moderate deficit with higher protein to help preserve muscle while losing fat.";
+      } else if (goal === "gain") {
+        calorieTarget = tdee * 1.1;
+        proteinPerKg = 1.8;
+        fatPercent = 0.25;
+        subtitle = "A modest surplus with enough protein and carbs to support training and growth.";
+      } else {
+        calorieTarget = tdee;
+        proteinPerKg = 1.8;
+        fatPercent = 0.28;
+        subtitle = "Calories to maintain your current weight, with a balanced macro split.";
+      }
+
+      const proteinGrams = Math.round(proteinPerKg * weight);
+      const proteinCalories = proteinGrams * 4;
+
+      const fatCalories = calorieTarget * fatPercent;
+      const fatGrams = Math.round(fatCalories / 9);
+
+      const carbCalories = Math.max(calorieTarget - proteinCalories - fatCalories, 0);
+      const carbGrams = Math.round(carbCalories / 4);
+
+      const totalCaloriesFromMacros = proteinCalories + fatCalories + carbCalories;
+
+      document.getElementById("calorieTarget").textContent = Math.round(calorieTarget) + " kcal";
+      document.getElementById("resultSubtitle").textContent = subtitle;
+
+      document.getElementById("proteinGrams").textContent = proteinGrams + "g";
+      document.getElementById("carbGrams").textContent = carbGrams + "g";
+      document.getElementById("fatGrams").textContent = fatGrams + "g";
+
+      const proteinPct = (proteinCalories / totalCaloriesFromMacros) * 100;
+      const carbPct = (carbCalories / totalCaloriesFromMacros) * 100;
+      const fatPct = (fatCalories / totalCaloriesFromMacros) * 100;
+
+      document.getElementById("barProtein").style.width = proteinPct + "%";
+      document.getElementById("barCarbs").style.width = carbPct + "%";
+      document.getElementById("barFat").style.width = fatPct + "%";
+
+      document.getElementById("resultCard").style.display = "block";
+
+      document.getElementById("resultCard").scrollIntoView({ behavior: "smooth", block: "nearest" });
+
+    }
+
+  </script>
+
+</body>
+</html>

@@ -1,143 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What is BMI? Formula, Categories & Meaning | FitMetrics Tools</title>
+  <link rel="icon" type="image/png" href="favicon.png">
 
-<title>What is BMI? Formula, Categories & Meaning | FitMetrics Tools</title>
-<link rel="icon" type="image/png" href="favicon.png">
+  <meta
+    name="description"
+    content="Learn what BMI is, how it's calculated, BMI categories, why it matters, its limitations, and how to maintain a healthy BMI. Check your BMI instantly with our free calculator."
+  />
 
-<meta name="description" content="Learn what BMI (Body Mass Index) is, how it is calculated, BMI categories, limitations, and how to use our free BMI Calculator to check your BMI instantly.">
+  <meta property="og:title" content="What is BMI? Formula, Categories & Meaning | FitMetrics Tools">
+  <meta property="og:description" content="Learn what BMI is, how it's calculated, BMI categories and health meaning.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fitmetricstools.com/what-is-bmi.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="What is BMI? Formula, Categories & Meaning">
+
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #111827; color: white; line-height: 1.8; }
+    .site-header { background: black; padding: 15px 20px; position: sticky; top: 0; z-index: 1000; }
+    .nav-container { max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+    .logo a { color: white; text-decoration: none; font-size: 1.5rem; font-weight: bold; }
+    .nav-menu { display: flex; gap: 15px; flex-wrap: wrap; }
+    .nav-menu a { color: white; text-decoration: none; }
+    .nav-menu a:hover { color: #22c55e; }
+    .hero { text-align: center; padding: 90px 20px; background: linear-gradient(to bottom, #111827, #0f172a); }
+    .hero h1 { font-size: 2.6rem; margin-bottom: 20px; }
+    .hero p { max-width: 750px; margin: auto; color: #cbd5e1; font-size: 1.1rem; }
+    .container { max-width: 900px; margin: auto; padding: 60px 20px; }
+    .guide-card { background: #1e293b; padding: 35px; border-radius: 22px; margin-bottom: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+    .guide-card h2 { color: #22c55e; margin-top: 0; }
+    .guide-card p, .guide-card li { color: #cbd5e1; }
+    .guide-card ul { padding-left: 20px; }
+    .cta-section { margin-top: 20px; background: linear-gradient(to right, #15803d, #166534); padding: 45px 25px; border-radius: 22px; text-align: center; }
+    .cta-btn { display: inline-block; margin-top: 15px; padding: 14px 26px; border-radius: 14px; background: white; color: #166534; text-decoration: none; font-weight: bold; }
+    .ad-slot { border: 1px dashed #334155; background: #1e293b; color: #64748b; font-family: monospace; font-size: 12px; text-align: center; padding: 18px 10px; border-radius: 14px; margin: 30px 0; }
+    .related-tools h3 { text-align: center; margin-bottom: 15px; color: #22c55e; }
+    .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+    .tool-card { background: rgba(255,255,255,0.08); padding: 14px; border-radius: 12px; text-align: center; text-decoration: none; color: white; font-size: 0.95rem; }
+    .tool-card:hover { background: rgba(255,255,255,0.18); }
+    footer { background: black; padding: 35px 20px; text-align: center; margin-top: 60px; }
+    footer a { color: #22c55e; text-decoration: none; margin: 0 5px; }
+    @media (max-width: 768px) { .hero h1 { font-size: 2rem; } .guide-card { padding: 25px; } }
+  </style>
 
 <link rel="canonical" href="https://fitmetricstools.com/what-is-bmi.html">
-
-
 <meta name="robots" content="index,follow">
 <meta name="author" content="FitMetrics Tools">
 <meta name="theme-color" content="#111827">
-<meta property="og:title" content="What is BMI? Formula, Categories & Meaning | FitMetrics Tools">
-<meta property="og:description" content="Learn what BMI is, how it is calculated, BMI categories and health meaning.">
 <script type="application/ld+json">
-{
- "@context":"https://schema.org",
- "@type":"Article",
- "headline":"What is BMI (Body Mass Index)?",
- "author":{"@type":"Organization","name":"FitMetrics Tools"}
-}
+{"@context":"https://schema.org","@type":"Article","headline":"What is BMI (Body Mass Index)?","author":{"@type":"Organization","name":"FitMetrics Tools"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"Is BMI accurate?","acceptedAnswer":{"@type":"Answer","text":"BMI is a useful screening tool but should not be the only measure of health, since it doesn't distinguish muscle from fat."}},
+  {"@type":"Question","name":"Can athletes have a high BMI?","acceptedAnswer":{"@type":"Answer","text":"Yes. Muscle weighs more than fat, so athletes and very muscular people can score in the overweight range while remaining healthy."}},
+  {"@type":"Question","name":"What is a healthy BMI?","acceptedAnswer":{"@type":"Answer","text":"For most adults, a BMI between 18.5 and 24.9 is considered a healthy range, though healthy ranges vary by population."}}
+]}
 </script>
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RZ7YK5VC1L"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag() {
-    dataLayer.push(arguments);
-  }
-
+  function gtag() { dataLayer.push(arguments); }
   gtag('js', new Date());
-
   gtag('config', 'G-RZ7YK5VC1L');
 </script>
- 
+
+<!-- AdSense: paste your <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"> tag here once approved -->
+
 </head>
 
-<body style="font-family:Arial, sans-serif; max-width:900px; margin:auto; padding:20px; line-height:1.6;">
+<body>
 
-<h1>What is BMI (Body Mass Index)?</h1>
+  <header class="site-header">
+    <div class="nav-container">
+      <h2 class="logo"><a href="index.html">FitMetrics Tools</a></h2>
+      <nav class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="guides.html">Guides</a>
+        <a href="bmi-calculator.html">BMI</a>
+        <a href="calorie-calculator.html">Calorie</a>
+        <a href="bmr-calculator.html">BMR</a>
+      </nav>
+    </div>
+  </header>
 
-<p>
-BMI stands for Body Mass Index. It is a simple measurement used to estimate whether a person's weight is healthy relative to their height. 
-BMI is widely used by health professionals to classify weight categories such as underweight, normal weight, overweight, and obesity.
-</p>
+  <section class="hero">
+    <h1>What is BMI (Body Mass Index)?</h1>
+    <p>BMI is a simple measurement used to estimate whether your weight is healthy for your height. Here's the formula, the category ranges, why it matters, and how to keep yours in a healthy range.</p>
+  </section>
 
-<h2>BMI Formula</h2>
+  <div class="container">
 
-<p>
-The formula used to calculate BMI is:
-</p>
+    <div class="guide-card">
+      <h2>BMI Formula</h2>
+      <p>The formula used to calculate BMI is:</p>
+      <p><strong>BMI = Weight (kg) / Height² (m²)</strong></p>
+      <h3 style="color:#22c55e;">Worked Example</h3>
+      <p>For a person weighing 70 kg at 1.75 m tall:<br>
+      BMI = 70 ÷ (1.75 × 1.75) = 70 ÷ 3.06 = <strong>22.86</strong> — within the normal weight category.</p>
+    </div>
 
-<p><strong>BMI = Weight (kg) / Height² (m²)</strong></p>
+    <div class="guide-card">
+      <h2>BMI Categories</h2>
+      <ul>
+        <li>Below 18.5 – Underweight</li>
+        <li>18.5–24.9 – Normal weight</li>
+        <li>25–29.9 – Overweight</li>
+        <li>30 and above – Obesity</li>
+      </ul>
+    </div>
 
-<h2>BMI Example</h2>
+    <!-- MONETIZATION PLACEHOLDER (disabled until ready to monetize)
+AD SLOT:
+<div class="ad-slot" aria-hidden="true">Ad slot — in-article (responsive)</div>
 
-<p>
-For example, if a person weighs 70 kg and their height is 1.75 meters:
-</p>
+GEAR / AFFILIATE:
+<div class="guide-card">
+      <div style="font-size:11px; letter-spacing:1px; text-transform:uppercase; color:#94a3b8; margin-bottom:14px;">Recommended</div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:14px;">
+        <a href="#" rel="sponsored nofollow" style="display:block; background:#0f172a; border-radius:14px; padding:16px; text-decoration:none; color:white;">
+          <div style="font-weight:bold; margin-bottom:4px;">Digital body-weight scale</div>
+          <div style="font-size:13px; color:#cbd5e1;">Consistent daily weigh-ins for tracking BMI trends over time.</div>
+          <div style="font-size:12px; color:#4ade80; margin-top:8px;">View on Amazon →</div>
+        </a>
+        <a href="#" rel="sponsored nofollow" style="display:block; background:#0f172a; border-radius:14px; padding:16px; text-decoration:none; color:white;">
+          <div style="font-weight:bold; margin-bottom:4px;">Fabric tape measure</div>
+          <div style="font-size:13px; color:#cbd5e1;">Useful alongside BMI for waist circumference tracking.</div>
+          <div style="font-size:12px; color:#4ade80; margin-top:8px;">View on Amazon →</div>
+        </a>
+      </div>
+      <p style="font-size:12px; color:#64748b; margin-top:12px;">As an Amazon Associate, FitMetrics Tools earns from qualifying purchases. Replace these placeholder links with your own affiliate links.</p>
+    </div>
+-->
 
-<p>
-BMI = 70 / (1.75 × 1.75)
-</p>
+    <div class="guide-card">
+      <h2>Why BMI Matters — and Its Limitations</h2>
+      <p>Maintaining a healthy BMI is linked to lower risk of heart disease, type 2 diabetes, and high blood pressure. But BMI is only a screening tool: it doesn't measure body fat or muscle mass directly, so athletes and very muscular people are often misclassified as overweight.</p>
+    </div>
 
-<p>
-BMI = 70 / 3.06 = 22.86
-</p>
+    <div class="guide-card">
+      <h2>How to Maintain a Healthy BMI</h2>
+      <ul>
+        <li>Exercise at least 30 minutes most days</li>
+        <li>Eat more vegetables, fruit, and lean protein</li>
+        <li>Reduce ultra-processed foods</li>
+        <li>Drink enough water throughout the day</li>
+        <li>Sleep 7–8 hours consistently</li>
+      </ul>
+      <p>Consistency matters more than any single change — small sustained habits move BMI in a healthy direction over time.</p>
+    </div>
 
-<p>
-This BMI value falls within the normal weight category.
-</p>
+    <section class="cta-section">
+      <h2>Check Your BMI Instantly</h2>
+      <p>Skip the manual math — get your BMI and category in seconds.</p>
+      <a href="bmi-calculator.html" class="cta-btn">Open BMI Calculator</a>
+    </section>
 
-<h2>BMI Categories</h2>
+    <div class="guide-card">
+      <h2>Frequently Asked Questions</h2>
+      <h3 style="color:#22c55e;">Is BMI accurate?</h3>
+      <p>BMI is a useful screening tool but should not be the only measure of health.</p>
+      <h3 style="color:#22c55e;">Can athletes have a high BMI?</h3>
+      <p>Yes. Muscle weighs more than fat, so athletes can have a higher BMI while remaining healthy.</p>
+      <h3 style="color:#22c55e;">What is a healthy BMI?</h3>
+      <p>For most adults, a BMI between 18.5 and 24.9 is considered a healthy range.</p>
+    </div>
 
-<ul>
-<li>Below 18.5 – Underweight</li>
-<li>18.5 – 24.9 – Normal weight</li>
-<li>25 – 29.9 – Overweight</li>
-<li>30 and above – Obesity</li>
-</ul>
+    <div class="related-tools">
+      <h3>Related Reading &amp; Tools</h3>
+      <div class="tools-grid">
+        <a href="bmi-calculator.html" class="tool-card">BMI Calculator</a>
+        <a href="bmi-for-indian-adults.html" class="tool-card">BMI for Indian Adults</a>
+        <a href="ideal-weight-calculator.html" class="tool-card">Ideal Weight Calculator</a>
+        <a href="weight-loss-guide.html" class="tool-card">Weight Loss Guide</a>
+      </div>
+    </div>
 
-<h2>Why BMI is Important</h2>
+    <p style="text-align:center; color:#64748b; font-size:13px;"><strong>Last Updated:</strong> July 2026</p>
 
-<p>
-BMI helps individuals understand whether their body weight falls within a healthy range. 
-Although BMI does not directly measure body fat, it provides a useful screening tool for health risks associated with weight.
-</p>
+  </div>
 
-<h2>Calculate Your BMI Instantly</h2>
-
-<p>
-Instead of calculating BMI manually, you can quickly check your BMI using our free online calculator.
-</p>
-
-<p>
-<a href="bmi-calculator.html">Open the BMI Calculator</a>
-</p>
-
-<hr>
-
-<p>
-Explore more health tools on 
-<a href="index.html">FitMetrics Tools</a>.
-</p>
-
-
-<h2>BMI Limitations</h2>
-<p>BMI does not directly measure body fat or muscle mass. Athletes, older adults, and children may require additional health assessments.</p>
-
-<h2>Frequently Asked Questions</h2>
-<h3>Is BMI accurate?</h3>
-<p>BMI is a useful screening tool but should not be the only measure of health.</p>
-
-<h3>What is a healthy BMI?</h3>
-<p>For most adults, a BMI between 18.5 and 24.9 is considered a healthy range.</p>
-
-<p><strong>Last Updated:</strong> July 2026</p>
+  <footer>
+    <p>© 2026 FitMetrics Tools</p>
+    <a href="privacy-policy.html">Privacy Policy</a> |
+    <a href="terms.html">Terms</a> |
+    <a href="about.html">About</a> |
+    <a href="contact.html">Contact</a>
+  </footer>
 
 </body>
-<header class="site-header">
-  <div class="nav-container">
-    <h2 class="logo"><a href="index.html">FitMetrics Tools</a></h2>
-
-    <nav class="nav-menu">
-      <a href="index.html">Home</a>
-      <a href="guides.html">Guides</a>
-      <a href="bmi-calculator.html">BMI</a>
-      <a href="calorie-calculator.html">Calorie</a>
-      <a href="bmr-calculator.html">BMR</a>
-      <a href="tdee-calculator.html">TDEE</a>
-      <a href="water-intake-calculator.html">Water</a>
-      <a href="ideal-weight-calculator.html">Ideal</a>
-    </nav>
-  </div>
-</header>
 </html>

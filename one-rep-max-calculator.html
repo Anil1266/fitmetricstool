@@ -4,21 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>Free Protein Calculator | Daily Protein Intake | FitMetrics Tools</title>
+  <title>Free One Rep Max Calculator | 1RM Estimator | FitMetrics Tools</title>
 
   <link rel="icon" type="image/png" href="favicon.png">
 
-  <meta name="description" content="Calculate how much protein you need per day based on your body weight and fitness goal, from general health to muscle gain or fat loss." />
+  <meta name="description" content="Estimate your one-rep max (1RM) for any lift using the Epley and Brzycki formulas, plus a percentage chart for training at different rep ranges." />
 
-  <meta property="og:title" content="Protein Calculator | FitMetrics Tools">
-  <meta property="og:description" content="Find your ideal daily protein intake based on your weight and goal.">
+  <meta property="og:title" content="One Rep Max Calculator | FitMetrics Tools">
+  <meta property="og:description" content="Estimate your one-rep max instantly from a recent set.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://fitmetricstools.com/protein-calculator.html">
+  <meta property="og:url" content="https://fitmetricstools.com/one-rep-max-calculator.html">
   <meta property="og:image" content="https://fitmetricstools.com/preview-image.jpg">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Protein Calculator | FitMetrics Tools">
-  <meta name="twitter:description" content="Find your ideal daily protein intake based on your weight and goal.">
+  <meta name="twitter:title" content="One Rep Max Calculator | FitMetrics Tools">
+  <meta name="twitter:description" content="Estimate your one-rep max instantly from a recent set.">
   <meta name="twitter:image" content="https://fitmetricstools.com/preview-image.jpg">
 
   <style>
@@ -69,18 +69,18 @@
 
   </style>
 
-<link rel="canonical" href="https://fitmetricstools.com/protein-calculator.html">
+<link rel="canonical" href="https://fitmetricstools.com/one-rep-max-calculator.html">
 <meta name="robots" content="index,follow">
 <meta name="author" content="FitMetrics Tools">
 <meta name="theme-color" content="#111827">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","name":"Protein Calculator","url":"https://fitmetricstools.com/protein-calculator.html","description":"Free online protein calculator from FitMetrics Tools."}
+{"@context":"https://schema.org","@type":"WebPage","name":"One Rep Max Calculator","url":"https://fitmetricstools.com/one-rep-max-calculator.html","description":"Free online one-rep max calculator from FitMetrics Tools."}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
- {"@type":"Question","name":"How much protein do I need per day?","acceptedAnswer":{"@type":"Answer","text":"Most people benefit from roughly 1.2 to 2.2 grams of protein per kilogram of body weight per day, depending on activity level and goal."}},
- {"@type":"Question","name":"Can too much protein be harmful?","acceptedAnswer":{"@type":"Answer","text":"For most healthy adults, higher protein intakes within normal dietary ranges are not harmful, though individuals with kidney conditions should consult a doctor."}},
- {"@type":"Question","name":"Is more protein always better for muscle gain?","acceptedAnswer":{"@type":"Answer","text":"No. Protein needs plateau once daily targets are met; extra beyond roughly 2.2 g/kg generally does not add further muscle-building benefit."}}
+ {"@type":"Question","name":"How accurate are 1RM formulas?","acceptedAnswer":{"@type":"Answer","text":"They are most accurate for sets of 10 reps or fewer performed close to failure; accuracy decreases with higher rep counts."}},
+ {"@type":"Question","name":"Which 1RM formula is best?","acceptedAnswer":{"@type":"Answer","text":"No single formula is perfect for everyone. Averaging the Epley and Brzycki estimates usually gives a reasonable middle-ground figure."}},
+ {"@type":"Question","name":"Should I actually attempt my calculated 1RM?","acceptedAnswer":{"@type":"Answer","text":"Estimated 1RM is a planning tool, not a guarantee. Work up gradually with a spotter if attempting a true max lift."}}
 ]}
 </script>
 
@@ -104,8 +104,8 @@
       <nav class="nav-menu">
         <a href="index.html">Home</a>
         <a href="guides.html">Guides</a>
+        <a href="protein-calculator.html">Protein</a>
         <a href="macro-calculator.html">Macros</a>
-        <a href="calorie-calculator.html">Calories</a>
       </nav>
     </div>
   </header>
@@ -114,73 +114,54 @@
 
     <div class="calculator-card">
 
-      <h1>Protein Calculator</h1>
+      <h1>One Rep Max Calculator</h1>
 
       <p class="description">
-        Find out how much protein you need each day based on your body weight and fitness goal.
+        Estimate your one-rep max (1RM) from a recent set, using the Epley and Brzycki formulas.
       </p>
 
       <div class="input-group">
-        <label for="weight">Body Weight (kg)</label>
-        <input type="number" id="weight" placeholder="e.g. 75">
+        <label for="weight">Weight Lifted (kg)</label>
+        <input type="number" id="weight" placeholder="e.g. 100">
       </div>
 
       <div class="input-group">
-        <label for="goal">Goal</label>
-        <select id="goal">
-          <option value="general">General Health</option>
-          <option value="active">Active / Fitness</option>
-          <option value="gain">Muscle Gain</option>
-          <option value="loss">Weight Loss (preserve muscle)</option>
-        </select>
+        <label for="reps">
+          Reps Performed
+          <span class="hint">Most accurate for 1–10 reps performed near failure</span>
+        </label>
+        <input type="number" id="reps" placeholder="e.g. 5">
       </div>
 
-      <button onclick="calculateProtein()">Calculate Protein Intake</button>
+      <button onclick="calculateOneRepMax()">Calculate One Rep Max</button>
 
       <div id="resultCard" class="result-card">
-        <div class="result-label">Recommended Daily Protein</div>
-        <div id="proteinValue" class="calorie-value"></div>
+        <div class="result-label">Estimated One Rep Max</div>
+        <div id="ormValue" class="calorie-value"></div>
         <div class="result-subtitle" id="resultSubtitle"></div>
 
         <div class="goal-grid">
           <div class="goal-card">
-            <h3>Protein Calories</h3>
-            <div id="proteinCalories" class="goal-value"></div>
-            <div class="goal-desc">Calories supplied by your protein target.</div>
+            <h3>Epley Formula</h3>
+            <div id="epleyValue" class="goal-value"></div>
           </div>
           <div class="goal-card">
-            <h3>Typical Range</h3>
-            <div id="proteinRange" class="goal-value" style="font-size:1.3rem;"></div>
-            <div class="goal-desc">Full healthy range for your weight.</div>
+            <h3>Brzycki Formula</h3>
+            <div id="brzyckiValue" class="goal-value"></div>
           </div>
         </div>
 
-        <!-- MONETIZATION PLACEHOLDER (disabled until ready to monetize)
-        GEAR / AFFILIATE:
         <div class="recommendation-box">
-          <div style="font-size:11px; letter-spacing:1px; text-transform:uppercase; color:#e2e8f0; margin-bottom:14px;">Recommended</div>
-          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:14px;">
-            <a href="#" rel="sponsored nofollow" style="display:block; background:#0f172a; border-radius:14px; padding:16px; text-decoration:none; color:white;">
-              <div style="font-weight:bold; margin-bottom:4px;">Whey protein powder</div>
-              <div style="font-size:13px; color:#cbd5e1;">An easy way to close a daily protein gap.</div>
-              <div style="font-size:12px; color:#4ade80; margin-top:8px;">View on Amazon →</div>
-            </a>
-            <a href="#" rel="sponsored nofollow" style="display:block; background:#0f172a; border-radius:14px; padding:16px; text-decoration:none; color:white;">
-              <div style="font-weight:bold; margin-bottom:4px;">Digital food scale</div>
-              <div style="font-size:13px; color:#cbd5e1;">Weigh portions accurately to hit your protein target.</div>
-              <div style="font-size:12px; color:#4ade80; margin-top:8px;">View on Amazon →</div>
-            </a>
-          </div>
-          <p style="font-size:12px; color:#cbd5e1; margin-top:12px;">As an Amazon Associate, FitMetrics Tools earns from qualifying purchases. Replace these placeholder links with your own affiliate links.</p>
+          <strong>Training Percentages (based on your estimated 1RM):</strong>
+          <div id="percentTable" style="margin-top:12px;"></div>
         </div>
-        -->
 
         <div class="related-tools">
           <h3>Try Other Fitness Tools</h3>
           <div class="tools-grid">
+            <a href="protein-calculator.html" class="tool-card">Protein Calculator</a>
             <a href="macro-calculator.html" class="tool-card">Macro Calculator</a>
-            <a href="calorie-calculator.html" class="tool-card">Calorie Calculator</a>
-            <a href="lean-body-mass-calculator.html" class="tool-card">Lean Body Mass</a>
+            <a href="tdee-calculator.html" class="tool-card">TDEE Calculator</a>
           </div>
         </div>
 
@@ -189,15 +170,11 @@
     </div>
 
     <div class="info-section">
-      <h2>How Much Protein Do You Need?</h2>
-      <p>Protein needs depend on activity level and goal. General guidelines per kilogram of body weight:</p>
-      <table>
-        <tr><th>Goal</th><th>Protein (g/kg)</th></tr>
-        <tr><td>General Health</td><td>1.2 g/kg</td></tr>
-        <tr><td>Active / Fitness</td><td>1.6 g/kg</td></tr>
-        <tr><td>Muscle Gain</td><td>1.8–2.0 g/kg</td></tr>
-        <tr><td>Weight Loss (preserve muscle)</td><td>2.0–2.2 g/kg</td></tr>
-      </table>
+      <h2>How One Rep Max Is Estimated</h2>
+      <p>This tool averages two well-known formulas:</p>
+      <p><strong>Epley:</strong> 1RM = weight × (1 + reps ÷ 30)</p>
+      <p><strong>Brzycki:</strong> 1RM = weight ÷ (1.0278 − 0.0278 × reps)</p>
+      <p>Both are most accurate for sets of 10 reps or fewer performed close to failure.</p>
 
       <!-- MONETIZATION PLACEHOLDER (disabled until ready to monetize)
       AD SLOT:
@@ -207,12 +184,12 @@
       -->
 
       <h2>Frequently Asked Questions</h2>
-      <h3>How much protein do I need per day?</h3>
-      <p>Most people benefit from roughly 1.2 to 2.2 grams of protein per kilogram of body weight per day, depending on activity level and goal.</p>
-      <h3>Can too much protein be harmful?</h3>
-      <p>For most healthy adults, higher protein intakes within normal dietary ranges are not harmful, though anyone with kidney conditions should consult a doctor.</p>
-      <h3>Is more protein always better for muscle gain?</h3>
-      <p>No. Protein needs plateau once daily targets are met; extra beyond roughly 2.2 g/kg generally does not add further muscle-building benefit.</p>
+      <h3>How accurate are 1RM formulas?</h3>
+      <p>They are most accurate for sets of 10 reps or fewer performed close to failure; accuracy decreases with higher rep counts.</p>
+      <h3>Which 1RM formula is best?</h3>
+      <p>No single formula is perfect for everyone. Averaging the Epley and Brzycki estimates usually gives a reasonable middle-ground figure.</p>
+      <h3>Should I actually attempt my calculated 1RM?</h3>
+      <p>Estimated 1RM is a planning tool, not a guarantee. Work up gradually with a spotter if attempting a true max lift.</p>
 
       <p><strong>Last Updated:</strong> July 2026</p>
     </div>
@@ -228,30 +205,50 @@
   </footer>
 
   <script>
-    function calculateProtein() {
+    function calculateOneRepMax() {
       const weight = parseFloat(document.getElementById("weight").value);
-      const goal = document.getElementById("goal").value;
+      const reps = parseFloat(document.getElementById("reps").value);
 
-      if (!weight) { alert("Please enter your body weight."); return; }
+      if (!weight || !reps) { alert("Please fill all fields."); return; }
+      if (reps === 1) {
+        document.getElementById("ormValue").textContent = weight.toFixed(1) + " kg";
+        document.getElementById("epleyValue").textContent = weight.toFixed(1) + " kg";
+        document.getElementById("brzyckiValue").textContent = weight.toFixed(1) + " kg";
+        document.getElementById("resultSubtitle").textContent = "This is your actual lifted weight for a single rep.";
+        document.getElementById("percentTable").innerHTML = buildPercentTable(weight);
+        document.getElementById("resultCard").style.display = "block";
+        document.getElementById("resultCard").scrollIntoView({ behavior: "smooth", block: "nearest" });
+        return;
+      }
 
-      let perKg, subtitle;
-      if (goal === "general") { perKg = 1.2; subtitle = "A general health target to support everyday recovery and maintenance."; }
-      else if (goal === "active") { perKg = 1.6; subtitle = "A solid target for regularly active people and casual training."; }
-      else if (goal === "gain") { perKg = 1.9; subtitle = "A muscle-building target, best paired with a calorie surplus and strength training."; }
-      else { perKg = 2.1; subtitle = "A higher target to help preserve lean muscle while in a calorie deficit."; }
+      const epley = weight * (1 + reps / 30);
+      const brzycki = weight / (1.0278 - 0.0278 * reps);
+      const average = (epley + brzycki) / 2;
 
-      const proteinGrams = Math.round(perKg * weight);
-      const proteinCalories = proteinGrams * 4;
-      const rangeLow = Math.round(1.6 * weight);
-      const rangeHigh = Math.round(2.2 * weight);
-
-      document.getElementById("proteinValue").textContent = proteinGrams + "g / day";
-      document.getElementById("resultSubtitle").textContent = subtitle;
-      document.getElementById("proteinCalories").textContent = proteinCalories + " kcal";
-      document.getElementById("proteinRange").textContent = rangeLow + "–" + rangeHigh + "g";
+      document.getElementById("ormValue").textContent = average.toFixed(1) + " kg";
+      document.getElementById("epleyValue").textContent = epley.toFixed(1) + " kg";
+      document.getElementById("brzyckiValue").textContent = brzycki.toFixed(1) + " kg";
+      document.getElementById("resultSubtitle").textContent = "Average of the Epley and Brzycki formula estimates.";
+      document.getElementById("percentTable").innerHTML = buildPercentTable(average);
 
       document.getElementById("resultCard").style.display = "block";
       document.getElementById("resultCard").scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    function buildPercentTable(orm) {
+      const rows = [
+        [95, 2], [90, 4], [85, 6], [80, 8], [75, 10], [70, 12]
+      ];
+      let html = '<table style="width:100%; border-collapse:collapse;">';
+      html += '<tr><th style="text-align:left;padding:6px;">% of 1RM</th><th style="text-align:left;padding:6px;">Weight</th><th style="text-align:left;padding:6px;">Typical Reps</th></tr>';
+      rows.forEach(function(r) {
+        const pct = r[0];
+        const reps = r[1];
+        const w = (orm * pct / 100).toFixed(1);
+        html += '<tr><td style="padding:6px;">' + pct + '%</td><td style="padding:6px;">' + w + ' kg</td><td style="padding:6px;">~' + reps + '</td></tr>';
+      });
+      html += '</table>';
+      return html;
     }
   </script>
 

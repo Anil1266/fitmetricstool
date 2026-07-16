@@ -4,21 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>Free Protein Calculator | Daily Protein Intake | FitMetrics Tools</title>
+  <title>Free Lean Body Mass Calculator | FitMetrics Tools</title>
 
   <link rel="icon" type="image/png" href="favicon.png">
 
-  <meta name="description" content="Calculate how much protein you need per day based on your body weight and fitness goal, from general health to muscle gain or fat loss." />
+  <meta name="description" content="Calculate your lean body mass (muscle, bone, organs, and water) using the Boer formula. Enter your height, weight, and gender for an instant estimate." />
 
-  <meta property="og:title" content="Protein Calculator | FitMetrics Tools">
-  <meta property="og:description" content="Find your ideal daily protein intake based on your weight and goal.">
+  <meta property="og:title" content="Lean Body Mass Calculator | FitMetrics Tools">
+  <meta property="og:description" content="Estimate your lean body mass instantly using the Boer formula.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://fitmetricstools.com/protein-calculator.html">
+  <meta property="og:url" content="https://fitmetricstools.com/lean-body-mass-calculator.html">
   <meta property="og:image" content="https://fitmetricstools.com/preview-image.jpg">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Protein Calculator | FitMetrics Tools">
-  <meta name="twitter:description" content="Find your ideal daily protein intake based on your weight and goal.">
+  <meta name="twitter:title" content="Lean Body Mass Calculator | FitMetrics Tools">
+  <meta name="twitter:description" content="Estimate your lean body mass instantly using the Boer formula.">
   <meta name="twitter:image" content="https://fitmetricstools.com/preview-image.jpg">
 
   <style>
@@ -69,18 +69,18 @@
 
   </style>
 
-<link rel="canonical" href="https://fitmetricstools.com/protein-calculator.html">
+<link rel="canonical" href="https://fitmetricstools.com/lean-body-mass-calculator.html">
 <meta name="robots" content="index,follow">
 <meta name="author" content="FitMetrics Tools">
 <meta name="theme-color" content="#111827">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","name":"Protein Calculator","url":"https://fitmetricstools.com/protein-calculator.html","description":"Free online protein calculator from FitMetrics Tools."}
+{"@context":"https://schema.org","@type":"WebPage","name":"Lean Body Mass Calculator","url":"https://fitmetricstools.com/lean-body-mass-calculator.html","description":"Free online lean body mass calculator from FitMetrics Tools."}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
- {"@type":"Question","name":"How much protein do I need per day?","acceptedAnswer":{"@type":"Answer","text":"Most people benefit from roughly 1.2 to 2.2 grams of protein per kilogram of body weight per day, depending on activity level and goal."}},
- {"@type":"Question","name":"Can too much protein be harmful?","acceptedAnswer":{"@type":"Answer","text":"For most healthy adults, higher protein intakes within normal dietary ranges are not harmful, though individuals with kidney conditions should consult a doctor."}},
- {"@type":"Question","name":"Is more protein always better for muscle gain?","acceptedAnswer":{"@type":"Answer","text":"No. Protein needs plateau once daily targets are met; extra beyond roughly 2.2 g/kg generally does not add further muscle-building benefit."}}
+ {"@type":"Question","name":"What is lean body mass?","acceptedAnswer":{"@type":"Answer","text":"Lean body mass is your total body weight minus fat mass, including muscle, bone, organs, and water."}},
+ {"@type":"Question","name":"How accurate is the Boer formula?","acceptedAnswer":{"@type":"Answer","text":"The Boer formula is a widely used estimate based on height and weight; methods like DEXA scans are more precise but require special equipment."}},
+ {"@type":"Question","name":"Why does lean body mass matter?","acceptedAnswer":{"@type":"Answer","text":"Lean body mass is useful for setting protein targets, tracking body composition changes, and calculating metrics like FFMI."}}
 ]}
 </script>
 
@@ -104,8 +104,8 @@
       <nav class="nav-menu">
         <a href="index.html">Home</a>
         <a href="guides.html">Guides</a>
-        <a href="macro-calculator.html">Macros</a>
-        <a href="calorie-calculator.html">Calories</a>
+        <a href="body-fat-calculator.html">Body Fat</a>
+        <a href="ffmi-calculator.html">FFMI</a>
       </nav>
     </div>
   </header>
@@ -114,73 +114,56 @@
 
     <div class="calculator-card">
 
-      <h1>Protein Calculator</h1>
+      <h1>Lean Body Mass Calculator</h1>
 
       <p class="description">
-        Find out how much protein you need each day based on your body weight and fitness goal.
+        Estimate your lean body mass — muscle, bone, organs, and water — using the Boer formula.
       </p>
 
       <div class="input-group">
-        <label for="weight">Body Weight (kg)</label>
-        <input type="number" id="weight" placeholder="e.g. 75">
-      </div>
-
-      <div class="input-group">
-        <label for="goal">Goal</label>
-        <select id="goal">
-          <option value="general">General Health</option>
-          <option value="active">Active / Fitness</option>
-          <option value="gain">Muscle Gain</option>
-          <option value="loss">Weight Loss (preserve muscle)</option>
+        <label for="gender">Gender</label>
+        <select id="gender">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
         </select>
       </div>
 
-      <button onclick="calculateProtein()">Calculate Protein Intake</button>
+      <div class="input-group">
+        <label for="height">Height (cm)</label>
+        <input type="number" id="height" placeholder="e.g. 175">
+      </div>
+
+      <div class="input-group">
+        <label for="weight">Weight (kg)</label>
+        <input type="number" id="weight" placeholder="e.g. 75">
+      </div>
+
+      <button onclick="calculateLBM()">Calculate Lean Body Mass</button>
 
       <div id="resultCard" class="result-card">
-        <div class="result-label">Recommended Daily Protein</div>
-        <div id="proteinValue" class="calorie-value"></div>
+        <div class="result-label">Lean Body Mass</div>
+        <div id="lbmValue" class="calorie-value"></div>
         <div class="result-subtitle" id="resultSubtitle"></div>
 
         <div class="goal-grid">
           <div class="goal-card">
-            <h3>Protein Calories</h3>
-            <div id="proteinCalories" class="goal-value"></div>
-            <div class="goal-desc">Calories supplied by your protein target.</div>
+            <h3>Fat Mass</h3>
+            <div id="fatMass" class="goal-value"></div>
+            <div class="goal-desc">Estimated remaining weight as body fat.</div>
           </div>
           <div class="goal-card">
-            <h3>Typical Range</h3>
-            <div id="proteinRange" class="goal-value" style="font-size:1.3rem;"></div>
-            <div class="goal-desc">Full healthy range for your weight.</div>
+            <h3>Estimated Body Fat %</h3>
+            <div id="bfPercent" class="goal-value"></div>
+            <div class="goal-desc">Fat mass as a share of total weight.</div>
           </div>
         </div>
-
-        <!-- MONETIZATION PLACEHOLDER (disabled until ready to monetize)
-        GEAR / AFFILIATE:
-        <div class="recommendation-box">
-          <div style="font-size:11px; letter-spacing:1px; text-transform:uppercase; color:#e2e8f0; margin-bottom:14px;">Recommended</div>
-          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:14px;">
-            <a href="#" rel="sponsored nofollow" style="display:block; background:#0f172a; border-radius:14px; padding:16px; text-decoration:none; color:white;">
-              <div style="font-weight:bold; margin-bottom:4px;">Whey protein powder</div>
-              <div style="font-size:13px; color:#cbd5e1;">An easy way to close a daily protein gap.</div>
-              <div style="font-size:12px; color:#4ade80; margin-top:8px;">View on Amazon →</div>
-            </a>
-            <a href="#" rel="sponsored nofollow" style="display:block; background:#0f172a; border-radius:14px; padding:16px; text-decoration:none; color:white;">
-              <div style="font-weight:bold; margin-bottom:4px;">Digital food scale</div>
-              <div style="font-size:13px; color:#cbd5e1;">Weigh portions accurately to hit your protein target.</div>
-              <div style="font-size:12px; color:#4ade80; margin-top:8px;">View on Amazon →</div>
-            </a>
-          </div>
-          <p style="font-size:12px; color:#cbd5e1; margin-top:12px;">As an Amazon Associate, FitMetrics Tools earns from qualifying purchases. Replace these placeholder links with your own affiliate links.</p>
-        </div>
-        -->
 
         <div class="related-tools">
           <h3>Try Other Fitness Tools</h3>
           <div class="tools-grid">
-            <a href="macro-calculator.html" class="tool-card">Macro Calculator</a>
-            <a href="calorie-calculator.html" class="tool-card">Calorie Calculator</a>
-            <a href="lean-body-mass-calculator.html" class="tool-card">Lean Body Mass</a>
+            <a href="ffmi-calculator.html" class="tool-card">FFMI Calculator</a>
+            <a href="body-fat-calculator.html" class="tool-card">Body Fat Calculator</a>
+            <a href="protein-calculator.html" class="tool-card">Protein Calculator</a>
           </div>
         </div>
 
@@ -189,15 +172,10 @@
     </div>
 
     <div class="info-section">
-      <h2>How Much Protein Do You Need?</h2>
-      <p>Protein needs depend on activity level and goal. General guidelines per kilogram of body weight:</p>
-      <table>
-        <tr><th>Goal</th><th>Protein (g/kg)</th></tr>
-        <tr><td>General Health</td><td>1.2 g/kg</td></tr>
-        <tr><td>Active / Fitness</td><td>1.6 g/kg</td></tr>
-        <tr><td>Muscle Gain</td><td>1.8–2.0 g/kg</td></tr>
-        <tr><td>Weight Loss (preserve muscle)</td><td>2.0–2.2 g/kg</td></tr>
-      </table>
+      <h2>How Lean Body Mass Is Calculated</h2>
+      <p>This tool uses the Boer formula, a well-established equation based on height and weight:</p>
+      <p><strong>Men:</strong> LBM = 0.407 × weight(kg) + 0.267 × height(cm) − 19.2</p>
+      <p><strong>Women:</strong> LBM = 0.252 × weight(kg) + 0.473 × height(cm) − 48.3</p>
 
       <!-- MONETIZATION PLACEHOLDER (disabled until ready to monetize)
       AD SLOT:
@@ -207,12 +185,12 @@
       -->
 
       <h2>Frequently Asked Questions</h2>
-      <h3>How much protein do I need per day?</h3>
-      <p>Most people benefit from roughly 1.2 to 2.2 grams of protein per kilogram of body weight per day, depending on activity level and goal.</p>
-      <h3>Can too much protein be harmful?</h3>
-      <p>For most healthy adults, higher protein intakes within normal dietary ranges are not harmful, though anyone with kidney conditions should consult a doctor.</p>
-      <h3>Is more protein always better for muscle gain?</h3>
-      <p>No. Protein needs plateau once daily targets are met; extra beyond roughly 2.2 g/kg generally does not add further muscle-building benefit.</p>
+      <h3>What is lean body mass?</h3>
+      <p>Lean body mass is your total body weight minus fat mass, including muscle, bone, organs, and water.</p>
+      <h3>How accurate is the Boer formula?</h3>
+      <p>It's a widely used estimate based on height and weight; methods like DEXA scans are more precise but require special equipment.</p>
+      <h3>Why does lean body mass matter?</h3>
+      <p>It's useful for setting protein targets, tracking body composition changes, and calculating metrics like FFMI.</p>
 
       <p><strong>Last Updated:</strong> July 2026</p>
     </div>
@@ -228,27 +206,28 @@
   </footer>
 
   <script>
-    function calculateProtein() {
+    function calculateLBM() {
+      const gender = document.getElementById("gender").value;
+      const height = parseFloat(document.getElementById("height").value);
       const weight = parseFloat(document.getElementById("weight").value);
-      const goal = document.getElementById("goal").value;
 
-      if (!weight) { alert("Please enter your body weight."); return; }
+      if (!height || !weight) { alert("Please fill all fields."); return; }
 
-      let perKg, subtitle;
-      if (goal === "general") { perKg = 1.2; subtitle = "A general health target to support everyday recovery and maintenance."; }
-      else if (goal === "active") { perKg = 1.6; subtitle = "A solid target for regularly active people and casual training."; }
-      else if (goal === "gain") { perKg = 1.9; subtitle = "A muscle-building target, best paired with a calorie surplus and strength training."; }
-      else { perKg = 2.1; subtitle = "A higher target to help preserve lean muscle while in a calorie deficit."; }
+      let lbm;
+      if (gender === "male") {
+        lbm = 0.407 * weight + 0.267 * height - 19.2;
+      } else {
+        lbm = 0.252 * weight + 0.473 * height - 48.3;
+      }
+      lbm = Math.max(lbm, 0);
 
-      const proteinGrams = Math.round(perKg * weight);
-      const proteinCalories = proteinGrams * 4;
-      const rangeLow = Math.round(1.6 * weight);
-      const rangeHigh = Math.round(2.2 * weight);
+      const fatMass = Math.max(weight - lbm, 0);
+      const bfPercent = (fatMass / weight) * 100;
 
-      document.getElementById("proteinValue").textContent = proteinGrams + "g / day";
-      document.getElementById("resultSubtitle").textContent = subtitle;
-      document.getElementById("proteinCalories").textContent = proteinCalories + " kcal";
-      document.getElementById("proteinRange").textContent = rangeLow + "–" + rangeHigh + "g";
+      document.getElementById("lbmValue").textContent = lbm.toFixed(1) + " kg";
+      document.getElementById("resultSubtitle").textContent = "Estimated using the Boer formula based on your height and weight.";
+      document.getElementById("fatMass").textContent = fatMass.toFixed(1) + " kg";
+      document.getElementById("bfPercent").textContent = bfPercent.toFixed(1) + "%";
 
       document.getElementById("resultCard").style.display = "block";
       document.getElementById("resultCard").scrollIntoView({ behavior: "smooth", block: "nearest" });

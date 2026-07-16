@@ -1,239 +1,359 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Many Calories Do I Need Per Day? | FitMetrics Tools</title>
+  <link rel="icon" type="image/png" href="favicon.png">
 
-<title>How Many Calories Do I Need Per Day? | FitMetrics Tools</title>
+  <meta
+    name="description"
+    content="Learn how many calories you need each day for weight loss, maintenance, weight gain, or muscle gain, and estimate your own number with our free Calorie Calculator."
+  />
 
-<link rel="icon" type="image/png" href="favicon.png">
+  <meta property="og:title" content="How Many Calories Do I Need Per Day? | FitMetrics Tools">
+  <meta property="og:description" content="Understand daily calorie needs for different goals and calculate your own estimate.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fitmetricstools.com/how-many-calories-do-i-need.html">
+  <meta property="og:image" content="https://fitmetricstools.com/preview-image.jpg">
 
-<meta name="description" content="Learn how many calories you need each day for weight loss, maintenance, or muscle gain. Estimate your calorie needs with our free Calorie Calculator.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How Many Calories Do I Need Per Day? | FitMetrics Tools">
+  <meta name="twitter:description" content="Daily calorie needs for weight loss, maintenance, and muscle gain.">
 
-<style>
+  <style>
 
-.site-header{
-text-align:center;
-padding:30px 10px;
-background:#151515;
-}
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #111827;
+      color: white;
+      line-height: 1.8;
+    }
 
-.site-header h1{
-margin:0;
-font-size:28px;
-}
+    .site-header {
+      background: black;
+      padding: 15px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-.site-header p{
-color:#aaa;
-margin-top:6px;
-}
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
 
-body{
-font-family:Arial, Helvetica, sans-serif;
-margin:0;
-background:#0f0f0f;
-color:white;
-}
+    .logo a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
 
-.navbar{
-display:flex;
-justify-content:center;
-gap:30px;
-background:#111;
-padding:16px;
-}
+    .nav-menu {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
 
-.navbar a{
-color:white;
-text-decoration:none;
-font-weight:bold;
-}
+    .nav-menu a {
+      color: white;
+      text-decoration: none;
+    }
 
-.container{
-max-width:900px;
-margin:auto;
-padding:30px;
-}
+    .nav-menu a:hover {
+      color: #22c55e;
+    }
 
-h1,h2{
-margin-top:25px;
-}
+    .hero {
+      text-align: center;
+      padding: 90px 20px;
+      background: linear-gradient(to bottom, #111827, #0f172a);
+    }
 
-p{
-line-height:1.7;
-color:#ccc;
-}
+    .hero h1 {
+      font-size: 2.6rem;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
 
-.calculator-link{
-display:inline-block;
-margin-top:20px;
-padding:12px 18px;
-background:#1e88e5;
-color:white;
-text-decoration:none;
-border-radius:6px;
-}
+    .hero p {
+      max-width: 750px;
+      margin: auto;
+      color: #cbd5e1;
+      font-size: 1.1rem;
+    }
 
-footer{
-text-align:center;
-padding:30px;
-color:#aaa;
-}
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 60px 20px;
+    }
 
-</style>
+    .guide-card {
+      background: #1e293b;
+      padding: 35px;
+      border-radius: 22px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
 
+    .guide-card h2 {
+      color: #22c55e;
+      margin-top: 0;
+    }
+
+    .guide-card p, .guide-card li {
+      color: #cbd5e1;
+    }
+
+    .guide-card ul {
+      padding-left: 20px;
+    }
+
+    .cta-section {
+      margin-top: 20px;
+      background: linear-gradient(to right, #15803d, #166534);
+      padding: 45px 25px;
+      border-radius: 22px;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      margin-bottom: 10px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 14px 26px;
+      border-radius: 14px;
+      background: white;
+      color: #166534;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* AD SLOTS */
+    .ad-slot {
+      border: 1px dashed #334155;
+      background: #1e293b;
+      color: #64748b;
+      font-family: monospace;
+      font-size: 12px;
+      text-align: center;
+      padding: 18px 10px;
+      border-radius: 14px;
+      margin: 30px 0;
+    }
+
+    /* AFFILIATE / GEAR BOX */
+    .gear-box {
+      background: #1e293b;
+      border-radius: 20px;
+      padding: 25px;
+      margin: 30px 0;
+    }
+    .gear-box .label {
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #94a3b8;
+      margin-bottom: 14px;
+    }
+    .gear-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+    }
+    .gear-item {
+      display: block;
+      background: #0f172a;
+      border-radius: 14px;
+      padding: 16px;
+      text-decoration: none;
+      color: white;
+    }
+    .gear-item:hover { background: #334155; }
+    .gear-item .g-name { font-weight: bold; margin-bottom: 4px; }
+    .gear-item .g-desc { font-size: 13px; color: #cbd5e1; }
+    .gear-item .g-cta { font-size: 12px; color: #4ade80; margin-top: 8px; }
+    .disclosure { font-size: 12px; color: #64748b; margin-top: 12px; }
+
+    .related-tools h3 { text-align: center; margin-bottom: 15px; color: #22c55e; }
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+    }
+    .tool-card {
+      background: rgba(255,255,255,0.08);
+      padding: 14px;
+      border-radius: 12px;
+      text-align: center;
+      text-decoration: none;
+      color: white;
+      font-size: 0.95rem;
+    }
+    .tool-card:hover { background: rgba(255,255,255,0.18); }
+
+    footer {
+      background: black;
+      padding: 35px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    footer a {
+      color: #22c55e;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .guide-card { padding: 25px; }
+    }
+
+  </style>
 
 <link rel="canonical" href="https://fitmetricstools.com/how-many-calories-do-i-need.html">
 <meta name="robots" content="index,follow">
 <meta name="author" content="FitMetrics Tools">
 <meta name="theme-color" content="#111827">
-<meta property="og:title" content="How Many Calories Do I Need Per Day? | FitMetrics Tools">
-<meta property="og:description" content="Understand daily calorie needs for different goals and calculate your own estimate.">
 <script type="application/ld+json">
-{
- "@context":"https://schema.org",
- "@type":"Article",
- "headline":"How Many Calories Do I Need Per Day?",
- "author":{"@type":"Organization","name":"FitMetrics Tools"}
-}
+{"@context":"https://schema.org","@type":"Article","headline":"How Many Calories Do I Need Per Day?","author":{"@type":"Organization","name":"FitMetrics Tools"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"How many calories should I eat to lose weight?","acceptedAnswer":{"@type":"Answer","text":"A daily deficit of about 300\u2013500 calories below your maintenance level is a common, sustainable approach, though individual needs vary."}},
+  {"@type":"Question","name":"How many calories do I need to gain weight?","acceptedAnswer":{"@type":"Answer","text":"Most people gain weight steadily by eating around 300\u2013500 calories above maintenance, combined with strength training for lean mass."}},
+  {"@type":"Question","name":"Do I need a calorie calculator?","acceptedAnswer":{"@type":"Answer","text":"A calorie calculator gives a personalized starting estimate based on your age, height, weight, sex, and activity level, which is more accurate than a generic average."}}
+]}
 </script>
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RZ7YK5VC1L"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag() {
-    dataLayer.push(arguments);
-  }
-
+  function gtag() { dataLayer.push(arguments); }
   gtag('js', new Date());
-
   gtag('config', 'G-RZ7YK5VC1L');
 </script>
- 
+
+<!-- AdSense: paste your <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"> tag here once approved -->
+
 </head>
 
 <body>
 
-<nav class="navbar">
+  <header class="site-header">
+    <div class="nav-container">
+      <h2 class="logo"><a href="index.html">FitMetrics Tools</a></h2>
+      <nav class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="guides.html">Guides</a>
+        <a href="bmi-calculator.html">BMI</a>
+        <a href="calorie-calculator.html">Calories</a>
+        <a href="tdee-calculator.html">TDEE</a>
+      </nav>
+    </div>
+  </header>
 
-<a href="/">Home</a>
-<a href="/calorie-calculator.html">Calorie Calculator</a>
+  <section class="hero">
+    <h1>How Many Calories Do I Need Per Day?</h1>
+    <p>Calories are the energy your body uses for breathing, digestion, movement, and exercise. Here's how to estimate what you need for weight loss, maintenance, weight gain, or muscle gain.</p>
+  </section>
 
-</nav>
+  <div class="container">
 
-<header class="site-header">
+    <div class="guide-card">
+      <h2>Average Daily Calorie Needs</h2>
+      <p>Your exact number depends on age, sex, height, weight, and activity level, but general population averages are:</p>
+      <ul>
+        <li>Adult women: roughly 1,800–2,200 calories</li>
+        <li>Adult men: roughly 2,200–2,800 calories</li>
+      </ul>
+      <p>These ranges are a starting point, not a target — an individualized estimate from a calculator is far more useful.</p>
+    </div>
 
-<h1>FitMetrics Tools</h1>
+    <!-- MONETIZATION PLACEHOLDER (disabled until ready to monetize)
+AD SLOT:
+<div class="ad-slot" aria-hidden="true">Ad slot — in-article (responsive)</div>
+-->
 
-<p>Free Health & Fitness Calculators</p>
+    <div class="guide-card">
+      <h2>Calories for Weight Loss</h2>
+      <p>To lose weight, you need to consistently consume fewer calories than you burn. A deficit of about 300–500 calories per day below your maintenance level is a widely used, sustainable target — steep enough to see progress, moderate enough to stick with.</p>
+    </div>
 
-</header>
+    <div class="guide-card">
+      <h2>Calories for Weight Gain &amp; Muscle Gain</h2>
+      <p>To gain weight, aim for roughly 300–500 calories above maintenance. If the goal is muscle specifically rather than general weight gain, pair that surplus with regular strength training — extra calories alone build both muscle and fat.</p>
+    </div>
 
-<div class="container">
+    <section class="cta-section">
+      <h2>Get Your Personal Number</h2>
+      <p>Averages only go so far. Use our free calculator for an estimate based on your own stats.</p>
+      <a href="calorie-calculator.html" class="cta-btn">Open Calorie Calculator</a>
+    </section>
 
-<h1>How Many Calories Should I Eat Per Day?</h1>
+    <!-- MONETIZATION PLACEHOLDER (disabled until ready to monetize)
+GEAR / AFFILIATE:
+<div class="gear-box">
+      <div class="label">Recommended</div>
+      <div class="gear-list">
+        <a class="gear-item" href="#" rel="sponsored nofollow">
+          <div class="g-name">Kitchen food scale</div>
+          <div class="g-desc">Accurate portions make calorie tracking far more reliable than eyeballing.</div>
+          <div class="g-cta">View on Amazon →</div>
+        </a>
+        <a class="gear-item" href="#" rel="sponsored nofollow">
+          <div class="g-name">Meal prep containers</div>
+          <div class="g-desc">Pre-portioned meals make it easier to hit a calorie target consistently.</div>
+          <div class="g-cta">View on Amazon →</div>
+        </a>
+      </div>
+      <p class="disclosure">As an Amazon Associate, FitMetrics Tools earns from qualifying purchases. Replace these placeholder links with your own affiliate links.</p>
+    </div>
+-->
 
-<p>
-Calories are a measure of energy that your body uses to function properly.
-Understanding how many calories you need each day can help you maintain
-a healthy weight, lose fat, or build muscle.
-</p>
+    <div class="guide-card">
+      <h2>Frequently Asked Questions</h2>
+      <h3>How many calories should I eat to lose weight?</h3>
+      <p>A daily deficit of about 300–500 calories below maintenance is commonly used for gradual, sustainable weight loss, although individual needs vary.</p>
+      <h3>How many calories do I need to gain weight?</h3>
+      <p>Most people gain weight steadily by eating around 300–500 calories above maintenance, combined with strength training for lean mass.</p>
+      <h3>Do I need a calorie calculator?</h3>
+      <p>A calorie calculator provides a personalized estimate based on your age, height, weight, gender, and activity level — more accurate than a flat average.</p>
+    </div>
 
-<h2>What Are Calories?</h2>
+    <div class="related-tools">
+      <h3>Try Other Fitness Tools</h3>
+      <div class="tools-grid">
+        <a href="bmi-calculator.html" class="tool-card">BMI Calculator</a>
+        <a href="tdee-calculator.html" class="tool-card">TDEE Calculator</a>
+        <a href="water-intake-calculator.html" class="tool-card">Water Intake</a>
+      </div>
+    </div>
 
-<p>
-Calories represent the amount of energy your body gets from food and drinks.
-Your body uses this energy for breathing, digestion, movement, and exercise.
-</p>
+    <p style="text-align:center; color:#64748b; font-size:13px;"><strong>Last Updated:</strong> July 2026</p>
 
-<h2>Average Daily Calorie Needs</h2>
+  </div>
 
-<p>
-The number of calories you need depends on your age, gender, height,
-weight, and activity level.
-</p>
-
-<p>
-Average daily calorie needs:
-</p>
-
-<ul>
-<li>Adult women: 1,800 – 2,200 calories</li>
-<li>Adult men: 2,200 – 2,800 calories</li>
-</ul>
-
-<h2>Calories for Weight Loss</h2>
-
-<p>
-To lose weight, you need to consume fewer calories than your body burns.
-A safe calorie deficit is usually about 500 calories per day.
-</p>
-
-<h2>Calories for Muscle Gain</h2>
-
-<p>
-To build muscle, your body needs extra energy.
-This means eating slightly more calories while combining it with strength training.
-</p>
-
-<h2>Use a Calorie Calculator</h2>
-
-<p>
-Instead of guessing your calorie needs, you can use a calculator
-to estimate your daily calorie requirements.
-</p>
-
-<a href="/calorie-calculator.html" class="calculator-link">
-Try Our Calorie Calculator
-</a>
-
-<h2>Final Thoughts</h2>
-
-<p>
-Knowing your daily calorie needs can help you make better decisions about
-diet and exercise. Combine healthy eating with regular physical activity
-to maintain a balanced lifestyle.
-</p>
-
-</div>
-
-<footer>
-
-<p>© 2026 FitMetrics Tools</p>
-
-</footer>
-
-
-<h2>Frequently Asked Questions</h2>
-
-<h3>How many calories should I eat to lose weight?</h3>
-<p>A daily calorie deficit of about 500 calories is commonly used for gradual, sustainable weight loss, although individual needs vary.</p>
-
-<h3>Do I need a calorie calculator?</h3>
-<p>A calorie calculator provides a personalized estimate based on your age, height, weight, gender, and activity level.</p>
-
-<p><strong>Last Updated:</strong> July 2026</p>
+  <footer>
+    <p>© 2026 FitMetrics Tools</p>
+    <a href="privacy-policy.html">Privacy Policy</a> |
+    <a href="terms.html">Terms</a> |
+    <a href="about.html">About</a> |
+    <a href="contact.html">Contact</a>
+  </footer>
 
 </body>
-
-<header class="site-header">
-  <div class="nav-container">
-    <h2 class="logo"><a href="index.html">FitMetrics Tools</a></h2>
-
-    <nav class="nav-menu">
-      <a href="index.html">Home</a>
-      <a href="guides.html">Guides</a>
-      <a href="bmi-calculator.html">BMI</a>
-      <a href="calorie-calculator.html">Calorie</a>
-      <a href="bmr-calculator.html">BMR</a>
-      <a href="tdee-calculator.html">TDEE</a>
-      <a href="water-intake-calculator.html">Water</a>
-      <a href="ideal-weight-calculator.html">Ideal</a>
-    </nav>
-  </div>
-</header>
-
 </html>

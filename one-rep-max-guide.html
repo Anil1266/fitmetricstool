@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>One Rep Max Explained: How to Estimate Your 1RM | FitMetrics Tools</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <meta name="description" content="Learn how one-rep max (1RM) is estimated from a recent set, how to use training percentages, and safety tips for max-effort lifts." />
+
+  <meta property="og:title" content="One Rep Max Explained: How to Estimate Your 1RM | FitMetrics Tools">
+  <meta property="og:description" content="A practical guide to estimating and training around your one-rep max.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fitmetricstools.com/one-rep-max-guide.html">
+  <meta property="og:image" content="https://fitmetricstools.com/preview-image.jpg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="One Rep Max Explained: How to Estimate Your 1RM | FitMetrics Tools">
+  <meta name="twitter:description" content="A practical guide to estimating and training around your one-rep max.">
+
+  <style>
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #111827;
+      color: white;
+      line-height: 1.8;
+    }
+
+    .site-header {
+      background: black;
+      padding: 15px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .nav-menu a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .nav-menu a:hover {
+      color: #22c55e;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 90px 20px;
+      background: linear-gradient(to bottom, #111827, #0f172a);
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      max-width: 750px;
+      margin: auto;
+      color: #cbd5e1;
+      font-size: 1.1rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    .guide-card {
+      background: #1e293b;
+      padding: 35px;
+      border-radius: 22px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .guide-card h2 {
+      color: #22c55e;
+      margin-top: 0;
+    }
+
+    .guide-card p, .guide-card li {
+      color: #cbd5e1;
+    }
+
+    .guide-card ul {
+      padding-left: 20px;
+    }
+
+    .guide-card table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+
+    .guide-card table th, .guide-card table td {
+      text-align: left;
+      padding: 10px;
+      border-bottom: 1px solid #334155;
+      color: #cbd5e1;
+    }
+
+    .guide-card table th {
+      color: #22c55e;
+    }
+
+    .cta-section {
+      margin-top: 20px;
+      background: linear-gradient(to right, #15803d, #166534);
+      padding: 45px 25px;
+      border-radius: 22px;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      margin-bottom: 10px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 14px 26px;
+      border-radius: 14px;
+      background: white;
+      color: #166534;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .related-tools h3 { text-align: center; margin-bottom: 15px; color: #22c55e; }
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+    }
+    .tool-card {
+      background: rgba(255,255,255,0.08);
+      padding: 14px;
+      border-radius: 12px;
+      text-align: center;
+      text-decoration: none;
+      color: white;
+      font-size: 0.95rem;
+    }
+    .tool-card:hover { background: rgba(255,255,255,0.18); }
+
+    footer {
+      background: black;
+      padding: 35px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    footer a {
+      color: #22c55e;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .guide-card { padding: 25px; }
+    }
+
+  </style>
+
+<link rel="canonical" href="https://fitmetricstools.com/one-rep-max-guide.html">
+<meta name="robots" content="index,follow">
+<meta name="author" content="FitMetrics Tools">
+<meta name="theme-color" content="#111827">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"One Rep Max Explained","author":{"@type":"Organization","name":"FitMetrics Tools"}}
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZ7YK5VC1L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-RZ7YK5VC1L');
+</script>
+
+<!-- AdSense: paste your <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"> tag here once approved -->
+
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="nav-container">
+      <h2 class="logo"><a href="index.html">FitMetrics Tools</a></h2>
+      <nav class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="guides.html">Guides</a>
+        <a href="one-rep-max-calculator.html">1RM Calc</a>
+        <a href="protein-calculator.html">Protein</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>One Rep Max Explained</h1>
+    <p>Your one-rep max (1RM) is the heaviest weight you can lift for a single rep. Here's how to estimate it safely without maxing out.</p>
+  </section>
+
+  <div class="container">
+
+    <div class="guide-card">
+      <h2>Why Estimate Instead of Test?</h2>
+      <p>Testing a true 1RM carries injury risk, especially without a spotter or coach. Formulas like Epley and Brzycki estimate your 1RM from a lighter, safer set — usually 3–10 reps performed close to failure — using the relationship between reps and load.</p>
+    </div>
+
+    <div class="guide-card">
+      <h2>The Formulas</h2>
+      <p><strong>Epley:</strong> 1RM = weight × (1 + reps ÷ 30)</p>
+      <p><strong>Brzycki:</strong> 1RM = weight ÷ (1.0278 − 0.0278 × reps)</p>
+      <p>Averaging both gives a reasonable middle-ground estimate, since neither formula is perfectly accurate for everyone.</p>
+    </div>
+
+      <!-- MONETIZATION PLACEHOLDER (disabled until ready to monetize)
+      AD SLOT:
+      <div style="border:1px dashed #334155; background:#1e293b; color:#64748b; font-family:monospace; font-size:12px; text-align:center; padding:18px 10px; border-radius:14px; margin:30px 0;" aria-hidden="true">
+        Ad slot — in-article (responsive)
+      </div>
+      -->
+
+    <div class="guide-card">
+      <h2>Using Training Percentages</h2>
+      <table>
+        <tr><th>% of 1RM</th><th>Typical Rep Range</th></tr>
+        <tr><td>90–95%</td><td>2–4 reps (strength)</td></tr>
+        <tr><td>80–85%</td><td>6–8 reps (strength-hypertrophy)</td></tr>
+        <tr><td>70–75%</td><td>10–12 reps (hypertrophy)</td></tr>
+      </table>
+      <p>Once you have an estimated 1RM, these percentages help structure training blocks around specific goals.</p>
+    </div>
+
+      <!-- MONETIZATION PLACEHOLDER (disabled until ready to monetize)
+      GEAR / AFFILIATE:
+      <div class="guide-card">
+        <div style="font-size:11px; letter-spacing:1px; text-transform:uppercase; color:#94a3b8; margin-bottom:14px;">Recommended</div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:14px;">
+        <a href="#" rel="sponsored nofollow" style="display:block; background:#0f172a; border-radius:14px; padding:16px; text-decoration:none; color:white;">
+          <div style="font-weight:bold; margin-bottom:4px;">Adjustable dumbbell set</div>
+          <div style="font-size:13px; color:#cbd5e1;">Progressive overload at home without a full rack of plates.</div>
+          <div style="font-size:12px; color:#4ade80; margin-top:8px;">View on Amazon →</div>
+        </a>
+        <a href="#" rel="sponsored nofollow" style="display:block; background:#0f172a; border-radius:14px; padding:16px; text-decoration:none; color:white;">
+          <div style="font-weight:bold; margin-bottom:4px;">Weightlifting belt</div>
+          <div style="font-size:13px; color:#cbd5e1;">Extra core support for heavier lifts near your working max.</div>
+          <div style="font-size:12px; color:#4ade80; margin-top:8px;">View on Amazon →</div>
+        </a>
+        </div>
+        <p style="font-size:12px; color:#64748b; margin-top:12px;">As an Amazon Associate, FitMetrics Tools earns from qualifying purchases. Replace these placeholder links with your own affiliate links.</p>
+      </div>
+      -->
+
+    <section class="cta-section">
+      <h2>Estimate Your One Rep Max</h2>
+      <p>Get your estimated 1RM and a training percentage chart from a recent set.</p>
+      <a href="one-rep-max-calculator.html" class="cta-btn">Open One Rep Max Calculator</a>
+    </section>
+
+    <div class="guide-card">
+      <h2>Frequently Asked Questions</h2>
+      <h3>How accurate are 1RM formulas?</h3>
+      <p>They are most accurate for sets of 10 reps or fewer performed close to failure; accuracy decreases with higher rep counts.</p>
+      <h3>Which 1RM formula is best?</h3>
+      <p>No single formula is perfect for everyone. Averaging the Epley and Brzycki estimates usually gives a reasonable middle-ground figure.</p>
+      <h3>Should I actually attempt my calculated 1RM?</h3>
+      <p>Estimated 1RM is a planning tool, not a guarantee. Work up gradually with a spotter if attempting a true max lift.</p>
+    </div>
+
+    <div class="related-tools">
+      <h3>Try Other Fitness Tools</h3>
+      <div class="tools-grid">
+        <a href="one-rep-max-calculator.html" class="tool-card">One Rep Max Calculator</a>
+        <a href="protein-calculator.html" class="tool-card">Protein Calculator</a>
+        <a href="macro-calculator.html" class="tool-card">Macro Calculator</a>
+      </div>
+    </div>
+
+    <p style="text-align:center; color:#64748b; font-size:13px; margin-top:30px;"><strong>Last Updated:</strong> July 2026</p>
+
+  </div>
+
+  <footer>
+    <p>© 2026 FitMetrics Tools</p>
+    <a href="privacy-policy.html">Privacy Policy</a> |
+    <a href="terms.html">Terms</a> |
+    <a href="about.html">About</a> |
+    <a href="contact.html">Contact</a>
+  </footer>
+
+</body>
+</html>

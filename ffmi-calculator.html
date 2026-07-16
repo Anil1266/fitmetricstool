@@ -4,21 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>Free Protein Calculator | Daily Protein Intake | FitMetrics Tools</title>
+  <title>Free FFMI Calculator | Fat-Free Mass Index | FitMetrics Tools</title>
 
   <link rel="icon" type="image/png" href="favicon.png">
 
-  <meta name="description" content="Calculate how much protein you need per day based on your body weight and fitness goal, from general health to muscle gain or fat loss." />
+  <meta name="description" content="Calculate your FFMI (Fat-Free Mass Index) to see how muscular you are relative to your height, adjusted for natural muscle-building potential." />
 
-  <meta property="og:title" content="Protein Calculator | FitMetrics Tools">
-  <meta property="og:description" content="Find your ideal daily protein intake based on your weight and goal.">
+  <meta property="og:title" content="FFMI Calculator | FitMetrics Tools">
+  <meta property="og:description" content="Calculate your Fat-Free Mass Index and see how it compares to natural muscle-building benchmarks.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://fitmetricstools.com/protein-calculator.html">
+  <meta property="og:url" content="https://fitmetricstools.com/ffmi-calculator.html">
   <meta property="og:image" content="https://fitmetricstools.com/preview-image.jpg">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Protein Calculator | FitMetrics Tools">
-  <meta name="twitter:description" content="Find your ideal daily protein intake based on your weight and goal.">
+  <meta name="twitter:title" content="FFMI Calculator | FitMetrics Tools">
+  <meta name="twitter:description" content="Calculate your Fat-Free Mass Index and see how it compares to natural muscle-building benchmarks.">
   <meta name="twitter:image" content="https://fitmetricstools.com/preview-image.jpg">
 
   <style>
@@ -69,18 +69,18 @@
 
   </style>
 
-<link rel="canonical" href="https://fitmetricstools.com/protein-calculator.html">
+<link rel="canonical" href="https://fitmetricstools.com/ffmi-calculator.html">
 <meta name="robots" content="index,follow">
 <meta name="author" content="FitMetrics Tools">
 <meta name="theme-color" content="#111827">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","name":"Protein Calculator","url":"https://fitmetricstools.com/protein-calculator.html","description":"Free online protein calculator from FitMetrics Tools."}
+{"@context":"https://schema.org","@type":"WebPage","name":"FFMI Calculator","url":"https://fitmetricstools.com/ffmi-calculator.html","description":"Free online FFMI calculator from FitMetrics Tools."}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
- {"@type":"Question","name":"How much protein do I need per day?","acceptedAnswer":{"@type":"Answer","text":"Most people benefit from roughly 1.2 to 2.2 grams of protein per kilogram of body weight per day, depending on activity level and goal."}},
- {"@type":"Question","name":"Can too much protein be harmful?","acceptedAnswer":{"@type":"Answer","text":"For most healthy adults, higher protein intakes within normal dietary ranges are not harmful, though individuals with kidney conditions should consult a doctor."}},
- {"@type":"Question","name":"Is more protein always better for muscle gain?","acceptedAnswer":{"@type":"Answer","text":"No. Protein needs plateau once daily targets are met; extra beyond roughly 2.2 g/kg generally does not add further muscle-building benefit."}}
+ {"@type":"Question","name":"What is a good FFMI?","acceptedAnswer":{"@type":"Answer","text":"For men, a normalized FFMI of 20-22 is considered good, and above 25 is rare without performance-enhancing drugs."}},
+ {"@type":"Question","name":"What does FFMI measure?","acceptedAnswer":{"@type":"Answer","text":"FFMI measures muscle mass relative to height, giving a sense of how muscular someone is independent of total body weight."}},
+ {"@type":"Question","name":"Do I need my body fat percentage for FFMI?","acceptedAnswer":{"@type":"Answer","text":"Yes, body fat percentage is used to separate lean mass from fat mass before calculating the index."}}
 ]}
 </script>
 
@@ -104,8 +104,8 @@
       <nav class="nav-menu">
         <a href="index.html">Home</a>
         <a href="guides.html">Guides</a>
-        <a href="macro-calculator.html">Macros</a>
-        <a href="calorie-calculator.html">Calories</a>
+        <a href="lean-body-mass-calculator.html">LBM</a>
+        <a href="body-fat-calculator.html">Body Fat</a>
       </nav>
     </div>
   </header>
@@ -114,73 +114,65 @@
 
     <div class="calculator-card">
 
-      <h1>Protein Calculator</h1>
+      <h1>FFMI Calculator</h1>
 
       <p class="description">
-        Find out how much protein you need each day based on your body weight and fitness goal.
+        Calculate your Fat-Free Mass Index (FFMI) — a measure of muscularity relative to height, adjusted for natural benchmarks.
       </p>
 
       <div class="input-group">
-        <label for="weight">Body Weight (kg)</label>
-        <input type="number" id="weight" placeholder="e.g. 75">
-      </div>
-
-      <div class="input-group">
-        <label for="goal">Goal</label>
-        <select id="goal">
-          <option value="general">General Health</option>
-          <option value="active">Active / Fitness</option>
-          <option value="gain">Muscle Gain</option>
-          <option value="loss">Weight Loss (preserve muscle)</option>
+        <label for="gender">Gender</label>
+        <select id="gender">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
         </select>
       </div>
 
-      <button onclick="calculateProtein()">Calculate Protein Intake</button>
+      <div class="input-group">
+        <label for="height">Height (cm)</label>
+        <input type="number" id="height" placeholder="e.g. 175">
+      </div>
+
+      <div class="input-group">
+        <label for="weight">Weight (kg)</label>
+        <input type="number" id="weight" placeholder="e.g. 80">
+      </div>
+
+      <div class="input-group">
+        <label for="bodyfat">
+          Body Fat %
+          <span class="hint">Use our Body Fat Calculator if you don't know this</span>
+        </label>
+        <input type="number" id="bodyfat" placeholder="e.g. 15">
+      </div>
+
+      <button onclick="calculateFFMI()">Calculate FFMI</button>
 
       <div id="resultCard" class="result-card">
-        <div class="result-label">Recommended Daily Protein</div>
-        <div id="proteinValue" class="calorie-value"></div>
+        <div class="result-label">Normalized FFMI</div>
+        <div id="ffmiValue" class="calorie-value"></div>
+        <div class="category-tag" id="categoryTag"></div>
         <div class="result-subtitle" id="resultSubtitle"></div>
 
         <div class="goal-grid">
           <div class="goal-card">
-            <h3>Protein Calories</h3>
-            <div id="proteinCalories" class="goal-value"></div>
-            <div class="goal-desc">Calories supplied by your protein target.</div>
+            <h3>Lean Body Mass</h3>
+            <div id="lbmOut" class="goal-value"></div>
+            <div class="goal-desc">Fat-free weight used in the calculation.</div>
           </div>
           <div class="goal-card">
-            <h3>Typical Range</h3>
-            <div id="proteinRange" class="goal-value" style="font-size:1.3rem;"></div>
-            <div class="goal-desc">Full healthy range for your weight.</div>
+            <h3>Raw FFMI</h3>
+            <div id="rawFfmi" class="goal-value"></div>
+            <div class="goal-desc">Before the height-normalization adjustment.</div>
           </div>
         </div>
-
-        <!-- MONETIZATION PLACEHOLDER (disabled until ready to monetize)
-        GEAR / AFFILIATE:
-        <div class="recommendation-box">
-          <div style="font-size:11px; letter-spacing:1px; text-transform:uppercase; color:#e2e8f0; margin-bottom:14px;">Recommended</div>
-          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:14px;">
-            <a href="#" rel="sponsored nofollow" style="display:block; background:#0f172a; border-radius:14px; padding:16px; text-decoration:none; color:white;">
-              <div style="font-weight:bold; margin-bottom:4px;">Whey protein powder</div>
-              <div style="font-size:13px; color:#cbd5e1;">An easy way to close a daily protein gap.</div>
-              <div style="font-size:12px; color:#4ade80; margin-top:8px;">View on Amazon →</div>
-            </a>
-            <a href="#" rel="sponsored nofollow" style="display:block; background:#0f172a; border-radius:14px; padding:16px; text-decoration:none; color:white;">
-              <div style="font-weight:bold; margin-bottom:4px;">Digital food scale</div>
-              <div style="font-size:13px; color:#cbd5e1;">Weigh portions accurately to hit your protein target.</div>
-              <div style="font-size:12px; color:#4ade80; margin-top:8px;">View on Amazon →</div>
-            </a>
-          </div>
-          <p style="font-size:12px; color:#cbd5e1; margin-top:12px;">As an Amazon Associate, FitMetrics Tools earns from qualifying purchases. Replace these placeholder links with your own affiliate links.</p>
-        </div>
-        -->
 
         <div class="related-tools">
           <h3>Try Other Fitness Tools</h3>
           <div class="tools-grid">
-            <a href="macro-calculator.html" class="tool-card">Macro Calculator</a>
-            <a href="calorie-calculator.html" class="tool-card">Calorie Calculator</a>
             <a href="lean-body-mass-calculator.html" class="tool-card">Lean Body Mass</a>
+            <a href="body-fat-calculator.html" class="tool-card">Body Fat Calculator</a>
+            <a href="macro-calculator.html" class="tool-card">Macro Calculator</a>
           </div>
         </div>
 
@@ -189,14 +181,18 @@
     </div>
 
     <div class="info-section">
-      <h2>How Much Protein Do You Need?</h2>
-      <p>Protein needs depend on activity level and goal. General guidelines per kilogram of body weight:</p>
+      <h2>How FFMI Is Calculated</h2>
+      <p>FFMI (Fat-Free Mass Index) measures muscle mass relative to height. It's calculated as lean body mass divided by height squared, then normalized to a 1.8m reference height so results are comparable across different heights.</p>
+
+      <h2>FFMI Benchmarks (Men, Natural Lifters)</h2>
       <table>
-        <tr><th>Goal</th><th>Protein (g/kg)</th></tr>
-        <tr><td>General Health</td><td>1.2 g/kg</td></tr>
-        <tr><td>Active / Fitness</td><td>1.6 g/kg</td></tr>
-        <tr><td>Muscle Gain</td><td>1.8–2.0 g/kg</td></tr>
-        <tr><td>Weight Loss (preserve muscle)</td><td>2.0–2.2 g/kg</td></tr>
+        <tr><th>FFMI</th><th>Interpretation</th></tr>
+        <tr><td>Below 18</td><td>Below average</td></tr>
+        <tr><td>18–20</td><td>Average</td></tr>
+        <tr><td>20–22</td><td>Above average / muscular</td></tr>
+        <tr><td>22–23</td><td>Very muscular</td></tr>
+        <tr><td>23–25</td><td>Exceptional (near natural limit)</td></tr>
+        <tr><td>25+</td><td>Rare without performance-enhancing drugs</td></tr>
       </table>
 
       <!-- MONETIZATION PLACEHOLDER (disabled until ready to monetize)
@@ -207,12 +203,12 @@
       -->
 
       <h2>Frequently Asked Questions</h2>
-      <h3>How much protein do I need per day?</h3>
-      <p>Most people benefit from roughly 1.2 to 2.2 grams of protein per kilogram of body weight per day, depending on activity level and goal.</p>
-      <h3>Can too much protein be harmful?</h3>
-      <p>For most healthy adults, higher protein intakes within normal dietary ranges are not harmful, though anyone with kidney conditions should consult a doctor.</p>
-      <h3>Is more protein always better for muscle gain?</h3>
-      <p>No. Protein needs plateau once daily targets are met; extra beyond roughly 2.2 g/kg generally does not add further muscle-building benefit.</p>
+      <h3>What is a good FFMI?</h3>
+      <p>For men, a normalized FFMI of 20–22 is considered good, and above 25 is rare without performance-enhancing drugs.</p>
+      <h3>What does FFMI measure?</h3>
+      <p>FFMI measures muscle mass relative to height, giving a sense of how muscular someone is independent of total body weight.</p>
+      <h3>Do I need my body fat percentage for FFMI?</h3>
+      <p>Yes — body fat percentage is used to separate lean mass from fat mass before calculating the index.</p>
 
       <p><strong>Last Updated:</strong> July 2026</p>
     </div>
@@ -228,27 +224,35 @@
   </footer>
 
   <script>
-    function calculateProtein() {
+    function categoryForFFMI(ffmi) {
+      if (ffmi < 18) return "Below Average";
+      if (ffmi < 20) return "Average";
+      if (ffmi < 22) return "Above Average";
+      if (ffmi < 23) return "Very Muscular";
+      if (ffmi < 25) return "Exceptional";
+      return "Rare (Verify Naturalness)";
+    }
+
+    function calculateFFMI() {
+      const height = parseFloat(document.getElementById("height").value);
       const weight = parseFloat(document.getElementById("weight").value);
-      const goal = document.getElementById("goal").value;
+      const bodyfat = parseFloat(document.getElementById("bodyfat").value);
 
-      if (!weight) { alert("Please enter your body weight."); return; }
+      if (!height || !weight || bodyfat === "" || isNaN(bodyfat)) {
+        alert("Please fill all fields.");
+        return;
+      }
 
-      let perKg, subtitle;
-      if (goal === "general") { perKg = 1.2; subtitle = "A general health target to support everyday recovery and maintenance."; }
-      else if (goal === "active") { perKg = 1.6; subtitle = "A solid target for regularly active people and casual training."; }
-      else if (goal === "gain") { perKg = 1.9; subtitle = "A muscle-building target, best paired with a calorie surplus and strength training."; }
-      else { perKg = 2.1; subtitle = "A higher target to help preserve lean muscle while in a calorie deficit."; }
+      const heightM = height / 100;
+      const lbm = weight * (1 - bodyfat / 100);
+      const rawFfmi = lbm / (heightM * heightM);
+      const normalizedFfmi = rawFfmi + 6.1 * (1.8 - heightM);
 
-      const proteinGrams = Math.round(perKg * weight);
-      const proteinCalories = proteinGrams * 4;
-      const rangeLow = Math.round(1.6 * weight);
-      const rangeHigh = Math.round(2.2 * weight);
-
-      document.getElementById("proteinValue").textContent = proteinGrams + "g / day";
-      document.getElementById("resultSubtitle").textContent = subtitle;
-      document.getElementById("proteinCalories").textContent = proteinCalories + " kcal";
-      document.getElementById("proteinRange").textContent = rangeLow + "–" + rangeHigh + "g";
+      document.getElementById("ffmiValue").textContent = normalizedFfmi.toFixed(1);
+      document.getElementById("categoryTag").textContent = categoryForFFMI(normalizedFfmi);
+      document.getElementById("resultSubtitle").textContent = "Normalized to a 1.8m reference height so results are comparable across different heights.";
+      document.getElementById("lbmOut").textContent = lbm.toFixed(1) + " kg";
+      document.getElementById("rawFfmi").textContent = rawFfmi.toFixed(1);
 
       document.getElementById("resultCard").style.display = "block";
       document.getElementById("resultCard").scrollIntoView({ behavior: "smooth", block: "nearest" });
