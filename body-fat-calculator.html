@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Free Body Fat Calculator | U.S. Navy Method | FitMetrics Tools</title>
+
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <meta 
+    name="description" 
+    content="Estimate your body fat percentage using the U.S. Navy tape-measure method. Just enter your height, neck, waist (and hip for women) for an instant estimate."
+  />
+
+  <meta property="og:title" content="Body Fat Calculator | FitMetrics Tools">
+  <meta property="og:description" content="Estimate your body fat percentage instantly using the U.S. Navy method.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fitmetricstools.com/body-fat-calculator.html">
+  <meta property="og:image" content="https://fitmetricstools.com/preview-image.jpg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Body Fat Calculator | FitMetrics Tools">
+  <meta name="twitter:description" content="Free body fat calculator using the U.S. Navy tape-measure method.">
+  <meta name="twitter:image" content="https://fitmetricstools.com/preview-image.jpg">
+
+  <style>
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #111827;
+      color: white;
+    }
+
+    .site-header {
+      background: black;
+      padding: 15px 20px;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+      flex-wrap: wrap;
+    }
+
+    .logo a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .nav-menu a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .nav-menu a:hover {
+      color: #22c55e;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+
+    .calculator-card {
+      background: #1e293b;
+      padding: 35px;
+      border-radius: 22px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 2.5rem;
+    }
+
+    .description {
+      text-align: center;
+      color: #cbd5e1;
+      line-height: 1.7;
+      margin-bottom: 35px;
+    }
+
+    .input-group {
+      margin-bottom: 22px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    .hint {
+      display: block;
+      font-weight: normal;
+      font-size: 0.8rem;
+      color: #94a3b8;
+      margin-top: 4px;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 15px;
+      border-radius: 12px;
+      border: none;
+      background: #334155;
+      color: white;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    input:focus,
+    select:focus {
+      outline: 2px solid #22c55e;
+    }
+
+    button {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 14px;
+      background: #22c55e;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #16a34a;
+    }
+
+    .result-card {
+      display: none;
+      margin-top: 35px;
+      padding: 35px;
+      border-radius: 22px;
+      background: #15803d;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .result-label {
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #dbeafe;
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+    }
+
+    .calorie-value {
+      text-align: center;
+      font-size: 4rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .result-subtitle {
+      text-align: center;
+      color: #f1f5f9;
+      margin-bottom: 30px;
+      line-height: 1.7;
+    }
+
+    .category-tag {
+      display: block;
+      width: fit-content;
+      margin: 0 auto 25px;
+      background: rgba(255,255,255,0.18);
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-weight: bold;
+      font-size: 0.95rem;
+    }
+
+    .goal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+    }
+
+    .goal-card {
+      background: rgba(255,255,255,0.12);
+      padding: 20px;
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    .goal-card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+
+    .goal-value {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    .goal-desc {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #e2e8f0;
+      line-height: 1.5;
+    }
+
+    .recommendation-box {
+      margin-top: 25px;
+      background: rgba(255,255,255,0.12);
+      padding: 20px;
+      border-radius: 16px;
+      line-height: 1.7;
+    }
+
+    .related-tools {
+      margin-top: 35px;
+    }
+
+    .related-tools h3 {
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+    }
+
+    .tool-card {
+      background: rgba(255,255,255,0.12);
+      padding: 14px;
+      border-radius: 12px;
+      text-align: center;
+      text-decoration: none;
+      color: white;
+      transition: 0.3s;
+      font-size: 0.95rem;
+    }
+
+    .tool-card:hover {
+      background: rgba(255,255,255,0.22);
+      transform: translateY(-3px);
+    }
+
+    .info-section {
+      margin-top: 50px;
+      background: #1e293b;
+      padding: 35px;
+      border-radius: 22px;
+      line-height: 1.8;
+    }
+
+    .info-section h2 {
+      margin-top: 0;
+      color: #22c55e;
+    }
+
+    .info-section table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+
+    .info-section table th,
+    .info-section table td {
+      text-align: left;
+      padding: 10px;
+      border-bottom: 1px solid #334155;
+    }
+
+    .info-section table th {
+      color: #22c55e;
+    }
+
+    footer {
+      background: black;
+      padding: 30px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    footer a {
+      color: #22c55e;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 15px; }
+      .calculator-card, .info-section { padding: 25px; }
+      h1 { font-size: 2rem; }
+      .calorie-value { font-size: 3rem; }
+    }
+
+  </style>
+
+<link rel="canonical" href="https://fitmetricstools.com/body-fat-calculator.html">
+<meta name="robots" content="index,follow">
+<meta name="author" content="FitMetrics Tools">
+<meta name="theme-color" content="#111827">
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"WebPage",
+ "name":"Body Fat Calculator",
+ "url":"https://fitmetricstools.com/body-fat-calculator.html",
+ "description":"Free online body fat calculator using the U.S. Navy method from FitMetrics Tools."
+}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"How accurate is the U.S. Navy body fat method?","acceptedAnswer":{"@type":"Answer","text":"It's generally within a few percentage points of more precise methods like DEXA scans for most people, making it a practical estimate rather than a lab-grade measurement."}},
+  {"@type":"Question","name":"Where do I measure my waist and neck?","acceptedAnswer":{"@type":"Answer","text":"Measure the neck just below the larynx, and the waist at the navel for men or at the narrowest point for women, keeping the tape snug but not compressing the skin."}},
+  {"@type":"Question","name":"What is a healthy body fat percentage?","acceptedAnswer":{"@type":"Answer","text":"For men, roughly 14-24% is considered acceptable to fit; for women, roughly 21-31% is considered acceptable to fit, though healthy ranges vary by age and individual."}}
+]}
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZ7YK5VC1L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+
+  gtag('js', new Date());
+
+  gtag('config', 'G-RZ7YK5VC1L');
+</script>
+
+<!-- AdSense: paste your <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"> tag here once approved -->
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header class="site-header">
+
+    <div class="nav-container">
+
+      <h2 class="logo">
+        <a href="index.html">FitMetrics Tools</a>
+      </h2>
+
+      <nav class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="guides.html">Guides</a>
+        <a href="bmi-calculator.html">BMI</a>
+        <a href="macro-calculator.html">Macros</a>
+      </nav>
+
+    </div>
+
+  </header>
+
+  <!-- MAIN -->
+
+  <div class="container">
+
+    <div class="calculator-card">
+
+      <h1>Body Fat Calculator</h1>
+
+      <p class="description">
+        Estimate your body fat percentage using the
+        U.S. Navy tape-measure method — just a few
+        measurements, no special equipment needed.
+      </p>
+
+      <!-- GENDER -->
+
+      <div class="input-group">
+        <label for="gender">Gender</label>
+        <select id="gender" onchange="toggleHipField()">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+
+      <!-- HEIGHT -->
+
+      <div class="input-group">
+        <label for="height">
+          Height (cm)
+        </label>
+        <input type="number" id="height" placeholder="e.g. 175">
+      </div>
+
+      <!-- NECK -->
+
+      <div class="input-group">
+        <label for="neck">
+          Neck Circumference (cm)
+          <span class="hint">Measure just below the larynx (Adam's apple)</span>
+        </label>
+        <input type="number" id="neck" placeholder="e.g. 38">
+      </div>
+
+      <!-- WAIST -->
+
+      <div class="input-group">
+        <label for="waist">
+          Waist Circumference (cm)
+          <span class="hint">Men: at the navel. Women: at the narrowest point</span>
+        </label>
+        <input type="number" id="waist" placeholder="e.g. 85">
+      </div>
+
+      <!-- HIP (female only) -->
+
+      <div class="input-group" id="hipGroup" style="display:none;">
+        <label for="hip">
+          Hip Circumference (cm)
+          <span class="hint">Measure at the widest point of the hips</span>
+        </label>
+        <input type="number" id="hip" placeholder="e.g. 100">
+      </div>
+
+      <!-- BUTTON -->
+
+      <button onclick="calculateBodyFat()">Calculate Body Fat</button>
+
+      <!-- RESULT -->
+
+      <div id="resultCard" class="result-card">
+
+        <div class="result-label">Estimated Body Fat</div>
+        <div id="bodyFatValue" class="calorie-value"></div>
+
+        <div class="category-tag" id="categoryTag"></div>
+
+        <div class="result-subtitle" id="resultSubtitle"></div>
+
+        <!-- MONETIZATION PLACEHOLDER (disabled until ready to monetize)
+        GEAR / AFFILIATE:
+        <div class="recommendation-box">
+          <div style="font-size:11px; letter-spacing:1px; text-transform:uppercase; color:#e2e8f0; margin-bottom:14px;">Recommended</div>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:14px;">
+            <a href="#" rel="sponsored nofollow" style="display:block; background:#0f172a; border-radius:14px; padding:16px; text-decoration:none; color:white;">
+              <div style="font-weight:bold; margin-bottom:4px;">Body tape measure</div>
+              <div style="font-size:13px; color:#cbd5e1;">A flexible tape for accurate neck, waist, and hip measurements.</div>
+              <div style="font-size:12px; color:#4ade80; margin-top:8px;">View on Amazon →</div>
+            </a>
+            <a href="#" rel="sponsored nofollow" style="display:block; background:#0f172a; border-radius:14px; padding:16px; text-decoration:none; color:white;">
+              <div style="font-weight:bold; margin-bottom:4px;">Body fat calipers</div>
+              <div style="font-size:13px; color:#cbd5e1;">A second measurement method to cross-check your estimate.</div>
+              <div style="font-size:12px; color:#4ade80; margin-top:8px;">View on Amazon →</div>
+            </a>
+          </div>
+          <p style="font-size:12px; color:#cbd5e1; margin-top:12px;">As an Amazon Associate, FitMetrics Tools earns from qualifying purchases. Replace these placeholder links with your own affiliate links.</p>
+        </div>
+        -->
+
+        <!-- RELATED TOOLS -->
+
+        <div class="related-tools">
+
+          <h3>Try Other Fitness Tools</h3>
+
+          <div class="tools-grid">
+            <a href="bmi-calculator.html" class="tool-card">BMI Calculator</a>
+            <a href="ideal-weight-calculator.html" class="tool-card">Ideal Weight</a>
+            <a href="macro-calculator.html" class="tool-card">Macro Calculator</a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- INFO SECTION -->
+
+    <div class="info-section">
+
+      <h2>How This Is Calculated</h2>
+
+      <p>
+        This tool uses the U.S. Navy circumference method, a
+        formula developed for military fitness assessments.
+        It's generally within a few percentage points of more
+        precise methods like DEXA scans, making it a solid
+        practical estimate without special equipment.
+      </p>
+
+      <h2>Body Fat Categories (Men)</h2>
+
+      <table>
+        <tr><th>Category</th><th>Body Fat %</th></tr>
+        <tr><td>Essential Fat</td><td>2–5%</td></tr>
+        <tr><td>Athletes</td><td>6–13%</td></tr>
+        <tr><td>Fitness</td><td>14–17%</td></tr>
+        <tr><td>Acceptable</td><td>18–24%</td></tr>
+        <tr><td>Obese</td><td>25%+</td></tr>
+      </table>
+
+      <h2>Body Fat Categories (Women)</h2>
+
+      <table>
+        <tr><th>Category</th><th>Body Fat %</th></tr>
+        <tr><td>Essential Fat</td><td>10–13%</td></tr>
+        <tr><td>Athletes</td><td>14–20%</td></tr>
+        <tr><td>Fitness</td><td>21–24%</td></tr>
+        <tr><td>Acceptable</td><td>25–31%</td></tr>
+        <tr><td>Obese</td><td>32%+</td></tr>
+      </table>
+
+      <!-- MONETIZATION PLACEHOLDER (disabled until ready to monetize)
+      AD SLOT:
+      <div style="border:1px dashed #334155; background:#0f172a; color:#94a3b8; font-family:monospace; font-size:12px; text-align:center; padding:18px 10px; border-radius:14px; margin:30px 0;" aria-hidden="true">
+        Ad slot — in-article (responsive)
+      </div>
+      -->
+
+      <h2>Frequently Asked Questions</h2>
+
+      <h3>How accurate is the U.S. Navy method?</h3>
+      <p>It's generally within a few percentage points of more precise methods like DEXA scans for most people, making it a practical estimate rather than a lab-grade measurement.</p>
+
+      <h3>Where do I measure my waist and neck?</h3>
+      <p>Measure the neck just below the larynx, and the waist at the navel for men or at the narrowest point for women, keeping the tape snug but not compressing the skin.</p>
+
+      <h3>What is a healthy body fat percentage?</h3>
+      <p>For men, roughly 14–24% is considered acceptable to fit; for women, roughly 21–31% is considered acceptable to fit, though healthy ranges vary by age and individual.</p>
+
+      <p><strong>Last Updated:</strong> July 2026</p>
+
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>© 2026 FitMetrics Tools</p>
+
+    <a href="privacy-policy.html">Privacy Policy</a> |
+    <a href="terms.html">Terms</a> |
+    <a href="about.html">About</a> |
+    <a href="contact.html">Contact</a>
+
+  </footer>
+
+  <script>
+
+    function toggleHipField() {
+      const gender = document.getElementById("gender").value;
+      document.getElementById("hipGroup").style.display = gender === "female" ? "block" : "none";
+    }
+
+    function categoryFor(gender, bf) {
+      if (gender === "male") {
+        if (bf < 6) return "Essential Fat";
+        if (bf < 14) return "Athletes";
+        if (bf < 18) return "Fitness";
+        if (bf < 25) return "Acceptable";
+        return "Obese";
+      } else {
+        if (bf < 14) return "Essential Fat";
+        if (bf < 21) return "Athletes";
+        if (bf < 25) return "Fitness";
+        if (bf < 32) return "Acceptable";
+        return "Obese";
+      }
+    }
+
+    function calculateBodyFat() {
+
+      const gender = document.getElementById("gender").value;
+      const height = parseFloat(document.getElementById("height").value);
+      const neck = parseFloat(document.getElementById("neck").value);
+      const waist = parseFloat(document.getElementById("waist").value);
+      const hip = parseFloat(document.getElementById("hip").value);
+
+      if (!height || !neck || !waist || (gender === "female" && !hip)) {
+        alert("Please fill all required fields.");
+        return;
+      }
+
+      let bodyFat;
+
+      if (gender === "male") {
+
+        if (waist <= neck) {
+          alert("Waist measurement should be greater than neck measurement.");
+          return;
+        }
+
+        bodyFat =
+          495 / (
+            1.0324
+            - 0.19077 * Math.log10(waist - neck)
+            + 0.15456 * Math.log10(height)
+          ) - 450;
+
+      } else {
+
+        if ((waist + hip) <= neck) {
+          alert("Waist + hip measurement should be greater than neck measurement.");
+          return;
+        }
+
+        bodyFat =
+          495 / (
+            1.29579
+            - 0.35004 * Math.log10(waist + hip - neck)
+            + 0.22100 * Math.log10(height)
+          ) - 450;
+
+      }
+
+      bodyFat = Math.max(bodyFat, 2);
+
+      const category = categoryFor(gender, bodyFat);
+
+      document.getElementById("bodyFatValue").textContent = bodyFat.toFixed(1) + "%";
+      document.getElementById("categoryTag").textContent = category;
+      document.getElementById("resultSubtitle").textContent =
+        "Estimated using the U.S. Navy circumference method. Individual results can vary based on measurement technique and body shape.";
+
+      document.getElementById("resultCard").style.display = "block";
+      document.getElementById("resultCard").scrollIntoView({ behavior: "smooth", block: "nearest" });
+
+    }
+
+  </script>
+
+</body>
+</html>
