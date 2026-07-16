@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Free Army Body Fat Calculator | Tape Test Method | FitMetrics Tools</title>
+
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <meta name="description" content="Estimate body fat percentage using the classic military tape-test circumference method (inches), the same approach used for U.S. Army body composition screening." />
+
+  <meta property="og:title" content="Army Body Fat Calculator | FitMetrics Tools">
+  <meta property="og:description" content="Estimate body fat percentage using the military tape-test circumference method.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fitmetricstools.com/army-body-fat-calculator.html">
+  <meta property="og:image" content="https://fitmetricstools.com/preview-image.jpg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Army Body Fat Calculator | FitMetrics Tools">
+  <meta name="twitter:description" content="Estimate body fat percentage using the military tape-test circumference method.">
+  <meta name="twitter:image" content="https://fitmetricstools.com/preview-image.jpg">
+
+  <style>
+
+    body { font-family: Arial, sans-serif; margin: 0; background: #111827; color: white; }
+    .site-header { background: black; padding: 15px 20px; }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: auto; flex-wrap: wrap; }
+    .logo a { color: white; text-decoration: none; }
+    .nav-menu { display: flex; gap: 15px; flex-wrap: wrap; }
+    .nav-menu a { color: white; text-decoration: none; }
+    .nav-menu a:hover { color: #22c55e; }
+    .container { max-width: 700px; margin: 50px auto; padding: 20px; }
+    .calculator-card { background: #1e293b; padding: 35px; border-radius: 22px; box-shadow: 0 10px 30px rgba(0,0,0,0.35); }
+    h1 { text-align: center; margin-bottom: 10px; font-size: 2.5rem; }
+    .description { text-align: center; color: #cbd5e1; line-height: 1.7; margin-bottom: 35px; }
+    .input-group { margin-bottom: 22px; }
+    label { display: block; margin-bottom: 8px; font-weight: bold; }
+    .hint { display: block; font-weight: normal; font-size: 0.8rem; color: #94a3b8; margin-top: 4px; }
+    input, select { width: 100%; padding: 15px; border-radius: 12px; border: none; background: #334155; color: white; font-size: 16px; box-sizing: border-box; }
+    input:focus, select:focus { outline: 2px solid #22c55e; }
+    button { width: 100%; padding: 16px; border: none; border-radius: 14px; background: #22c55e; color: white; font-size: 17px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+    button:hover { background: #16a34a; }
+    .result-card { display: none; margin-top: 35px; padding: 35px; border-radius: 22px; background: #15803d; animation: fadeIn 0.5s ease; }
+    .result-label { text-align: center; text-transform: uppercase; letter-spacing: 2px; color: #dbeafe; margin-bottom: 10px; font-size: 0.95rem; }
+    .calorie-value { text-align: center; font-size: 4rem; font-weight: bold; margin-bottom: 10px; }
+    .result-subtitle { text-align: center; color: #f1f5f9; margin-bottom: 30px; line-height: 1.7; }
+    .category-tag { display: block; width: fit-content; margin: 0 auto 25px; background: rgba(255,255,255,0.18); padding: 8px 18px; border-radius: 999px; font-weight: bold; font-size: 0.95rem; }
+    .goal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; }
+    .goal-card { background: rgba(255,255,255,0.12); padding: 20px; border-radius: 16px; text-align: center; }
+    .goal-card h3 { margin-top: 0; margin-bottom: 10px; font-size: 1rem; }
+    .goal-value { font-size: 1.8rem; font-weight: bold; }
+    .goal-desc { margin-top: 10px; font-size: 0.9rem; color: #e2e8f0; line-height: 1.5; }
+    .recommendation-box { margin-top: 25px; background: rgba(255,255,255,0.12); padding: 20px; border-radius: 16px; line-height: 1.7; }
+    .related-tools { margin-top: 35px; }
+    .related-tools h3 { margin-bottom: 15px; text-align: center; }
+    .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+    .tool-card { background: rgba(255,255,255,0.12); padding: 14px; border-radius: 12px; text-align: center; text-decoration: none; color: white; transition: 0.3s; font-size: 0.95rem; }
+    .tool-card:hover { background: rgba(255,255,255,0.22); transform: translateY(-3px); }
+    .info-section { margin-top: 50px; background: #1e293b; padding: 35px; border-radius: 22px; line-height: 1.8; }
+    .info-section h2 { margin-top: 0; color: #22c55e; }
+    .info-section table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+    .info-section table th, .info-section table td { text-align: left; padding: 10px; border-bottom: 1px solid #334155; }
+    .info-section table th { color: #22c55e; }
+    footer { background: black; padding: 30px; text-align: center; margin-top: 60px; }
+    footer a { color: #22c55e; text-decoration: none; margin: 0 5px; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 768px) { .container { padding: 15px; } .calculator-card, .info-section { padding: 25px; } h1 { font-size: 2rem; } .calorie-value { font-size: 3rem; } }
+
+    /* BREADCRUMB */
+    .breadcrumb { font-size: 0.85rem; color: #94a3b8; margin-bottom: 18px; }
+    .breadcrumb a { color: #94a3b8; text-decoration: none; }
+    .breadcrumb a:hover { color: #22c55e; }
+
+    /* UNIT TOGGLE */
+    .unit-toggle { display: flex; gap: 8px; margin-bottom: 22px; }
+    .unit-toggle button {
+      flex: 1; padding: 10px; border-radius: 10px; border: 1.5px solid #334155;
+      background: #334155; color: white; font-size: 14px; cursor: pointer; font-weight: bold;
+    }
+    .unit-toggle button.active { background: #22c55e; border-color: #22c55e; }
+
+    /* INLINE ERROR */
+    .field-error {
+      color: #fca5a5; font-size: 0.85rem; margin-top: 6px; display: none;
+    }
+    .form-error-banner {
+      display: none; background: rgba(248,113,113,0.15); border: 1px solid #f87171;
+      color: #fecaca; padding: 12px 16px; border-radius: 12px; margin-bottom: 20px; font-size: 0.9rem;
+    }
+
+    /* MEASUREMENT DIAGRAM */
+    .measure-diagram { text-align: center; margin: 0 0 30px; }
+    .measure-diagram svg { max-width: 220px; width: 100%; height: auto; }
+    .measure-diagram p { font-size: 0.8rem; color: #94a3b8; margin-top: 8px; }
+
+    /* CATEGORY GAUGE */
+    .gauge-wrap { margin: 0 auto 20px; max-width: 320px; }
+    .gauge-bar {
+      display: flex; height: 14px; border-radius: 8px; overflow: hidden; background: rgba(255,255,255,0.15);
+    }
+    .gauge-segment { flex: 1; }
+    .gauge-marker-row { position: relative; height: 18px; }
+    .gauge-marker {
+      position: absolute; top: 0; width: 3px; height: 18px; background: white;
+      border-radius: 2px; transform: translateX(-50%);
+    }
+    .gauge-labels {
+      display: flex; justify-content: space-between; font-size: 0.7rem; color: #e2e8f0; margin-top: 4px;
+    }
+
+    /* EMAIL CAPTURE (inactive placeholder) */
+    .email-capture {
+      margin-top: 25px; background: rgba(255,255,255,0.12); padding: 20px;
+      border-radius: 16px; text-align: center;
+    }
+    .email-capture h4 { margin: 0 0 8px; font-size: 1rem; }
+    .email-capture p { font-size: 0.85rem; color: #e2e8f0; margin: 0 0 14px; }
+    .email-capture-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .email-capture-row input {
+      flex: 1; min-width: 160px; padding: 12px; border-radius: 10px; border: none; font-size: 14px;
+    }
+    .email-capture-row button {
+      width: auto; padding: 12px 20px; background: #0f172a; flex-shrink: 0;
+    }
+    .email-capture-note { font-size: 0.7rem; color: #94a3b8; margin-top: 10px; }
+
+  </style>
+
+<link rel="canonical" href="https://fitmetricstools.com/army-body-fat-calculator.html">
+<meta name="robots" content="index,follow">
+<meta name="author" content="FitMetrics Tools">
+<meta name="theme-color" content="#111827">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Army Body Fat Calculator","url":"https://fitmetricstools.com/army-body-fat-calculator.html","description":"Free online military-style body fat calculator from FitMetrics Tools."}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+ {"@type":"Question","name":"Is this the official Army body fat test?","acceptedAnswer":{"@type":"Answer","text":"This tool uses the classic Hodgdon-Beckett circumference formula behind military tape tests, but official standards and allowable maximums are set by current service regulations and should be verified with your unit."}},
+ {"@type":"Question","name":"What units does this calculator use?","acceptedAnswer":{"@type":"Answer","text":"This calculator uses inches, matching how military tape tests are traditionally measured and recorded."}},
+ {"@type":"Question","name":"Where should I measure for the tape test?","acceptedAnswer":{"@type":"Answer","text":"Measure the neck below the larynx, and the waist/abdomen at the navel for men or narrowest point for women, keeping the tape snug but not compressed."}}
+]}
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZ7YK5VC1L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-RZ7YK5VC1L');
+</script>
+
+<!-- AdSense: paste your <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"> tag here once approved -->
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="nav-container">
+      <h2 class="logo"><a href="index.html">FitMetrics Tools</a></h2>
+      <nav class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="guides.html">Guides</a>
+        <a href="body-fat-calculator.html">Body Fat (Navy)</a>
+        <a href="bmi-calculator.html">BMI</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> &gt; <a href="guides.html">Calculators</a> &gt; Army Body Fat
+    </div>
+
+    <div class="calculator-card">
+
+      <h1>Army Body Fat Calculator</h1>
+
+      <p class="description">
+        Estimate body fat percentage using the classic military tape-test circumference method.
+      </p>
+
+      <div class="measure-diagram">
+        <svg viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="100" cy="35" rx="28" ry="32" fill="none" stroke="#94a3b8" stroke-width="2"/>
+          <line x1="60" x2="140" y1="70" y2="70" stroke="#22c55e" stroke-width="3"/>
+          <text x="150" y="74" fill="#22c55e" font-size="12">Neck</text>
+          <path d="M70,72 C60,110 60,150 70,190 C85,205 115,205 130,190 C140,150 140,110 130,72" fill="none" stroke="#94a3b8" stroke-width="2"/>
+          <line x1="58" x2="142" y1="140" y2="140" stroke="#22c55e" stroke-width="3"/>
+          <text x="148" y="144" fill="#22c55e" font-size="12">Waist</text>
+          <line x1="52" x2="148" y1="195" y2="195" stroke="#22c55e" stroke-width="3"/>
+          <text x="152" y="199" fill="#22c55e" font-size="12">Hip (women)</text>
+          <line x1="100" x2="100" y1="205" y2="250" stroke="#94a3b8" stroke-width="2"/>
+          <line x1="85" x2="115" y1="250" y2="250" stroke="#94a3b8" stroke-width="2"/>
+        </svg>
+        <p>Measure snug against the skin, without compressing it.</p>
+      </div>
+
+      <div class="unit-toggle" id="unitToggle">
+        <button type="button" class="active" data-unit="in" onclick="setUnit('in')">Inches</button>
+        <button type="button" data-unit="cm" onclick="setUnit('cm')">Centimeters</button>
+      </div>
+
+      <div class="form-error-banner" id="errorBanner"></div>
+
+      <div class="input-group">
+        <label for="gender">Gender</label>
+        <select id="gender" onchange="toggleHipField()">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label for="height" id="heightLabel">Height (inches)</label>
+        <input type="number" id="height" placeholder="e.g. 69">
+        <div class="field-error" id="heightError">Please enter your height.</div>
+      </div>
+
+      <div class="input-group">
+        <label for="neck" id="neckLabel">
+          Neck Circumference (inches)
+          <span class="hint">Measure just below the larynx (Adam's apple)</span>
+        </label>
+        <input type="number" id="neck" placeholder="e.g. 15">
+        <div class="field-error" id="neckError">Please enter your neck measurement.</div>
+      </div>
+
+      <div class="input-group">
+        <label for="waist" id="waistLabel">
+          Waist / Abdomen Circumference (inches)
+          <span class="hint">Men: at the navel. Women: at the narrowest point</span>
+        </label>
+        <input type="number" id="waist" placeholder="e.g. 33">
+        <div class="field-error" id="waistError">Waist must be greater than neck measurement.</div>
+      </div>
+
+      <div class="input-group" id="hipGroup" style="display:none;">
+        <label for="hip" id="hipLabel">Hip Circumference (inches)</label>
+        <input type="number" id="hip" placeholder="e.g. 39">
+        <div class="field-error" id="hipError">Please enter your hip measurement.</div>
+      </div>
+
+      <button onclick="calculateArmyBF()">Calculate Body Fat</button>
+
+      <div id="resultCard" class="result-card">
+        <div class="result-label">Estimated Body Fat</div>
+        <div id="bodyFatValue" class="calorie-value"></div>
+        <div class="category-tag" id="categoryTag"></div>
+
+        <div class="gauge-wrap">
+          <div class="gauge-bar">
+            <div class="gauge-segment" style="background:#4ade80;"></div>
+            <div class="gauge-segment" style="background:#facc15;"></div>
+            <div class="gauge-segment" style="background:#fb923c;"></div>
+            <div class="gauge-segment" style="background:#f87171;"></div>
+          </div>
+          <div class="gauge-marker-row">
+            <div class="gauge-marker" id="gaugeMarker" style="left:0%;"></div>
+          </div>
+          <div class="gauge-labels">
+            <span>Low</span><span>Fit</span><span>Moderate</span><span>High</span>
+          </div>
+        </div>
+
+        <div class="result-subtitle" id="resultSubtitle"></div>
+
+        <div class="email-capture">
+          <h4>Get a Free Tape-Test Log</h4>
+          <p>Track your measurements over time with a printable log sheet.</p>
+          <form class="email-capture-row" onsubmit="event.preventDefault(); alert('Email capture is not active yet — connect an email service to enable this.');">
+            <input type="email" placeholder="Your email address" required>
+            <button type="submit">Send Me the Log</button>
+          </form>
+          <p class="email-capture-note">Not active yet — placeholder pending email service setup.</p>
+        </div>
+
+        <div class="related-tools">
+          <h3>Try Other Fitness Tools</h3>
+          <div class="tools-grid">
+            <a href="body-fat-calculator.html" class="tool-card">Body Fat (Navy Method)</a>
+            <a href="bmi-calculator.html" class="tool-card">BMI Calculator</a>
+            <a href="one-rep-max-calculator.html" class="tool-card">One Rep Max</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="info-section">
+      <h2>How This Is Calculated</h2>
+      <p>This tool uses the Hodgdon-Beckett circumference formula, the same underlying method behind military tape tests, using measurements in inches. It estimates body fat from neck, waist, height (and hip for women).</p>
+
+      <p style="font-size:0.85rem; color:#94a3b8;">
+        <strong>Source:</strong> Hodgdon, J.A. &amp; Beckett, M.B. (1984), Naval Health Research Center — the circumference-based method later adopted for military body composition screening.
+      </p>
+
+      <div class="recommendation-box" style="background:#374151;">
+        <strong>Note:</strong> Official body composition standards and maximum allowable body fat percentages are set by current service regulations and vary by age, gender, and branch. This tool provides a general estimate only — verify official standards with your unit or current regulation.
+      </div>
+
+      <!-- MONETIZATION PLACEHOLDER (disabled until ready to monetize)
+      AD SLOT:
+      <div style="border:1px dashed #334155; background:#0f172a; color:#94a3b8; font-family:monospace; font-size:12px; text-align:center; padding:18px 10px; border-radius:14px; margin:30px 0;" aria-hidden="true">
+        Ad slot — in-article (responsive)
+      </div>
+      -->
+
+      <h2>Frequently Asked Questions</h2>
+      <h3>Is this the official Army body fat test?</h3>
+      <p>This tool uses the classic Hodgdon-Beckett circumference formula behind military tape tests, but official standards and allowable maximums are set by current service regulations and should be verified with your unit.</p>
+      <h3>What units does this calculator use?</h3>
+      <p>This calculator uses inches, matching how military tape tests are traditionally measured and recorded.</p>
+      <h3>Where should I measure for the tape test?</h3>
+      <p>Measure the neck below the larynx, and the waist/abdomen at the navel for men or narrowest point for women, keeping the tape snug but not compressed.</p>
+
+      <p><strong>Last Updated:</strong> July 2026</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© 2026 FitMetrics Tools</p>
+    <a href="privacy-policy.html">Privacy Policy</a> |
+    <a href="terms.html">Terms</a> |
+    <a href="about.html">About</a> |
+    <a href="contact.html">Contact</a>
+  </footer>
+
+  <script>
+    let currentUnit = "in";
+
+    function toggleHipField() {
+      const gender = document.getElementById("gender").value;
+      document.getElementById("hipGroup").style.display = gender === "female" ? "block" : "none";
+    }
+
+    function setUnit(unit) {
+      if (unit === currentUnit) return;
+
+      const ids = ["height", "neck", "waist", "hip"];
+      ids.forEach(function(id) {
+        const el = document.getElementById(id);
+        const val = parseFloat(el.value);
+        if (!isNaN(val)) {
+          el.value = unit === "cm" ? (val * 2.54).toFixed(1) : (val / 2.54).toFixed(1);
+        }
+      });
+
+      currentUnit = unit;
+
+      document.querySelectorAll("#unitToggle button").forEach(function(btn) {
+        btn.classList.toggle("active", btn.dataset.unit === unit);
+      });
+
+      const unitLabel = unit === "cm" ? "cm" : "inches";
+      document.getElementById("heightLabel").textContent = "Height (" + unitLabel + ")";
+      document.getElementById("neckLabel").innerHTML = "Neck Circumference (" + unitLabel + ")" + '<span class="hint">Measure just below the larynx (Adam\'s apple)</span>';
+      document.getElementById("waistLabel").innerHTML = "Waist / Abdomen Circumference (" + unitLabel + ")" + '<span class="hint">Men: at the navel. Women: at the narrowest point</span>';
+      document.getElementById("hipLabel").textContent = "Hip Circumference (" + unitLabel + ")";
+
+      const examples = unit === "cm"
+        ? { height: "e.g. 175", neck: "e.g. 38", waist: "e.g. 84", hip: "e.g. 99" }
+        : { height: "e.g. 69", neck: "e.g. 15", waist: "e.g. 33", hip: "e.g. 39" };
+      document.getElementById("height").placeholder = examples.height;
+      document.getElementById("neck").placeholder = examples.neck;
+      document.getElementById("waist").placeholder = examples.waist;
+      document.getElementById("hip").placeholder = examples.hip;
+    }
+
+    function clearErrors() {
+      document.querySelectorAll(".field-error").forEach(function(el) { el.style.display = "none"; });
+      const banner = document.getElementById("errorBanner");
+      banner.style.display = "none";
+      banner.textContent = "";
+    }
+
+    function showError(elId, message) {
+      const el = document.getElementById(elId);
+      if (message) el.textContent = message;
+      el.style.display = "block";
+    }
+
+    function showBanner(message) {
+      const banner = document.getElementById("errorBanner");
+      banner.textContent = message;
+      banner.style.display = "block";
+    }
+
+    function categoryForArmy(gender, bf) {
+      if (gender === "male") {
+        if (bf < 14) return "Low";
+        if (bf < 20) return "Fit";
+        if (bf < 26) return "Moderate";
+        return "High";
+      } else {
+        if (bf < 21) return "Low";
+        if (bf < 28) return "Fit";
+        if (bf < 34) return "Moderate";
+        return "High";
+      }
+    }
+
+    function gaugePosition(gender, bf) {
+      // Map body fat % to a 0-100% position across the 4 gauge bands
+      const bounds = gender === "male" ? [0, 14, 20, 26, 40] : [0, 21, 28, 34, 48];
+      const clamped = Math.max(bounds[0], Math.min(bf, bounds[4]));
+      for (let i = 0; i < 4; i++) {
+        if (clamped <= bounds[i + 1] || i === 3) {
+          const segStart = (i / 4) * 100;
+          const segRange = bounds[i + 1] - bounds[i];
+          const within = segRange > 0 ? (clamped - bounds[i]) / segRange : 0;
+          return segStart + within * 25;
+        }
+      }
+      return 100;
+    }
+
+    function calculateArmyBF() {
+      clearErrors();
+
+      const gender = document.getElementById("gender").value;
+      const heightRaw = parseFloat(document.getElementById("height").value);
+      const neckRaw = parseFloat(document.getElementById("neck").value);
+      const waistRaw = parseFloat(document.getElementById("waist").value);
+      const hipRaw = parseFloat(document.getElementById("hip").value);
+
+      let hasError = false;
+      if (!heightRaw) { showError("heightError", "Please enter your height."); hasError = true; }
+      if (!neckRaw) { showError("neckError", "Please enter your neck measurement."); hasError = true; }
+      if (!waistRaw) { showError("waistError", "Please enter your waist measurement."); hasError = true; }
+      if (gender === "female" && !hipRaw) { showError("hipError", "Please enter your hip measurement."); hasError = true; }
+
+      if (hasError) {
+        showBanner("Please fill in all required fields to calculate your body fat.");
+        return;
+      }
+
+      // Convert to inches internally, since the formula is inch-calibrated
+      const toInches = function(v) { return currentUnit === "cm" ? v / 2.54 : v; };
+      const height = toInches(heightRaw);
+      const neck = toInches(neckRaw);
+      const waist = toInches(waistRaw);
+      const hip = toInches(hipRaw);
+
+      let bodyFat;
+
+      if (gender === "male") {
+        if (waist <= neck) {
+          showError("waistError", "Waist measurement should be greater than neck measurement.");
+          showBanner("Please check your waist and neck measurements.");
+          return;
+        }
+        bodyFat = 86.010 * Math.log10(waist - neck) - 70.041 * Math.log10(height) + 36.76;
+      } else {
+        if ((waist + hip) <= neck) {
+          showError("waistError", "Waist + hip measurement should be greater than neck measurement.");
+          showBanner("Please check your waist, hip, and neck measurements.");
+          return;
+        }
+        bodyFat = 163.205 * Math.log10(waist + hip - neck) - 97.684 * Math.log10(height) - 78.387;
+      }
+
+      bodyFat = Math.max(bodyFat, 2);
+      const category = categoryForArmy(gender, bodyFat);
+      const gaugePct = gaugePosition(gender, bodyFat);
+
+      document.getElementById("bodyFatValue").textContent = bodyFat.toFixed(1) + "%";
+      document.getElementById("categoryTag").textContent = category;
+      document.getElementById("gaugeMarker").style.left = gaugePct + "%";
+      document.getElementById("resultSubtitle").textContent = "Estimated using the military tape-test circumference method. Official pass/fail standards vary by current regulation.";
+
+      document.getElementById("resultCard").style.display = "block";
+      document.getElementById("resultCard").scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+  </script>
+
+</body>
+</html>
